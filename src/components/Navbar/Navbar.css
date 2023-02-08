@@ -1,0 +1,36 @@
+.nav-container {
+  display: block;
+  height: 100px;
+  position: sticky;
+}
+
+.navbar {
+  margin: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-grp {
+  display: flex;
+  margin-top: 0.4rem;
+}
+
+.right-grp h3 {
+  margin-left: 1.5rem;
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 50px;
+  color: #152c5b;
+}
+
+.right-grp .active {
+  color: #3252df;
+}
+
+.divider {
+  width: 100%;
+  background-color: #3252df;
+  border-bottom: 2px solid #e0e5ee;
+}

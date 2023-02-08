@@ -1,19 +1,14 @@
-import React from 'react';
-import { useRoutes } from 'react-router-dom';
+import React from "react";
+import { useRoutes } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-
-import './App.css';
-import Routers from './Routers';
-import { useSelector } from 'react-redux';
+import Routers from "./Routers";
+import "./App.css";
 
 function App() {
-  const isAuthenticated = useSelector(state => state.user.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
 
-  return (
-    <div className="App">
-      {useRoutes(Routers(isAuthenticated))}
-    </div>
-  );
+  return <div className="App">{useRoutes(Routers(isAuthenticated))}</div>;
 }
 
 export default App;

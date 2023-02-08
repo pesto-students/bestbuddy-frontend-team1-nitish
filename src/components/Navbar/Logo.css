@@ -1,0 +1,11 @@
+.logo {
+  display: flex;
+}
+
+.logo h1 {
+  color: #3252df;
+}
+
+.logo h1 span {
+  color: #152c5b;
+}
