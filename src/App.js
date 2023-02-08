@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import React from 'react';
+import { useRoutes } from 'react-router-dom';
+
+
 import './App.css';
+import Routers from './Routers';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const isAuthenticated = useSelector(state => state.user.isAuthenticated);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {useRoutes(Routers(isAuthenticated))}
     </div>
   );
 }
