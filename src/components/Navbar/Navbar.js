@@ -9,6 +9,7 @@ const Navbar = () => {
         <div>
           <Logo />
         </div>
+
         <div className="right-grp">
           <h3 className="active">Home</h3>
           <h3>Upload Room</h3>
