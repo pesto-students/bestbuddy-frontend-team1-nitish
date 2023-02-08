@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.css";
 import LocationSearch from "../Search/LocationSearch/LocationSearch";
 import TopPicks from "./TopPicks";
+import Pg from "./Pg";
 
 const Home = () => {
   return (
@@ -9,7 +10,8 @@ const Home = () => {
       <LocationSearch />
       <div className="section">
         <TopPicks />
-      </div>
+        <Pg /> 
+        </div>
     </div>
   );
 };
