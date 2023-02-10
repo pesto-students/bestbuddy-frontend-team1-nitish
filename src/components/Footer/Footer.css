@@ -1,6 +1,7 @@
-.divider {
+.divider-footer {
   width: 100%;
-  border-bottom: 2px solid #8b9097;
+  border-bottom: 2px solid #e1e6ed;
+  margin-top: 4rem;
 }
 .footer {
   display: flex;

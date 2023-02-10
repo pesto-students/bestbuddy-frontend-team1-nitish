@@ -1,40 +1,39 @@
-.card {
+.card2 {
   position: relative;
   width: 20vw;
+  height: 18vw;
   margin: 2rem 0;
 }
 
-.card .card-image img {
+.card2 .card-image img {
   width: 100%;
   border-radius: 1rem;
-  z-index: -1;
 }
 
-.card .heading {
+.card2-heading h5{
   width: 100%;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
-  color: #152c5b;
-  background: rgba(0, 0, 0, 0);
+  color: #152C5B;
   text-align: left;
-  position: relative;
-  bottom: 0rem;
+  margin-top: 1rem;
 }
-.card .heading h5,h6 { 
-  margin-left: 0;
-}
-.card .heading h6 { 
-   color: rgb(120, 113, 113);
-   font-weight: 400;
+.card2-heading h6 {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 23px;
+    text-align: left;
+    color: #B0B0B0;
+    margin-left: 0;
 }
 
-.badge {
+.card2 .badge {
   width: 50%;
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   color: #fff;
   background-color: #ff498b;
