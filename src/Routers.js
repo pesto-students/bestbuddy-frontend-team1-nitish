@@ -5,7 +5,7 @@ import Signin from "./pages/signin/Signin";
 import Signup from "./pages/signup/Signup";
 import Home from "./pages/home/Home";
 import Category from "./pages/category/Category";
-import Details from "./pages/detail/Details";
+import Details from "./pages/details/Details";
 import AddRoom from "./pages/Add/AddRoom";
 import Profile from "./pages/profile/Profile";
 
@@ -27,7 +27,7 @@ const Routers = (isLoggedIn) => [
         element: isLoggedIn ? <Category /> : <Navigate to='/' />
     },
     {
-        path: '/details',
+        path: '/details/:id',
         element: isLoggedIn ? <Details /> : <Navigate to='/' />
     },
     {
