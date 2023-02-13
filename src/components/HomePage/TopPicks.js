@@ -1,11 +1,11 @@
 import React from "react";
-import ImageGrid from "../ImageGrid/ImageGrid";
+import Slider from "../SlickSlider/Slider";
 
 const TopPicks = () => {
   return (
     <div>
-          <h4>TopPicks</h4>
-          <ImageGrid />
+      <h4>TopPicks</h4>
+      <Slider />
     </div>
   );
 };

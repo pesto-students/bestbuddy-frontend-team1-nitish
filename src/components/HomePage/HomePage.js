@@ -3,6 +3,7 @@ import "./Home.css";
 import LocationSearch from "../Search/LocationSearch/LocationSearch";
 import TopPicks from "./TopPicks";
 import Pg from "./Pg";
+import Flats from "./Flats";
 
 const Home = () => {
   return (
@@ -10,8 +11,9 @@ const Home = () => {
       <LocationSearch />
       <div className="section">
         <TopPicks />
-        <Pg /> 
-        </div>
+        <Pg />
+        <Flats />
+      </div>
     </div>
   );
 };

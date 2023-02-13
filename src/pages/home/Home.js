@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
+import HomePage from "../../components/HomePage/HomePage";
 
 const Home = () => {
   return (
@@ -8,7 +9,7 @@ const Home = () => {
       <Navbar />
       {/* <Navbar1 /> */}
       <div className="content-container">
-        <Home />
+        <HomePage/>
       </div>
       <Footer />
     </div>
