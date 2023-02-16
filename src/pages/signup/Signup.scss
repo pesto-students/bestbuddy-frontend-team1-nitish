@@ -1,0 +1,69 @@
+.signup-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .banner-container {
+        height: 100vh;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .form-container {
+        height: 100vh;
+    }
+
+    .mobile-banner-container,
+    .footer-container {
+        display: none;
+    }
+
+    .best-buddylogo {
+        display: none;
+        text-align: center;
+        margin-top: 25px;
+    }
+}
+
+@media(max-width:767.98px) {
+    .signup-page {
+        display: grid;
+        grid-template-columns: auto;
+
+        .form-container {
+            height: auto;
+        }
+
+        .banner-container {
+            display: none;
+        }
+
+        .mobile-banner-container {
+            margin-top: 25px;
+            text-align: center;
+            display: block;
+        }
+
+        .footer-container {
+            display: block;
+            position: relative;
+
+            .footer-primary,
+            .footer-secondary {
+                width: 100%;
+            }
+
+            .footer-primary {
+                position: absolute;
+                bottom: 0;
+            }
+        }
+
+        .best-buddylogo {
+            display: block;
+            text-align: center;
+        }
+    }
+}
