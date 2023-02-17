@@ -1,10 +1,9 @@
-import image from "../../assets/images/kam-idris-_HqHX3LBN18-unsplash.jpg";
-import image1 from "../../assets/images/kara-eads-L7EwHkq1B2s-unsplash.jpg";
-import image2 from "../../assets/images/alexandra-gorn-JIUjvqe2ZHg-unsplash.jpg";
 import React from "react";
-import "./Card2.css";
 
-const Card = () => {
+import "./SliderCard.scss";
+import image2 from "../../assets/images/alexandra-gorn-JIUjvqe2ZHg-unsplash.jpg";
+
+const SliderCard = () => {
   return (
     <div className="card2">
       <div className="card-image">
@@ -19,4 +18,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default SliderCard;
