@@ -22,7 +22,7 @@ const NavBar = () => {
   return (
     <Navbar key='lg' bg="white" expand='lg' className="mb-3 navbar">
       <Container>
-        <Navbar.Brand href="#"><Logo /></Navbar.Brand>
+        <Navbar.Brand><Logo /></Navbar.Brand>
         <Navbar.Toggle aria-controls='offcanvasNavbarDropdown-expand-lg' />
         <Navbar.Offcanvas
           id='offcanvasNavbarDropdown-expand-lg'
@@ -38,18 +38,18 @@ const NavBar = () => {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1">
                 <Link to='/'>Home</Link>
-                <Link>Upload Room</Link>
-                <Link>Favorite</Link>
+                <Link to='/addroom'>Upload Room</Link>
+                <Link to='/favorite'>Favorite</Link>
                 <NavDropdown
                   title="Profile"
                   id='offcanvasNavbarDropdown-expand-lg'
                 >
                   <h5 className='profile-name'>Hi Mohamed!</h5>
-                  <NavDropdown.Item>My profile</NavDropdown.Item>
+                  <Link to='/profile'>My profile</Link>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item>My Preference</NavDropdown.Item>
+                  <Link to='/preference'>My Preference</Link>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item>Settings</NavDropdown.Item>
+                  <Link to='/setting'>Settings</Link>
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
                 </NavDropdown>

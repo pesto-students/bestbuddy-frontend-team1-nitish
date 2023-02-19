@@ -8,6 +8,10 @@ import Category from "./pages/category/Category";
 import Details from "./pages/details/Details";
 import AddRoom from "./pages/Add/AddRoom";
 import Profile from "./pages/profile/Profile";
+import Preference from "./pages/preference/Preference";
+import Setting from "./pages/settings/Setting";
+import NotFound from "./pages/404/NotFound";
+import List from "./pages/list/List";
 
 const Routers = (isLoggedIn) => [
     {
@@ -37,6 +41,22 @@ const Routers = (isLoggedIn) => [
     {
         path: '/profile',
         element: isLoggedIn ? <Profile /> : <Navigate to='/signin' />
+    },
+    {
+        path: '/favorite',
+        element: isLoggedIn ? <List /> : <Navigate to='/signin' />
+    },
+    {
+        path: '/preference',
+        element: isLoggedIn ? <Preference /> : <Navigate to='/signin' />
+    },
+    {
+        path: '/setting',
+        element: isLoggedIn ? <Setting /> : <Navigate to='/signin' />
+    },
+    {
+        path: '*',
+        element: <NotFound />
     }
 ]
 
