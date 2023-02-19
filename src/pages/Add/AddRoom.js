@@ -1,13 +1,13 @@
 import React from "react";
 import "./AddRoom.css";
 
-import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import NavBar from "../../components/Navbar/Navbar";
 
 const AddRoom = () => {
   return (
     <>
-      <Navbar />
+      <NavBar />
       <div className="add-room">AddRoom</div>
       <Footer />
     </>
