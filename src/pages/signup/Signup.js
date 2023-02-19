@@ -1,7 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import './Signup.scss';
 import CustomForm from '../../components/customForm/CustomForm';
+import { signUp } from '../../store/slice/users/userSlice';
 
 const formFeild = [
     {
@@ -42,6 +44,19 @@ const formFeild = [
     },
     {
         id: 4,
+        label: 'Gender',
+        name: 'gender',
+        type: 'dropdown',
+        placeholder: 'Select Gender',
+        errorMessage: "Gender is required.",
+        validation: {
+            pattern: '',
+            errMess: ''
+        },
+        option: ['Male', 'Female']
+    },
+    {
+        id: 5,
         label: 'Password',
         name: 'password',
         type: 'password',
@@ -53,7 +68,7 @@ const formFeild = [
         }
     },
     {
-        id: 5,
+        id: 6,
         label: 'Conform Password',
         name: 'conformPassword',
         type: 'password',
@@ -67,6 +82,12 @@ const formFeild = [
 ]
 
 const Signup = () => {
+    const dispatch = useDispatch();
+
+    const formSubmit = (data) => {
+        dispatch(signUp(data))
+    };
+
     return (
         <div className='signup-page'>
             <div className='banner-container'>
@@ -83,7 +104,7 @@ const Signup = () => {
             {/* mobile headers */}
 
             <div className='form-container'>
-                <CustomForm title='Sign Up' Inputs={formFeild} />
+                <CustomForm title='Sign Up' Inputs={formFeild} onSubmit={formSubmit} />
             </div>
 
             {/* mobile footer */}

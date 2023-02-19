@@ -1,19 +1,21 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import './Signin.scss';
 import CustomForm from '../../components/customForm/CustomForm';
+import { signIn } from '../../store/slice/users/userSlice';
 
 const formFeild = [
     {
         id: 1,
-        label: 'User Name',
-        name: 'userName',
+        label: 'Email',
+        name: 'email',
         type: 'text',
-        placeholder: 'Enter your user name',
-        errorMessage: "User name is required.",
+        placeholder: 'Enter your registored email',
+        errorMessage: "Email is required.",
         validation: {
-            pattern: '',
-            errMess: ''
+            pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+            errMess: "Email is invalid."
         }
     },
     {
@@ -31,6 +33,12 @@ const formFeild = [
 ]
 
 const Signin = () => {
+    const dispatch = useDispatch();
+
+    const formSubmit = (data) => {
+        dispatch(signIn(data));
+    }
+
     return (
         <div className='signin-page'>
             <div className='banner-container'>
@@ -47,7 +55,7 @@ const Signin = () => {
             {/* mobile headers */}
 
             <div className='form-container'>
-                <CustomForm title='Sign In' Inputs={formFeild} />
+                <CustomForm title='Sign In' Inputs={formFeild} onSubmit={formSubmit} />
             </div>
 
             {/* mobile footer */}

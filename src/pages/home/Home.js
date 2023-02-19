@@ -2,7 +2,7 @@ import React from "react";
 
 import TopPicks from '../../components/Toppicks/TopPicks';
 import Slider from '../../components/shared/Slider/Slider';
-import Footer from "../../components/Footer/Footer";
+// import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 
 
@@ -17,7 +17,7 @@ const Home = () => {
         <Slider title='Apartment' />
         <Slider title='Residency' />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
