@@ -12,31 +12,31 @@ import Profile from "./pages/profile/Profile";
 const Routers = (isLoggedIn) => [
     {
         path: '/',
-        element: (<Signin />)
+        element: (<Home />)
     },
     {
         path: '/signup',
         element: (<Signup />)
     },
     {
-        path: '/home',
-        element: isLoggedIn ? <Home /> : <Navigate to='/' />
+        path: '/signin',
+        element: <Signin />
     },
     {
         path: '/category',
-        element: isLoggedIn ? <Category /> : <Navigate to='/' />
+        element: isLoggedIn ? <Category /> : <Navigate to='/signin' />
     },
     {
         path: '/details/:id',
-        element: isLoggedIn ? <Details /> : <Navigate to='/' />
+        element: isLoggedIn ? <Details /> : <Navigate to='/signin' />
     },
     {
         path: '/addroom',
-        element: isLoggedIn ? <AddRoom /> : <Navigate to='/' />
+        element: isLoggedIn ? <AddRoom /> : <Navigate to='/signin' />
     },
     {
         path: '/profile',
-        element: isLoggedIn ? <Profile /> : <Navigate to='/' />
+        element: isLoggedIn ? <Profile /> : <Navigate to='/signin' />
     }
 ]
 

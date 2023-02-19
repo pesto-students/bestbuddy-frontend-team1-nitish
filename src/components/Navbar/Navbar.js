@@ -3,11 +3,22 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Logo from '../shared/logo/Logo';
 import './Navbar.scss';
+import { Link } from 'react-router-dom';
+import { signOut } from '../../store/slice/users/userSlice';
 
 const NavBar = () => {
+  const { isAuthenticated } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const token = localStorage.getItem('access-token');
+
+  const logOut = () => {
+    dispatch(signOut({ token }))
+  }
+
   return (
     <Navbar key='lg' bg="white" expand='lg' className="mb-3 navbar">
       <Container>
@@ -23,26 +34,34 @@ const NavBar = () => {
               <Logo />
             </Offcanvas.Title>
           </Offcanvas.Header>
-          <Offcanvas.Body>
-            <Nav className="justify-content-end flex-grow-1">
-              <Nav.Link>Home</Nav.Link>
-              <Nav.Link>Upload Room</Nav.Link>
-              <Nav.Link>Favorite</Nav.Link>
-              <NavDropdown
-                title="Profile"
-                id='offcanvasNavbarDropdown-expand-lg'
-              >
-                <h5 className='profile-name'>Hi Mohamed!</h5>
-                <NavDropdown.Item>My profile</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item>My Preference</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item>Settings</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item>Logout</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Offcanvas.Body>
+          {isAuthenticated ?
+            <Offcanvas.Body>
+              <Nav className="justify-content-end flex-grow-1">
+                <Link to='/'>Home</Link>
+                <Link>Upload Room</Link>
+                <Link>Favorite</Link>
+                <NavDropdown
+                  title="Profile"
+                  id='offcanvasNavbarDropdown-expand-lg'
+                >
+                  <h5 className='profile-name'>Hi Mohamed!</h5>
+                  <NavDropdown.Item>My profile</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item>My Preference</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item>Settings</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            </Offcanvas.Body>
+            : <Offcanvas.Body>
+              <Nav className="justify-content-end flex-grow-1 not-loggedIn">
+                <Link to='/signup'>SignUp</Link>
+                <Link to='/signin'>SignIn</Link>
+              </Nav>
+            </Offcanvas.Body>
+          }
         </Navbar.Offcanvas>
       </Container>
     </Navbar>
