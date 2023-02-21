@@ -1,29 +1,32 @@
 import React from "react";
 import "./Amenties.scss";
-import BookWorm from "../../assets/preferences/Book-worm.svg";
-import Fashionable from "../../assets/preferences/Fashionable.svg";
-import FitnessFreak from "../../assets/preferences/Fitness-Freak.svg";
-import MediaBuff from "../../assets/preferences/Media-Buff.svg";
-import Nondrinker from "../../assets/preferences/Non-Drinker.svg";
-import PartyAnimal from "../../assets/preferences/Party-Animal.svg";
-import Professional from "../../assets/preferences/Professional.svg";
-import Student from "../../assets/preferences/Student.svg";
-import Vegan from "../../assets/preferences/Vegan.svg";
+
+import AirConditioner from "../../assets/amenties/AirConditioner.svg";
+import Bath from "../../assets/amenties/Bath.svg";
+import Bed from "../../assets/amenties/Bed.svg";
+import DiningRoom from "../../assets/amenties/DiningRoom.svg";
+import Kitchen from "../../assets/amenties/Kitchen.svg";
+import LivingRoom from "../../assets/amenties/LivingRoom.svg";
+import Parking from "../../assets/amenties/Parking.svg";
+import Refrigerator from "../../assets/amenties/Refrigerator.svg";
+import TV from "../../assets/amenties/TV.svg";
+import Wifi from "../../assets/amenties/Wifi.svg";
 
 const Amenties = () => {
   return (
     <div className="amenties">
       <h3> Amenties</h3>
       <div className="grid">
-        <img src={BookWorm} alt="BookWorm" className="bookworm"/>
-        <img src={Fashionable} alt="Fashionable" />
-        <img src={FitnessFreak} alt="FitnessFreak" />
-        <img src={MediaBuff} alt="MediaBuff" />
-        <img src={Nondrinker} alt="Nondrinker" />
-        <img src={PartyAnimal} alt="PartyAnimal" />
-        <img src={Professional} alt="Professional" />
-        <img src={Student} alt="Student" />
-        <img src={Vegan} alt="Vegan" />
+        <img src={AirConditioner} alt="AirConditioner" />
+        <img src={Bath} alt="Bath" />
+        <img src={Bed} alt="Bed" />
+        <img src={DiningRoom} alt="DiningRoom" />
+        <img src={Kitchen} alt="Kitchen" />
+        <img src={LivingRoom} alt="LivingRoom" />
+        <img src={Parking} alt="Parking" />
+        <img src={Refrigerator} alt="Refrigerator" />
+        <img src={TV} alt="TV" />
+        <img src={Wifi} alt="Wifi" />
       </div>
     </div>
   );
