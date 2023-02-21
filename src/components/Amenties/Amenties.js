@@ -12,10 +12,10 @@ import Refrigerator from "../../assets/amenties/Refrigerator.svg";
 import TV from "../../assets/amenties/TV.svg";
 import Wifi from "../../assets/amenties/Wifi.svg";
 
-const Amenties = () => {
+const Amenties = ({ titleColor = "", data = [] }) => {
   return (
     <div className="amenties">
-      <h3> Amenties</h3>
+      <h3 style={titleColor ? { color: titleColor } : {}}> Amenties</h3>
       <div className="grid">
         <img src={AirConditioner} alt="AirConditioner" />
         <img src={Bath} alt="Bath" />
