@@ -3,15 +3,9 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-row-gap: 1.5rem;
   }
-  .amenties .grid img{
-    ;
-  }
-
+ 
   .amenties .grid img:hover{
-    // filter: invert(100%);
-    filter: invert(20%);
-    
-
+    filter: invert(90%);
   }
   
   @media (max-width: 1024px) {

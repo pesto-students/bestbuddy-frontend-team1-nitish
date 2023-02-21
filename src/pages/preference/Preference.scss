@@ -4,6 +4,10 @@
   grid-row-gap: 1.5rem;
 }
 
+.Preference .grid img:hover{
+  filter: invert(90%);
+}
+
 @media (max-width: 1024px) {
   .grid {
     display: grid;
