@@ -69,11 +69,11 @@ const formFeild = [
     },
     {
         id: 6,
-        label: 'Conform Password',
-        name: 'conformPassword',
+        label: 'Confirm Password',
+        name: 'confirmPassword',
         type: 'password',
-        placeholder: 'Conform a password',
-        errorMessage: "Conform your password.",
+        placeholder: 'Confirm a password',
+        errorMessage: "Confirm your password.",
         validation: {
             pattern: '',
             errMess: ''
