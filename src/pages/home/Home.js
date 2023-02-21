@@ -2,8 +2,9 @@ import React from "react";
 
 import TopPicks from '../../components/Toppicks/TopPicks';
 import Slider from '../../components/shared/Slider/Slider';
-// import Footer from "../../components/Footer/Footer";
+import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
+import Preference from "../preference/Preference";
 
 
 const Home = () => {
@@ -16,8 +17,9 @@ const Home = () => {
         <Slider title='Flats' />
         <Slider title='Apartment' />
         <Slider title='Residency' />
+        <Preference />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
