@@ -1,3 +1,7 @@
+.property-details-topbar-container {
+  width: 85%;
+  margin: auto;
+}
 .property-details-container {
   width: 90%;
   margin-left: 5em;
@@ -51,9 +55,29 @@
 }
 .owner-habits-container {
   background: white;
-  color: #ff498b;
   min-width: 9em;
-  text-align: center;
+  max-width: 9em;
+  color: #ff498b;
   padding: 0.75em 0.5em;
   border-radius: 0.5em;
+}
+.property-details-amenties-container{
+  width: 90%;
+  text-align: center;
+  margin-top: 2em;
+}
+.property-details-more-container{
+  width: 90%;
+  margin: auto;
+  margin-top: 1em;
+  padding: 1em 1.5em;
+}
+.property-more-details-header{
+  color: #152C5B;
+  font-weight: 500;
+}
+.property-more-details-para{
+  margin-top: 0.5em;
+  color: #706D6D;
+  font-size: 1em;
 }

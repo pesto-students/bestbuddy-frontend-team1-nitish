@@ -57,8 +57,8 @@ const OwnerDetails = () => {
         </Row>
         {/* Habits of owner */}
         <Row className="mt-5 owner-details-text-row owner-habits-row">
-          {habits?.map((item) => (
-            <div className="owner-habits-container">{item?.title}</div>
+          {habits?.map((item, index) => (
+            <Col className="owner-habits-container" key={`${index}-${item?.title}`}>{item?.title}</Col>
           ))}
         </Row>
       </Container>
