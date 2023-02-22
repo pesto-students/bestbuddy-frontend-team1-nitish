@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import './Signin.scss';
 import CustomForm from '../../components/customForm/CustomForm';
 import { signIn } from '../../store/slice/users/userSlice';
+import Logo from './../../assets/Logo.svg';
 
 const formFeild = [
     {
@@ -42,6 +43,7 @@ const Signin = () => {
     return (
         <div className='signin-page'>
             <div className='banner-container'>
+                <img src={Logo} alt="Logo"  />
                 <img src="https://res.cloudinary.com/dirosugvb/image/upload/v1676389450/login-banner_nvmi8h.png" alt='signin-banner' />
             </div>
 
