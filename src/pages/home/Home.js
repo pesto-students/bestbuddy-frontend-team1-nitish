@@ -18,10 +18,10 @@ const Home = () => {
         <Slider title='Flats' />
         <Slider title='Apartment' />
         <Slider title='Residency' />
-        {/* <Preference /> */}
+        <Preference />
         <Amenties />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
