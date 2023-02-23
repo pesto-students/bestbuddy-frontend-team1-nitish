@@ -4,7 +4,12 @@
   grid-row-gap: 1.5rem;
 }
 
-.Preference .grid img:hover{
+.Preference .grid img {
+  width: 15vw;
+  margin: 0 0.75rem;
+}
+
+.Preference .grid img:hover {
   filter: invert(90%);
 }
 
@@ -14,6 +19,11 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-row-gap: 1rem;
   }
+
+  .Preference .grid img {
+    width: 21vw;
+    margin: 0 0.75rem;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -22,12 +32,21 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 1rem;
   }
+
+  .Preference .grid img {
+    width: 30vw;
+    margin: 0 0.75rem;
+  }
 }
 
 @media (max-width: 480px) {
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-row-gap: 1rem;
+  }
+
+  .Preference .grid img {
+    width: 45vw;
+    margin: 0 0.75rem;
   }
 }
