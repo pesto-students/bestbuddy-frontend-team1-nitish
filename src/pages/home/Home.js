@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 import TopPicks from '../../components/Toppicks/TopPicks';
 import Slider from '../../components/shared/Slider/Slider';
 import Footer from "../../components/Footer/Footer";
@@ -12,6 +12,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
+      <Link to={'/details/1'}>Details</Link>
       <div className="container">
         <TopPicks />
         <Slider title="PG" />

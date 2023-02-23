@@ -4,7 +4,7 @@ import OwnerDetails from "./OwnerDetails";
 import PropertyImages from "./PropertyImages";
 import locationIcon from "../../assets/images/location_icon.svg";
 import AmentiesDetails from "./AmentiesDetails";
-import "./details.css";
+import "./index.scss";
 import MoreDetails from "./MoreDetails";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
@@ -22,7 +22,7 @@ const PropertyDetails = () => {
       <Container fluid>
         <Container className="property-details-topbar-container">
         <Row>
-          <Col className="mt-2">Home / PG / Details</Col>
+          <Col className="mt-2 property-details-breadcrumb-item">Home / PG / Details</Col>
           <Col>
             <h1 style={{ color: "#152C5B" }}>Village Angara</h1>
             <p className="property-location-details ml-3 mt-3">
@@ -35,7 +35,7 @@ const PropertyDetails = () => {
               <span className="ml-3 location-text"> Chandigarh, India</span>
             </p>
           </Col>
-          <Col xs={2}>
+          <Col xs={2} className="property-details-search-input">
             <InputGroup size="sm" className="mt-3">
               <Form.Control
                 placeholder="Search Rooms......"

@@ -5,7 +5,7 @@ import Signin from "./pages/signin/Signin";
 import Signup from "./pages/signup/Signup";
 import Home from "./pages/home/Home";
 import Category from "./pages/category/Category";
-import Details from "./pages/details/Details";
+import Details from "./pages/details/index";
 import AddRoom from "./pages/Add/AddRoom";
 import Profile from "./pages/profile/Profile";
 import Preference from "./pages/preference/Preference";
