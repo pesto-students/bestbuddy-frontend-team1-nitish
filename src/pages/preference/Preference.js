@@ -10,6 +10,9 @@ import PartyAnimal from "../../assets/preferences/Party-Animal.svg";
 import Professional from "../../assets/preferences/Professional.svg";
 import Student from "../../assets/preferences/Student.svg";
 import Vegan from "../../assets/preferences/Vegan.svg";
+import MusicLover from "../../assets/preferences/Music-Lover.svg";
+import PetAllowed from "../../assets/preferences/Pet-Allowed.svg";
+import Religious from "../../assets/preferences/Religious.svg";
 
 const Preference = () => {
   return (
@@ -25,6 +28,9 @@ const Preference = () => {
         <img src={Professional} alt="Professional" />
         <img src={Student} alt="Student" />
         <img src={Vegan} alt="Vegan" />
+        <img src={MusicLover} alt="MusicLover" />
+        <img src={PetAllowed} alt="PetAllowed" />
+        <img src={Religious} alt="Religious" />
       </div>
     </div>
   );
