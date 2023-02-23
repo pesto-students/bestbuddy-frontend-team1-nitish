@@ -5,6 +5,8 @@ import "./Signin.scss";
 import CustomForm from "../../components/customForm/CustomForm";
 import { signIn } from "../../store/slice/users/userSlice";
 import Logo from "./../../assets/Logo.svg";
+import TopCircles from "./../../assets/Top-Circles.svg";
+import BottomMountains from "./../../assets/Bottom-Mountains.svg";
 
 const formFeild = [
   {
@@ -52,6 +54,7 @@ const Signin = () => {
       </div>
 
       {/* mobile headers */}
+      <img src={TopCircles} alt="TopCircles" />
       <div className="best-buddylogo">
         <img
           src="https://res.cloudinary.com/dirosugvb/image/upload/v1676559711/BestBuddylogo_ltm21g.png"
@@ -72,16 +75,7 @@ const Signin = () => {
 
       {/* mobile footer */}
       <div className="footer-container">
-        <img
-          className="footer-primary"
-          src="https://res.cloudinary.com/dirosugvb/image/upload/v1676557474/footer_rsg8mh.png"
-          alt="footer"
-        />
-        <img
-          className="footer-secondary"
-          src="https://res.cloudinary.com/dirosugvb/image/upload/v1676557475/footer1_p6sf6m.png"
-          alt="footer"
-        />
+        <img src={BottomMountains} alt="footer" />
       </div>
       {/* mobile footer */}
     </div>
