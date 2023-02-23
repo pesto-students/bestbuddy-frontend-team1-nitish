@@ -23,7 +23,7 @@ const OwnerDetails = () => {
         {/* Owner image avtar, name and location*/}
         <Row>
           <Col xs={3}>
-            <Image src={avtar} />
+            <Image src={avtar} alt="profile-pic" />
           </Col>
           <Col>
             <p className=" property-details-owner-name">Jenna Sanders</p>
