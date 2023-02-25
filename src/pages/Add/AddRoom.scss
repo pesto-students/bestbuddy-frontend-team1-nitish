@@ -1,0 +1,28 @@
+.add-room {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addHeading {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 54px;
+  text-align: center;
+  color: #152c5b;
+}
+.addHeading2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  color: #938e8e;
+}
+
+.submitbutton {
+  background: #152c5b;
+  width: 20rem;
+  height: 3rem;
+}
