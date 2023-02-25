@@ -6,6 +6,7 @@ import NavBar from "../../components/Navbar/Navbar";
 import Amenties from "./../../components/Amenties/Amenties";
 import PreferenceGrid from "./../../components/PreferenceGrid/PreferenceGrid";
 import { Button } from "react-bootstrap";
+import Camera2 from '../../assets/Camera2.svg';
 
 const AddRoom = () => {
   return (
@@ -20,7 +21,8 @@ const AddRoom = () => {
           Preferences for Room Partner(select 3 atleast)
         </h2>
         <PreferenceGrid />
-       <Button className="submitbutton">Submit</Button>
+        <Button className="submitbutton">Submit</Button>
+        <img className="camera2" src={Camera2} alt="Camera2"/>
       </div>
       <Footer />
     </>
