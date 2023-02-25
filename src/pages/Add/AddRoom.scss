@@ -23,6 +23,11 @@
 
 .submitbutton {
   background: #152c5b;
+  color: #fff;
   width: 20rem;
   height: 3rem;
+}
+
+.submitbutton:hover{
+  background: #3252DF;
 }
