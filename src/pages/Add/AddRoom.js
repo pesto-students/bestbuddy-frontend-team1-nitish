@@ -6,7 +6,7 @@ import NavBar from "../../components/Navbar/Navbar";
 import Amenties from "./../../components/Amenties/Amenties";
 import PreferenceGrid from "./../../components/PreferenceGrid/PreferenceGrid";
 import { Button } from "react-bootstrap";
-import Camera2 from '../../assets/Camera2.svg';
+import Camera2 from "../../assets/Camera2.svg";
 
 const AddRoom = () => {
   return (
@@ -22,7 +22,16 @@ const AddRoom = () => {
         </h2>
         <PreferenceGrid />
         <Button className="submitbutton">Submit</Button>
-        <img className="camera2" src={Camera2} alt="Camera2"/>
+        <div className="imageupload">
+          <img className="camera2" src={Camera2} alt="Camera2" />
+          <Button className="uploadbutton">
+            Click Here or Drag Here to upload images
+          </Button>
+          <p className="uploadp">
+            Images should be JPG,JPEG,GIF,PNG and upload atleast 4 images and
+            max 10 images
+          </p>
+        </div>
       </div>
       <Footer />
     </>

@@ -28,11 +28,37 @@
   height: 3rem;
 }
 
-.submitbutton:hover{
-  background: #3252DF;
+.submitbutton:hover {
+  background: #3252df;
 }
 
-.camera2{
+.imageupload {
+  width: 85vw;
+  margin: 1rem;
+  background: #dee2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera2 {
   margin: 2rem;
-  width: 10rem;
+  width: 5rem;
+}
+
+.uploadbutton {
+  background: #152c5b;
+  color: #dee2f2;
+  margin: 0 1rem 1rem 1rem;
+  padding: 1rem;
+}
+.uploadp {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 27px;
+  text-align: center;
+  padding: 1rem;
+  margin: 0 2rem;
+  color: #152c5b;
 }
