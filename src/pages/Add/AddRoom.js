@@ -17,11 +17,6 @@ const AddRoom = () => {
         <h6 className="addHeading2">Please enter the room details below</h6>
         <h2 className="addHeading">Select available Amenties</h2>
         <Amenties />
-        <h2 className="addHeading">
-          Preferences for Room Partner(select 3 atleast)
-        </h2>
-        <PreferenceGrid />
-        <Button className="submitbutton">Submit</Button>
         <div className="imageupload">
           <img className="camera2" src={Camera2} alt="Camera2" />
           <Button className="uploadbutton">
@@ -32,6 +27,11 @@ const AddRoom = () => {
             max 10 images
           </p>
         </div>
+        <h2 className="addHeading">
+          Preferences for Room Partner(select 3 atleast)
+        </h2>
+        <PreferenceGrid />
+        <Button className="submitbutton">Submit</Button>
       </div>
       <Footer />
     </>
