@@ -54,18 +54,18 @@ const Signin = () => {
       </div>
 
       {/* mobile headers */}
-      <img src={TopCircles} alt="TopCircles" />
+      {/* <img className="" src={TopCircles} alt="TopCircles" /> */}
       <div className="best-buddylogo">
-        <img
+        {/* <img
           src="https://res.cloudinary.com/dirosugvb/image/upload/v1676559711/BestBuddylogo_ltm21g.png"
           alt="logo"
-        />
+        /> */}
       </div>
       <div className="mobile-banner-container">
-        <img
+        {/* <img
           src="https://res.cloudinary.com/dirosugvb/image/upload/v1676557474/mobile-banner_vp7zlj.png"
           alt="signin-banner"
-        />
+        /> */}
       </div>
       {/* mobile headers */}
 
@@ -75,7 +75,7 @@ const Signin = () => {
 
       {/* mobile footer */}
       <div className="footer-container">
-        <img src={BottomMountains} alt="footer" />
+        {/* <img src={BottomMountains} alt="footer" /> */}
       </div>
       {/* mobile footer */}
     </div>
