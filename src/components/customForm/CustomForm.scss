@@ -41,15 +41,6 @@
     border: 1px solid rgb(146, 35, 35);
   }
 
-  .btn-form-submit {
-    width: 320px;
-    height: 40px;
-    border: none;
-    background: #3252df;
-    color: white;
-    border-radius: 4px;
-  }
-
   .response-message {
     width: 320px;
     text-align: center;
@@ -86,3 +77,79 @@
     }
   }
 }
+
+// *******Button*******************************
+
+.btn-form-submit {
+  width: 320px;
+  height: 40px;
+  border: none;
+  background: #3252df;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.load {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+}
+
+.load::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  width: 30px;
+  height: 30px;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  animation: loading1 1s ease infinite;
+  z-index: 10;
+}
+
+.load::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 3px dashed #fff;
+  width: 30px;
+  height: 30px;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  animation: loading1 3s linear infinite;
+  z-index: 5;
+}
+
+@keyframes loading1 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+button.activeLoading .loading {
+  visibility: visible;
+  opacity: 1;
+}
+
+button .loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+// *******Button*******************************

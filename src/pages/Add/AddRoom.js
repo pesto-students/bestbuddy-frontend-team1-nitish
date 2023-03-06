@@ -32,6 +32,7 @@ const AddRoom = () => {
         </h2>
         <PreferenceGrid />
         <Button className="submitbutton">Submit</Button>
+        
       </div>
       <Footer />
     </>
