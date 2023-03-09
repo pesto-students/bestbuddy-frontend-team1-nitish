@@ -5,12 +5,14 @@
 .property-details-container {
   width: 90%;
   margin: auto;
+  margin-top: 2em;
 }
 .owner-details-container {
   width: 87%;
   background: #d9d9d9;
   border-radius: 3em;
   padding: 3em;
+  margin-top: 5em;
 }
 .property-location-details {
   font-size: 1em;
@@ -52,6 +54,7 @@
 .owner-habits-row {
   gap: 3em;
   text-align: center;
+  margin-top: 2em;
 }
 .owner-habits-container {
   background: white;
@@ -81,6 +84,10 @@
   color: #706d6d;
   font-size: 1em;
 }
+.property-owner-avtar-container {
+  width: 80%;
+  margin: auto;
+}
 
 @media (max-width: 767.98px) {
   .property-details-topbar-container {
@@ -91,17 +98,65 @@
   .property-details-search-input {
     display: none;
   }
-  .property-images-container{
+  .property-images-container {
     display: grid;
     grid-template-rows: auto;
   }
-  .propert-main-img-container{
+  .propert-main-img-container {
     display: flex;
     justify-content: center;
   }
-  .property-images{
+  .property-images {
     width: 100%;
     max-width: 100%;
     height: auto;
+    margin-top: 2em;
+  }
+}
+
+@media (max-width: 576px) {
+  .property-details-container {
+    margin: auto;
+    width: 90%;
+    padding-left: 1em;
+    margin-top: 0.2em;
+  }
+  .property-images {
+    width: 350px;
+    height: 286px;
+    object-fit: cover;
+    margin-top: 1em;
+    border-radius: 1em;
+  }
+  .owner-details-container {
+    width: 87%;
+    background: white;
+    border-radius: 3em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4em;
+  }
+  .owner-details-contact-col {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5em;
+  }
+  .owner-habits-row {
+    width: 100%;
+    padding: 0%;
+    margin: auto;
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+  }
+  .owner-habits-container {
+    text-align: center;
+    background: #f5f6f8;
+    color: #ff498b;
+    width: 100%;
+    border-radius: 0.5em;
+    text-overflow: ellipsis;
+    margin-top: 0;
   }
 }
