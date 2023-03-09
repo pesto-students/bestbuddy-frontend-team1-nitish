@@ -17,16 +17,16 @@ const OwnerDetails = () => {
   return (
     <>
       <Container
-        className="property-details-container owner-details-container mt-5"
+        className="property-details-container owner-details-container"
         fluid
       >
         {/* Owner image avtar, name and location*/}
-        <Row>
-          <Col xs={3}>
+        <Row className="property-owner-avtar-container" align="center">
+          <Col xs={12} lg={3} xl={1}>
             <Image src={avtar} alt="profile-pic" />
           </Col>
           <Col>
-            <p className=" property-details-owner-name">Jenna Sanders</p>
+            <p className="property-details-owner-name">Jenna Sanders</p>
             <p className="property-owner-details">34 / Female</p>
             <p className="property-owner-details">
               <Image src={locationIcon} alt={"location"} />
@@ -56,7 +56,7 @@ const OwnerDetails = () => {
           </div>
         </Row>
         {/* Habits of owner */}
-        <Row className="mt-5 owner-details-text-row owner-habits-row">
+        <Row className="owner-details-text-row owner-habits-row">
           {habits?.map((item, index) => (
             <Col className="owner-habits-container" key={`${index}-${item?.title}`}>{item?.title}</Col>
           ))}

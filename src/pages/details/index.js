@@ -29,33 +29,30 @@ const PropertyDetails = () => {
 
       <Container fluid>
         <Container className="property-details-topbar-container">
-          <Row>
-            <Col className="mt-2 property-details-breadcrumb-item">
-              Home / PG / Details
-            </Col>
-            <Col>
-              <h1 style={{ color: "#152C5B" }}>Village Angara</h1>
-              <p className="property-location-details ml-3 mt-3">
-                <Image
-                  src={locationIcon}
-                  alt={"location"}
-                  width={23}
-                  height={25}
-                />
-                <span className="ml-3 location-text"> Chandigarh, India</span>
-              </p>
-            </Col>
-            <Col xs={2} className="property-details-search-input">
-              <InputGroup size="sm" className="mt-3">
-                <Form.Control
-                  class="input"
-                  placeholder="Search Rooms......"
-                  aria-label="Small"
-                  aria-describedby="inputGroup-sizing-sm"
-                />
-              </InputGroup>
-            </Col>
-          </Row>
+        <Row>
+          <Col className="mt-2 property-details-breadcrumb-item">Home / PG / Details</Col>
+          <Col>
+            <h1 style={{ color: "#152C5B" }}>Village Angara</h1>
+            <p className="property-location-details ml-3 mt-3">
+              <Image
+                src={locationIcon}
+                alt={"location"}
+                width={23}
+                height={25}
+              />
+              <span className="ml-3 location-text"> Chandigarh, India</span>
+            </p>
+          </Col>
+          <Col xs={2} className="property-details-search-input">
+            <InputGroup size="sm" className="mt-3">
+              <Form.Control
+                placeholder="Search Rooms......"
+                aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </InputGroup>
+          </Col>
+        </Row>
         </Container>
         {/* Property Images Section */}
         <PropertyImages />
