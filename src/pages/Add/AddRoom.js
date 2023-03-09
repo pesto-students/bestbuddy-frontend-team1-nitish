@@ -81,8 +81,10 @@ const AddRoom = () => {
 
           <div className="input-occupancy">
             <h5>Current Occupancy of Room</h5>
+            <div className="buttons">
             <button>Single</button>
             <button>Shared</button>
+            </div>
           </div>
         </div>
 
