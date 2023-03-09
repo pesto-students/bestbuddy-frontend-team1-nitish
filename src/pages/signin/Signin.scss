@@ -18,6 +18,10 @@
     }
   }
 
+  .topcircles {
+    display: none;
+  }
+
   .form-container {
     height: 100vh;
   }
@@ -36,9 +40,14 @@
 
 @media (max-width: 767.98px) {
   .signin-page {
+    width: 90%;
     display: grid;
     grid-template-columns: auto;
 
+    .topcircles {
+      display: block;
+    }
+    
     .form-container {
       height: auto;
     }

@@ -1,0 +1,134 @@
+.add-room {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addHeading {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 54px;
+  text-align: center;
+  color: #152c5b;
+}
+.addHeading2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  color: #938e8e;
+}
+
+.submitbutton {
+  background: #152c5b;
+  color: #fff;
+  width: 25vw;
+  height: 3rem;
+}
+
+.submitbutton:hover {
+  background: #3252df;
+}
+
+.imageupload {
+  width: 82vw;
+  margin: 1rem;
+  background: #dee2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera2 {
+  margin: 2rem;
+  width: 5rem;
+}
+
+.uploadbutton {
+  background: #152c5b;
+  color: #dee2f2;
+  margin: 0 1rem 1rem 1rem;
+  padding: 1rem;
+}
+.uploadp {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 27px;
+  text-align: center;
+  padding: 1rem;
+  margin: 0 2rem;
+  color: #152c5b;
+}
+
+.inputs-grpstop {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.input-grp {
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input-grp h5 {
+  font-weight: 500;
+  font-size: 20px;
+  color: #152c5b;
+}
+.divider1 {
+  position: absolute;
+  top: 1rem;
+  height: 12rem;
+  border: 1px solid rgb(204, 200, 200);
+}
+
+.input-grp input {
+  font-weight: 400;
+  font-size: 16px;
+  color: #152c5b;
+  margin-bottom: 1rem;
+  padding: 0.25rem 1rem;
+}
+
+.input-grp .buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+}
+.input-grp button {
+  font-weight: 400;
+  font-size: 16px;
+  background-color: #152c5b;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.input-grp button:hover {
+  background: #3252df;
+}
+
+.grp3{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+}
+
+.divider2 {
+  position: absolute;
+  top: 2rem;
+  left: 45%;
+  height: 6rem;
+  border: 1px solid rgb(204, 200, 200);
+}

@@ -1,5 +1,13 @@
 import React from "react";
-import { Col, Container, Form, InputGroup, Row, Image, Nav } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Form,
+  InputGroup,
+  Row,
+  Image,
+  Nav,
+} from "react-bootstrap";
 import OwnerDetails from "./OwnerDetails";
 import PropertyImages from "./PropertyImages";
 import locationIcon from "../../assets/images/location_icon.svg";
@@ -16,8 +24,8 @@ Design is a plan or specification for the construction of an object or system or
 const PropertyDetails = () => {
   return (
     <>
-    {/* Navbar */}
-    <NavBar/>
+      {/* Navbar */}
+      <NavBar />
 
       <Container fluid>
         <Container className="property-details-topbar-container">

@@ -4,9 +4,7 @@ import TopPicks from '../../components/Toppicks/TopPicks';
 import Slider from '../../components/shared/Slider/Slider';
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
-import Preference from "../preference/Preference";
-import Amenties from "../../components/Amenties/Amenties";
-
+import LocationSearch from './../../components/Search/LocationSearch/LocationSearch';
 
 const Home = () => {
   return (
@@ -16,11 +14,9 @@ const Home = () => {
       <div className="container">
         <TopPicks />
         <Slider title="PG" />
-        <Slider title='Flats' />
-        <Slider title='Apartment' />
-        <Slider title='Residency' />
-        <Preference />
-        <Amenties />
+        <Slider title="Flats" />
+        <Slider title="Apartment" />
+        <Slider title="Residency" />
       </div>
       <Footer />
     </div>

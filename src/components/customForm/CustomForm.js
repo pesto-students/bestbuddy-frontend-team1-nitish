@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -20,6 +20,13 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
     setTimeout(() => {
       dispatch(setMessage());
     }, 5000);
+  };
+
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = (event) => {
+    // 👇️ toggle isActive state on click
+    setIsActive((current) => !current);
   };
 
   return (
@@ -72,8 +79,14 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
         </section>
       ))}
       <section>
-        <button type="submit" className="btn-form-submit">
-          {title}
+        <button
+          type="submit"
+          className={
+            isActive ? "btn-form-submit activeLoading" : "btn-form-submit"
+          }
+          onClick={handleClick}
+        >
+          {title} <span className="load loading"></span>
         </button>
       </section>
       {title === "Sign In" && (

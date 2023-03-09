@@ -54,12 +54,9 @@ const Signin = () => {
       </div>
 
       {/* mobile headers */}
-      <img src={TopCircles} alt="TopCircles" />
+      <img className="topcircles" src={TopCircles} alt="TopCircles" />
       <div className="best-buddylogo">
-        <img
-          src="https://res.cloudinary.com/dirosugvb/image/upload/v1676559711/BestBuddylogo_ltm21g.png"
-          alt="logo"
-        />
+        <img className="logo" src={Logo} alt="logo" />
       </div>
       <div className="mobile-banner-container">
         <img
@@ -75,7 +72,7 @@ const Signin = () => {
 
       {/* mobile footer */}
       <div className="footer-container">
-        <img src={BottomMountains} alt="footer" />
+        {/* <img src={BottomMountains} alt="footer" /> */}
       </div>
       {/* mobile footer */}
     </div>
