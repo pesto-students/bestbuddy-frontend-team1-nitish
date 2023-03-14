@@ -17,7 +17,7 @@ const formFeild = [
     placeholder: "Enter your registered email",
     errorMessage: "Email is required.",
     validation: {
-      pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+      pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
       errMess: "Email is invalid.",
     },
   },
