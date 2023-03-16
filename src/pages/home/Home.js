@@ -25,7 +25,7 @@ const Home = () => {
     <div>
       <Navbar />
       <LocationSearch />
-      <Link to={"/details/1"}>Details</Link>
+      {/* <Link to={"/details/1"}>Details</Link> */}
       <div className="container">
         <TopPicks />
         <Slider properties={properties} />

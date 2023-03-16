@@ -35,16 +35,14 @@ const SlickSlider = ({ properties }) => {
     ],
   };
 
-  // console.log(properties);
-
   return (
     <section className="slider-container">
       <Link to="/category">
         <p className="slider-title">{}</p>
       </Link>
       <Slider {...settings}>
-        {properties.map((property) => (
-          <div>
+        {properties?.map((property) => (
+          <div key={property?._id}>
             <h3>
               <SliderCard property={property} />
             </h3>
