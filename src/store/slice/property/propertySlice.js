@@ -1,6 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import { GET_ALLPROPERTIES, GET_PROPERTYBYCATEGORY } from "./service";
+import {
+  GET_ALLPROPERTIES,
+  GET_PROPERTYBYCATEGORY,
+  GET_PROPERTYBYID,
+} from "./service";
 import bestBuddyAxios from "./../../../bestbuddyaxios/bestBuddyAxios";
 
 export const fetchAllProperties = createAsyncThunk(
@@ -35,9 +39,26 @@ export const fetchPropertiesByCategory = createAsyncThunk(
   }
 );
 
+export const fetchPropertyById = createAsyncThunk(
+  "property/fetchPropertyById",
+  async (id) => {
+    try {
+      const response = await bestBuddyAxios({
+        method: "GET",
+        url: `${GET_PROPERTYBYID}/${id}`,
+      });
+
+      return response;
+    } catch (err) {
+      throw err.response.data;
+    }
+  }
+);
+
 const initialState = {
   allProperties: [],
   propertiesBycategory: [],
+  propertyById: {},
 };
 
 const propertySlice = createSlice({
@@ -60,7 +81,15 @@ const propertySlice = createSlice({
       return { ...state, propertiesBycategory: payload.data.data };
     },
     [fetchPropertiesByCategory.rejected]: (state, { error }) => {
-      // return { ...state,  message: error.message };
+      return { ...state, message: error.message };
+    },
+
+    [fetchPropertyById.pending]: () => {},
+    [fetchPropertyById.fulfilled]: (state, { payload }) => {
+      return { ...state, propertyById: payload.data.data };
+    },
+    [fetchPropertyById.rejected]: (state, { error }) => {
+      return { ...state, message: error.message };
     },
   },
 });
