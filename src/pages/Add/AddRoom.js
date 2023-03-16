@@ -16,27 +16,40 @@ const AddRoom = () => {
         <h2 className="addHeading">Have a Room</h2>
         <h6 className="addHeading2">Please enter the room details below</h6>
 
-        <div className="input-grp grp1">
-          <div className="input-location">
-            <h5>Add room location</h5>
-            <input type="text" name="location" id="" />
+        <div className="inputs-grpstop">
+          <div className="input-grp grp1">
+            <div className="input-location">
+              <h5>Add room location</h5>
+              <input type="text" name="location" id="" />
+            </div>
+            <div className="input-rent">
+              <h5>Rent of Room</h5>
+              <input
+                type="text"
+                name="rent"
+                id=""
+                placeholder="Please input here"
+              />
+            </div>
           </div>
-          <div className="input-rent">
-            <h5>Rent of Room</h5>
-            <input type="text" name="rent" id="" />
-          </div>
-        </div>
-        <span className="divider1"></span>
-
-        <div className="input-grp grp2">
-          <div className="input-number">
-            <h5>Phone Number</h5>
-            <input type="text" name="number" id="" />
-          </div>
-          <div className="input-gender">
-            <h5>Gender of RoomMate</h5>
-            <button>Male</button>
-            <button>FeMale</button>
+          <span className="divider1"></span>
+          <div className="input-grp grp2">
+            <div className="input-number">
+              <h5>Phone Number</h5>
+              <input
+                type="text"
+                name="number"
+                id=""
+                placeholder="Please input here"
+              />
+            </div>
+            <div className="input-gender">
+              <h5>Gender of RoomMate</h5>
+              <div className="buttons">
+                <button>Male</button>
+                <button>FeMale</button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -56,15 +69,22 @@ const AddRoom = () => {
         <div className="input-grp grp3">
           <div className="input-availability">
             <h5>Room is available from</h5>
-            <input type="date" name="date" id="" />
+            <input
+              type="date"
+              name="date"
+              id=""
+              placeholder="Please input here"
+            />
           </div>
 
           <span className="divider2"></span>
 
           <div className="input-occupancy">
             <h5>Current Occupancy of Room</h5>
-            <button>Single</button>
-            <button>Shared</button>
+            <div className="buttons">
+              <button>Single</button>
+              <button>Shared</button>
+            </div>
           </div>
         </div>
 
