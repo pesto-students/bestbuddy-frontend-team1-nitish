@@ -42,11 +42,13 @@ const SlickSlider = ({ properties }) => {
       </Link>
       <Slider {...settings}>
         {properties?.map((property) => (
+          <Link to={`/details/${property?._id}`}>
           <div key={property?._id}>
             <h3>
               <SliderCard property={property} />
             </h3>
           </div>
+          </Link>
         ))}
       </Slider>
       <Link to="/category">

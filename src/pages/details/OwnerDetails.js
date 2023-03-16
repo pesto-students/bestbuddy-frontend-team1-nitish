@@ -3,17 +3,7 @@ import avtar from "../../assets/images/owner_avtar.svg";
 import locationIcon from "../../assets/images/location_icon.svg";
 import { IoChatboxSharp, IoCallSharp } from "react-icons/io5";
 
-const habits = [
-  { title: "Student" },
-  { title: "Vegan" },
-  { title: "Non Alcoholic" },
-  { title: "Media Buff" },
-  { title: "Student" },
-  { title: "Vegan" },
-  { title: "Non Alcoholic" },
-  { title: "Media Buff" },
-];
-const OwnerDetails = () => {
+const OwnerDetails = ({ preferences = [], ownerData = {} }) => {
   return (
     <>
       <Container
@@ -26,11 +16,11 @@ const OwnerDetails = () => {
             <Image src={avtar} alt="profile-pic" />
           </Col>
           <Col>
-            <p className=" property-details-owner-name">Jenna Sanders</p>
-            <p className="property-owner-details">34 / Female</p>
+            <p className=" property-details-owner-name">{ownerData?.user_name}</p>
+            <p className="property-owner-details">34 / {ownerData?.gender}</p>
             <p className="property-owner-details">
               <Image src={locationIcon} alt={"location"} />
-              <span className="ml-3"> Chandigarh, India</span>
+              <span className="ml-3"> {ownerData?.city}, India</span>
             </p>
           </Col>
         </Row>
@@ -51,14 +41,18 @@ const OwnerDetails = () => {
             <span className="ml-3">Chat</span>
           </div>
           <div className="owner-details-contact-col">
+          <a href={`tel:${ownerData?.phone}`}>
             <IoCallSharp style={{ color: "white" }} size={22} />
-            <span className="ml-3">Call</span>
+            <span className="ml-3" style={{ color: "white" }}>Call</span>
+          </a>
           </div>
         </Row>
-        {/* Habits of owner */}
+        {/* Preferences of owner */}
         <Row className="mt-5 owner-details-text-row owner-habits-row">
-          {habits?.map((item, index) => (
-            <Col className="owner-habits-container" key={`${index}-${item?.title}`}>{item?.title}</Col>
+          {preferences?.map((item, index) => (
+            <Col className="owner-habits-container" key={`${index}-${item}`}>
+              {item}
+            </Col>
           ))}
         </Row>
       </Container>
