@@ -26,7 +26,6 @@ const Home = () => {
       <Navbar />
       <LocationSearch />
       <Link to={"/details/1"}>Details</Link>
-      <p onClick={() => alert('hey')}>test</p>
       <div className="container">
         <TopPicks />
         <Slider properties={properties} />
