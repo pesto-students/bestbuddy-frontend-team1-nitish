@@ -4,10 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import SliderCard from "../../Card/SliderCard";
-import './Slider.scss';
+import "./Slider.scss";
 import { Link } from "react-router-dom";
 
-const SlickSlider = ({ title }) => {
+const SlickSlider = ({ properties }) => {
   const settings = {
     dots: false,
     infinite: false,
@@ -22,62 +22,40 @@ const SlickSlider = ({ title }) => {
           slidesToShow: 2,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 450,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+
+  // console.log(properties);
 
   return (
     <section className="slider-container">
-      <Link to='/category' ><p className="slider-title">{title}</p></Link>
+      <Link to="/category">
+        <p className="slider-title">{}</p>
+      </Link>
       <Slider {...settings}>
-        <div>
-          <h3>
-            <SliderCard />
-          </h3>
-        </div>
-        <div>
-          <h3>
-            <SliderCard />
-          </h3>
-        </div>
-        <div>
-          <h3>
-            <SliderCard />
-          </h3>
-        </div>
-        <div>
-          <h3>
-            <SliderCard />
-          </h3>
-        </div>
-        <div>
-          <h3>
-            <SliderCard />
-          </h3>
-        </div>
-        <div>
-          <h3>
-            <SliderCard />
-          </h3>
-        </div>
-        <div>
-          <h3>
-            <SliderCard />
-          </h3>
-        </div>
+        {properties.map((property) => (
+          <div>
+            <h3>
+              <SliderCard property={property} />
+            </h3>
+          </div>
+        ))}
       </Slider>
-      <Link to='/category' ><p className="show-more">show more</p></Link>
+      <Link to="/category">
+        <p className="show-more">show more</p>
+      </Link>
     </section>
   );
-}
+};
 
 export default SlickSlider;

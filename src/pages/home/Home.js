@@ -24,13 +24,14 @@ const Home = () => {
   return (
     <div>
       <Navbar />
+      <LocationSearch />
       <Link to={"/details/1"}>Details</Link>
       <div className="container">
         <TopPicks />
         <Slider properties={properties} />
-        {/* <Slider title="Flats" />
-        <Slider title="Apartment" />
-        <Slider title="Residency" /> */}
+        {/* <Slider title="Flats"/>
+        <Slider title="Apartment"/>
+        <Slider title="Residency"/> */}
       </div>
       <Footer />
     </div>
