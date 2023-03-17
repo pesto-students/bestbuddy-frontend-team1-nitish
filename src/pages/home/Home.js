@@ -26,6 +26,9 @@ const Home = () => {
   const apartments = properties.filter(
     (property) => property.category === "Apartment"
   );
+  const toppicks = properties.filter(
+    (property) => property.city === "Delhi"
+  );
   console.log(flats, pgs, apartments);
 
   return (
@@ -34,7 +37,7 @@ const Home = () => {
       <LocationSearch />
       {/* <Link to={"/details/1"}>Details</Link> */}
       <div className="container">
-        <TopPicks />
+        <TopPicks properties={toppicks} />
         <Slider title="All Properties" properties={properties} />
         <Slider title="Flat" properties={flats} />
         <Slider title="PG" properties={pgs} />

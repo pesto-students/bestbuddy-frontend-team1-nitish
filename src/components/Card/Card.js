@@ -1,17 +1,17 @@
 import React from "react";
 
 import "./Card.scss";
-import image1 from "../../assets/images/kara-eads-L7EwHkq1B2s-unsplash.jpg";
+// import image1 from "../../assets/images/kara-eads-L7EwHkq1B2s-unsplash.jpg";
 
-const Card = () => {
+const Card = ({ property }) => {
   return (
     <div className="card">
       <div className="card-image">
-        <img src={image1} alt="cardimage" />
+        <img src={property.image[0]} alt="cardimage" />
       </div>
       <div className="heading">
-        <h5>Ocean Land</h5>
-        <h6>Mohali,Chandigarh</h6>
+        <h5>{property.name}</h5>
+        <h6>{property.city}</h6>
       </div>
       <div className="badge">Best Match</div>
     </div>
