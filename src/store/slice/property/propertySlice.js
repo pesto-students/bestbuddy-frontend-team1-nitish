@@ -5,6 +5,7 @@ import {
   GET_PROPERTYBYCATEGORY,
   GET_PROPERTYBYID,
   DELETE_PROPERTY,
+  ADD_PROPERTY,
 } from "./service";
 import bestBuddyAxios from "./../../../bestbuddyaxios/bestBuddyAxios";
 
@@ -73,10 +74,28 @@ export const deleteProperty = createAsyncThunk(
   }
 );
 
+export const addProperty = createAsyncThunk(
+  "property/deleteProperty",
+  async (payload) => {
+    try {
+      const response = await bestBuddyAxios({
+        method: "POST",
+        url: `${ADD_PROPERTY}`,
+        data: payload,
+      });
+
+      return response;
+    } catch (err) {
+      throw err.response.data;
+    }
+  }
+);
+
 const initialState = {
   allProperties: [],
   propertiesBycategory: [],
   propertyById: {},
+  addedPropertyStatus: false,
 };
 
 const propertySlice = createSlice({
@@ -116,6 +135,14 @@ const propertySlice = createSlice({
     },
     [deleteProperty.rejected]: (state, { error }) => {
       return { ...state, message: error.message };
+    },
+
+    [addProperty.pending]: () => {},
+    [addProperty.fulfilled]: (state, { payload }) => {
+      return { ...state, addedPropertyStatus: true, message: "Property added Successfully!" };
+    },
+    [addProperty.rejected]: (state, { error }) => {
+      return { ...state, addedPropertyStatus: false, message: error.message };
     },
   },
 });

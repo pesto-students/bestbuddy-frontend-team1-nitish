@@ -12,7 +12,7 @@ const formFields = [
     name: "rent",
   },
   {
-    key: "property-type",
+    key: "category",
     name: "property-type",
   },
   {

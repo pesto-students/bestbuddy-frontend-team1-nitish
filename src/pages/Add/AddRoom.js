@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Uploader } from "uploader";
 import { UploadButton } from "react-uploader";
 import Footer from "../../components/Footer/Footer";
@@ -9,6 +11,7 @@ import { Button } from "react-bootstrap";
 import Camera2 from "../../assets/Camera2.svg";
 import { getFormValues, uploaderTexts } from "../../utils/formFieldHelpers";
 import "./AddRoom.scss";
+import { addProperty, setMessage } from "../../store/slice/property/propertySlice";
 
 const uploader = Uploader({ apiKey: process.env.REACT_APP_UPLOADER_KEY });
 const uploaderOptions = {
@@ -32,11 +35,13 @@ const AddRoom = () => {
   const [amenties, setAmenties] = useState([]);
   const [preferences, setPreferences] = useState([]);
   const [images, setImages] = useState([]);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const addedPropertyStatus = useSelector((state) => state?.property?.addedPropertyStatus);
   const handleSubmit = (e) => {
     e?.preventDefault();
-    if (images?.length < 3) {
-      return alert(`Please upload atleast 3 images`);
+    if (images?.length === 0) {
+      return alert(`Please upload atleast 1 image`);
     }
     if (preferences?.length < 3) {
       return alert(`Please select atleast 3 preferences`);
@@ -51,6 +56,12 @@ const AddRoom = () => {
       image: mappedImages,
       details: "",
     };
+    dispatch(addProperty(payload));
+    setTimeout(() => {
+      alert('Property added successfully!');
+      navigate(`/`);
+    }, 3000);
+
   };
   return (
     <>
