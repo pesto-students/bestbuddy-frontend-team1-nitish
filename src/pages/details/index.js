@@ -1,5 +1,13 @@
 import React, { useEffect } from "react";
-import { Col, Container, Form, InputGroup, Row, Image } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Form,
+  InputGroup,
+  Row,
+  Image,
+  Button,
+} from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import OwnerDetails from "./OwnerDetails";
@@ -10,7 +18,7 @@ import "./index.scss";
 import MoreDetails from "./MoreDetails";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
-import { fetchPropertyById } from "../../store/slice/property/propertySlice";
+import { deleteProperty, fetchPropertyById } from "../../store/slice/property/propertySlice";
 
 // To be removed after API Integration
 const moreDetailsPara = `
@@ -82,6 +90,10 @@ const PropertyDetails = () => {
 
           {/* Details Para */}
           <MoreDetails data={moreDetailsPara} />
+
+          <Button onClick={() => {
+            dispatch(deleteProperty(id));
+          }}>Delete Me </Button>
 
           {/* Footer  */}
           <Footer />

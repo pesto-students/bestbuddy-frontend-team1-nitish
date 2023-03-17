@@ -1,10 +1,7 @@
 import React from "react";
-
 import "./SliderCard.scss";
-import image2 from "../../assets/images/alexandra-gorn-JIUjvqe2ZHg-unsplash.jpg";
 
 const SliderCard = ({ property }) => {
-
   return (
     <div className="card2">
       <div className="card-image">
@@ -14,7 +11,7 @@ const SliderCard = ({ property }) => {
         <h5>{property?.name}</h5>
         <h6>{property?.city}</h6>
       </div>
-      <div className="badge">Best Match</div>
+      {/* <div className="badge">Best Match</div> */}
     </div>
   );
 };
