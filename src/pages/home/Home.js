@@ -21,6 +21,13 @@ const Home = () => {
   //   console.log(properties);
   // }, [properties]);
 
+  const flats = properties.filter((property) => property.category === "Flat");
+  const pgs = properties.filter((property) => property.category === "PG");
+  const apartments = properties.filter(
+    (property) => property.category === "Apartment"
+  );
+  console.log(flats, pgs, apartments);
+
   return (
     <div>
       <Navbar />
@@ -28,10 +35,10 @@ const Home = () => {
       {/* <Link to={"/details/1"}>Details</Link> */}
       <div className="container">
         <TopPicks />
-        <Slider properties={properties} title="All Properties" />
-        <Slider title="Flat" />
-        <Slider title="PG" />
-        <Slider title="Apartment" />
+        <Slider title="All Properties" properties={properties} />
+        <Slider title="Flat" properties={flats} />
+        <Slider title="PG" properties={pgs} />
+        <Slider title="Apartment" properties={apartments} />
       </div>
       <Footer />
     </div>
