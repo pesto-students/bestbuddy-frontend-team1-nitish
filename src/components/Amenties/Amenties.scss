@@ -10,12 +10,20 @@
   border-radius: 1rem;
 }
 
-.amenties .grid img:hover {
-  filter: invert(90%);
+//to fix later
+// .amenties .grid img:hover {
+//   filter: invert(90%);
+// }
+
+.selected-icon {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  font-size: 2rem;
+  color: #283e69 !important;
 }
 
-
-.amenties .grid .active{
+.amenties .grid .active {
   filter: invert(90%);
 }
 

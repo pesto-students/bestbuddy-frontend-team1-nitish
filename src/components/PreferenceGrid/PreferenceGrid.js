@@ -1,6 +1,5 @@
-import React from "react";
-import "./PreferenceGrid.scss";
-
+import React, { useEffect, useState } from "react";
+import { AiOutlineCheckSquare } from "react-icons/ai";
 import BookWorm from "../../assets/preferences/Book-worm.svg";
 import Fashionable from "../../assets/preferences/Fashionable.svg";
 import FitnessFreak from "../../assets/preferences/Fitness-Freak.svg";
@@ -13,23 +12,129 @@ import Vegan from "../../assets/preferences/Vegan.svg";
 import MusicLover from "../../assets/preferences/Music-Lover.svg";
 import PetAllowed from "../../assets/preferences/Pet-Allowed.svg";
 import Religious from "../../assets/preferences/Religious.svg";
+import "./PreferenceGrid.scss";
 
-const PreferenceGrid = () => {
+const data = [
+  {
+    id: 1,
+    title: "Book Warm",
+    src: BookWorm,
+    alt: "BookWorm",
+    selected: false,
+  },
+  {
+    id: 2,
+    title: "Fashionable",
+    src: Fashionable,
+    alt: "Fashionable",
+    selected: false,
+  },
+  {
+    id: 3,
+    title: "FitnessFreak",
+    src: FitnessFreak,
+    alt: "FitnessFreak",
+    selected: false,
+  },
+  {
+    id: 4,
+    title: "Media Buff",
+    src: MediaBuff,
+    alt: "MediaBuff",
+    selected: false,
+  },
+  {
+    id: 5,
+    title: "Non-drinker",
+    src: Nondrinker,
+    alt: "Nondrinker",
+    selected: false,
+  },
+  {
+    id: 6,
+    title: "PartyAnimal",
+    src: PartyAnimal,
+    alt: "PartyAnimal",
+    selected: false,
+  },
+  {
+    id: 7,
+    title: "Professional",
+    src: Professional,
+    alt: "Professional",
+    selected: false,
+  },
+  {
+    id: 8,
+    title: "Student",
+    src: Student,
+    alt: "Student",
+    selected: false,
+  },
+  {
+    id: 9,
+    title: "Vegan",
+    src: Vegan,
+    alt: "Vegan",
+    selected: false,
+  },
+  {
+    id: 10,
+    title: "Music Lover",
+    src: MusicLover,
+    alt: "MusicLover",
+    selected: false,
+  },
+  {
+    id: 11,
+    title: "PetAllowed",
+    src: PetAllowed,
+    alt: "PetAllowed",
+    selected: false,
+  },
+  {
+    id: 12,
+    title: "Religious",
+    src: Religious,
+    alt: "Religious",
+    selected: false,
+  },
+];
+
+const PreferenceGrid = ({ selectable = false, setPreferences = () => {} }) => {
+  const [renderData, setRenderData] = useState([...data]);
+
+  useEffect(() => {
+    if (selectable && renderData) {
+      const selectedAmenties = renderData?.filter((item) => item?.selected);
+      setPreferences(selectedAmenties);
+    }
+  }, [renderData]);
+
+  const handleSelectPreferences = (selected) => {
+    const mappedData = renderData?.map((item) => {
+      if (item?.id === selected?.id) {
+        return { ...item, selected: !item?.selected };
+      }
+      return item;
+    });
+    setRenderData(mappedData);
+  };
   return (
     <div className="Preferencegrid">
       <div className="grid">
-        <img src={BookWorm} alt="BookWorm" />
-        <img src={Fashionable} alt="Fashionable" />
-        <img src={FitnessFreak} alt="FitnessFreak" />
-        <img src={MediaBuff} alt="MediaBuff" />
-        <img src={Nondrinker} alt="Nondrinker" />
-        <img src={PartyAnimal} alt="PartyAnimal" />
-        <img src={Professional} alt="Professional" />
-        <img src={Student} alt="Student" />
-        <img src={Vegan} alt="Vegan" />
-        <img src={MusicLover} alt="MusicLover" />
-        <img src={PetAllowed} alt="PetAllowed" />
-        <img src={Religious} alt="Religious" />
+        {renderData?.map((item) => (
+          <div
+            style={selectable && { position: "relative", cursor: "pointer" }}
+            key={item?.id}
+            onClick={() => selectable && handleSelectPreferences(item)}
+          >
+            {selectable && item?.selected && (
+              <AiOutlineCheckSquare className="selected-icon" />
+            )}
+            <img src={item?.src} alt={item?.alt} />
+          </div>
+        ))}
       </div>
     </div>
   );

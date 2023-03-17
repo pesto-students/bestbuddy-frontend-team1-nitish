@@ -84,7 +84,7 @@
 .divider1 {
   position: absolute;
   top: 1rem;
-  height: 12rem;
+  height: 16rem;
   border: 1px solid rgb(204, 200, 200);
 }
 
@@ -131,4 +131,12 @@
   left: 45%;
   height: 6rem;
   border: 1px solid rgb(204, 200, 200);
+}
+.input-type{
+  margin-left: -30%;
+  margin-bottom: 1rem;
+}
+.select-type{
+  width: 150%;
+  height: 2.2rem;
 }

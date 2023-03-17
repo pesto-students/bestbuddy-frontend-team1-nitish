@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AddRoom.scss";
 
 import Footer from "../../components/Footer/Footer";
@@ -9,6 +9,9 @@ import { Button } from "react-bootstrap";
 import Camera2 from "../../assets/Camera2.svg";
 
 const AddRoom = () => {
+  const [amenties, setAmenties] = useState([]);
+  const [preferences, setPreferences] = useState([]);
+
   return (
     <>
       <NavBar />
@@ -16,45 +19,68 @@ const AddRoom = () => {
         <h2 className="addHeading">Have a Room</h2>
         <h6 className="addHeading2">Please enter the room details below</h6>
 
-        <div className="inputs-grpstop">
-          <div className="input-grp grp1">
-            <div className="input-location">
-              <h5>Add room location</h5>
-              <input type="text" name="location" id="" />
+        <form>
+          <div className="inputs-grpstop">
+            <div className="input-grp grp1">
+              <div className="input-location">
+                <h5>Property name</h5>
+                <input
+                  type="text"
+                  placeholder="Add property name"
+                  name="property-name"
+                  id=""
+                  required="true"
+                />
+              </div>
+              <div className="input-location">
+                <h5>Add room location</h5>
+                <input type="text" name="location" id="" />
+              </div>
+              <div className="input-rent">
+                <h5>Rent of Room</h5>
+                <input
+                  type="text"
+                  name="rent"
+                  id=""
+                  placeholder="Please input here"
+                />
+              </div>
             </div>
-            <div className="input-rent">
-              <h5>Rent of Room</h5>
-              <input
-                type="text"
-                name="rent"
-                id=""
-                placeholder="Please input here"
-              />
-            </div>
-          </div>
-          <span className="divider1"></span>
-          <div className="input-grp grp2">
-            <div className="input-number">
-              <h5>Phone Number</h5>
-              <input
-                type="text"
-                name="number"
-                id=""
-                placeholder="Please input here"
-              />
-            </div>
-            <div className="input-gender">
-              <h5>Gender of RoomMate</h5>
-              <div className="buttons">
-                <button>Male</button>
-                <button>FeMale</button>
+            <span className="divider1"></span>
+            <div className="input-grp grp2">
+              <div className="input-type">
+                <h5>Property type</h5>
+                <select name="property-type" className="select-type">
+                  <option value="Flat">Flat</option>
+                  <option value="PG">PG</option>
+                  <option value="Apartment">Apartment</option>
+                </select>
+              </div>
+              <div className="input-number">
+                <h5>Phone Number</h5>
+                <input
+                  type="text"
+                  name="number"
+                  id=""
+                  placeholder="Please input here"
+                />
+              </div>
+              <div className="input-gender">
+                <h5>Gender of RoomMate</h5>
+                <select
+                  name="gender"
+                  style={{ width: "100%", height: "2.2rem" }}
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
               </div>
             </div>
           </div>
-        </div>
+        </form>
 
         <h2 className="addHeading">Select available Amenties</h2>
-        <Amenties />
+        <Amenties selectable={true} setAmenties={setAmenties}/>
         <div className="imageupload">
           <img className="camera2" src={Camera2} alt="Camera2" />
           <Button className="uploadbutton">
@@ -91,7 +117,7 @@ const AddRoom = () => {
         <h2 className="addHeading">
           Preferences for Room Partner(select 3 atleast)
         </h2>
-        <PreferenceGrid />
+        <PreferenceGrid selectable={true} setPreferences={setPreferences}/>
         <Button className="submitbutton">Submit</Button>
       </div>
       <Footer />
