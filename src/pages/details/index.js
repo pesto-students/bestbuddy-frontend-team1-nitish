@@ -18,7 +18,10 @@ import "./index.scss";
 import MoreDetails from "./MoreDetails";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
-import { deleteProperty, fetchPropertyById } from "../../store/slice/property/propertySlice";
+import {
+  deleteProperty,
+  fetchPropertyById,
+} from "../../store/slice/property/propertySlice";
 
 // To be removed after API Integration
 const moreDetailsPara = `
@@ -35,6 +38,8 @@ const PropertyDetails = () => {
     }
   }, [id]);
 
+  console.log(propertyDetails);
+
   return (
     <>
       {/* Navbar */}
@@ -44,7 +49,7 @@ const PropertyDetails = () => {
           <Container className="property-details-topbar-container">
             <Row>
               <Col className="mt-2 property-details-breadcrumb-item">
-                Home / PG / Details
+                Home / {propertyDetails?.category} / Details
               </Col>
               <Col>
                 <h1 style={{ color: "#152C5B" }}>{propertyDetails?.name}</h1>
@@ -91,9 +96,13 @@ const PropertyDetails = () => {
           {/* Details Para */}
           <MoreDetails data={moreDetailsPara} />
 
-          <Button onClick={() => {
-            dispatch(deleteProperty(id));
-          }}>Delete Me </Button>
+          <Button className="deleteButton"
+            onClick={() => {
+              dispatch(deleteProperty(id));
+            }}
+          >
+            Delete Me
+          </Button>
 
           {/* Footer  */}
           <Footer />

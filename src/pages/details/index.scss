@@ -16,7 +16,7 @@
   font-size: 1em;
 }
 .location-text {
-  color: #0e2b66;
+  color: #152c5b;
 }
 .property-details-owner-name {
   color: #152c5b;
@@ -44,10 +44,11 @@
 }
 .owner-details-contact-col {
   background-color: #3252df;
-  padding: 0.75em 2.5em 0.75em 0.75em;
+  padding: 1em 0 1em 2em;
   color: white;
   cursor: pointer;
   width: 10em;
+  border-radius: 0.5em;
 }
 .owner-habits-row {
   gap: 3em;
@@ -80,6 +81,8 @@
   margin-top: 0.5em;
   color: #706d6d;
   font-size: 1em;
+}
+.deleteButton {
 }
 
 @media (max-width: 767.98px) {

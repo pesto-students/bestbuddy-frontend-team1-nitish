@@ -24,7 +24,7 @@ const Category = () => {
       <Navbar />
       <div className="content-container">
         <div className="top-bar">
-          <Breadcrumbs />
+          <Breadcrumbs title="Flats" />
           <input
             className="top-bar-search"
             type="search"

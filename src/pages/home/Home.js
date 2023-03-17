@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import TopPicks from "../../components/Toppicks/TopPicks";
 import Slider from "../../components/shared/Slider/Slider";
 import Footer from "../../components/Footer/Footer";

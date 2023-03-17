@@ -14,6 +14,11 @@
   filter: invert(90%);
 }
 
+
+.amenties .grid .true{
+  filter: invert(90%);
+}
+
 @media (max-width: 1024px) {
   .grid {
     display: grid;
