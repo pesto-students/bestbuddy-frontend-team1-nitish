@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Amenties.scss";
 
 import AirConditioner from "../../assets/amenties/AirConditioner.svg";
@@ -12,21 +12,34 @@ import Refrigerator from "../../assets/amenties/Refrigerator.svg";
 import TV from "../../assets/amenties/TV.svg";
 import Wifi from "../../assets/amenties/Wifi.svg";
 
-const Amenties = ({ titleColor = "", data = [] }) => {
+const Amenties = () => {
+  const data = [
+    { src: AirConditioner, alt: "AirConditioner" },
+    { src: Bath, alt: "Bath" },
+    { src: Bed, alt: "Bed" },
+    { src: DiningRoom, alt: "DiningRoom" },
+    { src: Kitchen, alt: "Kitchen" },
+    { src: LivingRoom, alt: "LivingRoom" },
+    { src: Parking, alt: "Parking" },
+    { src: Refrigerator, alt: "Refrigerator" },
+    { src: TV, alt: "TV" },
+    { src: Wifi, alt: "Wifi" },
+  ];
+
+  // const [active, setActive] = useState(false);
+  // console.log(active);
   return (
     <div className="amenties">
-      {/* <h3 style={titleColor ? { color: titleColor } : {}}> Amenties</h3> */}
       <div className="grid">
-        <img src={AirConditioner} alt="AirConditioner" />
-        <img src={Bath} alt="Bath" />
-        <img src={Bed} alt="Bed" />
-        <img src={DiningRoom} alt="DiningRoom" />
-        <img src={Kitchen} alt="Kitchen" />
-        <img src={LivingRoom} alt="LivingRoom" />
-        <img src={Parking} alt="Parking" />
-        <img src={Refrigerator} alt="Refrigerator" />
-        <img src={TV} alt="TV" />
-        <img src={Wifi} alt="Wifi" />
+        {data.map((item) => (
+          <img
+            src={item.src}
+            alt={item.alt}
+            key={item.src}
+            // onClick={() => setActive(!active)}
+            // className={`${active === item && "active"}`}
+          />
+        ))}
       </div>
     </div>
   );
