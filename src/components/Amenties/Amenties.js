@@ -55,7 +55,8 @@ const Amenties = ({ selectable = false, setAmenties = () => {} }) => {
   useEffect(() => {
     if (selectable && renderData) {
       const selectedAmenties = renderData?.filter((item) => item?.selected);
-      setAmenties(selectedAmenties);
+      const mappedData = selectedAmenties?.map((item) => item?.title);
+      setAmenties(mappedData);
     }
   }, [renderData]);
 
@@ -73,16 +74,15 @@ const Amenties = ({ selectable = false, setAmenties = () => {} }) => {
     <div className="amenties">
       <div className="grid">
         {renderData?.map((item) => (
-          <div style={selectable && { position: "relative", cursor: "pointer" }} key={item?.id}
-          onClick={() => selectable && handleSelectAmenties(item)}>
+          <div
+            style={selectable && { position: "relative", cursor: "pointer" }}
+            key={item?.id}
+            onClick={() => selectable && handleSelectAmenties(item)}
+          >
             {selectable && item?.selected && (
               <AiOutlineCheckSquare className="selected-icon" />
             )}
-            <img
-              src={item.src}
-              alt={item.alt}
-              key={item.src}
-            />
+            <img src={item.src} alt={item.alt} key={item.src} />
           </div>
         ))}
       </div>

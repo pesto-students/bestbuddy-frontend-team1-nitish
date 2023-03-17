@@ -106,8 +106,9 @@ const PreferenceGrid = ({ selectable = false, setPreferences = () => {} }) => {
 
   useEffect(() => {
     if (selectable && renderData) {
-      const selectedAmenties = renderData?.filter((item) => item?.selected);
-      setPreferences(selectedAmenties);
+      const selectedPreferences = renderData?.filter((item) => item?.selected);
+      const mappedData = selectedPreferences?.map((item) => item?.title);
+      setPreferences(mappedData);
     }
   }, [renderData]);
 

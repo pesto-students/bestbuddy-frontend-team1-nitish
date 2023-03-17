@@ -40,6 +40,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 80vh;
 }
 
 .camera2 {
@@ -132,11 +133,19 @@
   height: 6rem;
   border: 1px solid rgb(204, 200, 200);
 }
-.input-type{
+.input-type {
   margin-left: -30%;
   margin-bottom: 1rem;
 }
-.select-type{
+.select-type {
   width: 150%;
   height: 2.2rem;
+}
+.img-container {
+  width: 80%;
+  gap: 2%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
 }
