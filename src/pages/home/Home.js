@@ -28,10 +28,10 @@ const Home = () => {
       {/* <Link to={"/details/1"}>Details</Link> */}
       <div className="container">
         <TopPicks />
-        <Slider properties={properties} />
-        {/* <Slider title="Flats"/>
-        <Slider title="Apartment"/>
-        <Slider title="Residency"/> */}
+        <Slider properties={properties} title="All Properties" />
+        <Slider title="Flat" />
+        <Slider title="PG" />
+        <Slider title="Apartment" />
       </div>
       <Footer />
     </div>

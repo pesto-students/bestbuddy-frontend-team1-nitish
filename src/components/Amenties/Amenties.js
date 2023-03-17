@@ -37,7 +37,7 @@ const Amenties = () => {
             alt={item.alt}
             key={item.src}
             // onClick={() => setActive(!active)}
-            // className={`${active === item && "active"}`}
+            // className={`${active == item && "active"}`}
           />
         ))}
       </div>

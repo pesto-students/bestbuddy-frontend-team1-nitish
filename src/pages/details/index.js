@@ -38,7 +38,7 @@ const PropertyDetails = () => {
     }
   }, [id]);
 
-  console.log(propertyDetails);
+  // console.log(propertyDetails);
 
   return (
     <>
@@ -96,7 +96,8 @@ const PropertyDetails = () => {
           {/* Details Para */}
           <MoreDetails data={moreDetailsPara} />
 
-          <Button className="deleteButton"
+          <Button
+            className="deleteButton"
             onClick={() => {
               dispatch(deleteProperty(id));
             }}

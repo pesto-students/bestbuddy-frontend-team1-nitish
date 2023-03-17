@@ -26,11 +26,12 @@ export const fetchAllProperties = createAsyncThunk(
 
 export const fetchPropertiesByCategory = createAsyncThunk(
   "property/fetchPropertiesByCategory",
-  async () => {
+  async (category) => {
     try {
       const response = await bestBuddyAxios({
         method: "GET",
-        url: GET_PROPERTYBYCATEGORY,
+        // url: GET_PROPERTYBYCATEGORY,
+        url: `${GET_PROPERTYBYCATEGORY}/${category}`,
       });
 
       return response;

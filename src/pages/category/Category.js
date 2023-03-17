@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import { useParams } from "react-router-dom";
 import "./Category.scss";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
@@ -10,9 +10,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Category = () => {
   const dispatch = useDispatch();
+  const { categoryname = "" } = useParams();
 
   useEffect(() => {
-    dispatch(fetchPropertiesByCategory());
+    dispatch(fetchPropertiesByCategory(categoryname));
   }, []);
 
   const properties = useSelector(
@@ -24,7 +25,7 @@ const Category = () => {
       <Navbar />
       <div className="content-container">
         <div className="top-bar">
-          <Breadcrumbs title="Flats" />
+          <Breadcrumbs title={categoryname} />
           <input
             className="top-bar-search"
             type="search"
