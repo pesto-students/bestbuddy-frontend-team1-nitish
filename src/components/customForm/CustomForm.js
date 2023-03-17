@@ -64,6 +64,7 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
               type={item.type}
               placeholder={item.placeholder}
               name={item.name}
+              defaultValue={item?.defaultValue || ''}
               {...register(item.name, {
                 required: item.errorMessage,
                 pattern: {

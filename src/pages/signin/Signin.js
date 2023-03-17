@@ -8,11 +8,12 @@ import Logo from "./../../assets/Logo.svg";
 import TopCircles from "./../../assets/Top-Circles.svg";
 import BottomMountains from "./../../assets/Bottom-Mountains.svg";
 
-const formFeild = [
+const formField = [
   {
     id: 1,
     label: "Email",
     name: "email",
+    defaultValue: "demo@gmail.com",
     type: "text",
     placeholder: "Enter your registered email",
     errorMessage: "Email is required.",
@@ -26,6 +27,7 @@ const formFeild = [
     label: "Password",
     name: "password",
     type: "password",
+    defaultValue: "Demo@123",
     placeholder: "Enter a password",
     errorMessage: "Password is required.",
     validation: {
@@ -67,7 +69,7 @@ const Signin = () => {
       {/* mobile headers */}
 
       <div className="form-container">
-        <CustomForm title="Sign In" Inputs={formFeild} onSubmit={formSubmit} />
+        <CustomForm title="Sign In" Inputs={formField} onSubmit={formSubmit} />
       </div>
 
       {/* mobile footer */}

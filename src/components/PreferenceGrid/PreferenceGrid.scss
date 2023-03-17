@@ -10,9 +10,17 @@
   margin: 0 0.75rem;
   border-radius: 1rem;
 }
+//To fix later
+// .Preferencegrid .grid img:hover {
+//   filter: invert(90%);
+// }
 
-.Preferencegrid .grid img:hover {
-  filter: invert(90%);
+.selected-icon {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  font-size: 2rem;
+  color: #283e69 !important;
 }
 
 @media (max-width: 1024px) {
