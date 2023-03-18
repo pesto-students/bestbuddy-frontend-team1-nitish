@@ -11,9 +11,18 @@
   border-radius: 1rem;
 }
 //To fix later
-// .Preferencegrid .grid img:hover {
-//   filter: invert(90%);
-// }
+.Preferencegrid .grid img:hover {
+  filter: invert(90%);
+}
+
+.Preferencegrid .grid .selectable {
+  position: relative;
+  cursor: pointer;
+}
+
+.selected {
+  filter: invert(90%);
+}
 
 .selected-icon {
   position: absolute;

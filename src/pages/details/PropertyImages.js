@@ -1,6 +1,6 @@
 import { Col, Container, Image, Row } from "react-bootstrap";
-import mainImages from "../../assets/images/property_main_img.svg";
-import secondaryImage from "../../assets/images/property_secondary_img.svg";
+// import mainImages from "../../assets/images/property_main_img.svg";
+// import secondaryImage from "../../assets/images/property_secondary_img.svg";
 
 const PropertyImages = ({ mainImage = "", secondaryImages = [] }) => {
   return (

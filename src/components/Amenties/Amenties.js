@@ -75,14 +75,14 @@ const Amenties = ({ selectable = false, setAmenties = () => {} }) => {
       <div className="grid">
         {renderData?.map((item) => (
           <div
-            style={selectable && { position: "relative", cursor: "pointer" }}
+            className={selectable && "selectable"}
             key={item?.id}
             onClick={() => selectable && handleSelectAmenties(item)}
           >
-            {selectable && item?.selected && (
+            {/* {selectable && item?.selected && (
               <AiOutlineCheckSquare className="selected-icon" />
-            )}
-            <img src={item.src} alt={item.alt} key={item.src} />
+            )} */}
+            <img className={selectable && item?.selected && "selected"} src={item.src} alt={item.alt} key={item.src} />
           </div>
         ))}
       </div>

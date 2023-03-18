@@ -11,9 +11,18 @@
 }
 
 //to fix later
-// .amenties .grid img:hover {
-//   filter: invert(90%);
-// }
+.amenties .grid img:hover {
+  filter: invert(90%);
+}
+
+.selectable {
+  position: relative;
+  cursor: pointer;
+}
+
+.selected {
+  filter: invert(90%);
+}
 
 .selected-icon {
   position: absolute;
