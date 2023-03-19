@@ -1,20 +1,20 @@
 .slider-container {
-    margin: 40px 0;
+  margin: 40px 0;
 
-    .slick-prev:before,
-    .slick-next:before {
-        color: gray;
-    }
+  .slick-prev:before,
+  .slick-next:before {
+    color: gray;
+  }
 
-    .slider-title {
-        cursor: pointer;
-        font-size: 24px;
-        font-weight: 500;
-        color: #152C5B;
-    }
+  .slider-title {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--darkblue);
+  }
 
-    .show-more {
-        cursor: pointer;
-        text-align: end;
-    }
+  .show-more {
+    cursor: pointer;
+    text-align: end;
+  }
 }

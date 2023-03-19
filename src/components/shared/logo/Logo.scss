@@ -4,15 +4,15 @@
 
 .logo h1 {
   font-size: 32px;
-  color: #3252df;
+  color: var(--lightblue);
   font-weight: 600;
 }
 
 .logo h1 span {
-  color: #152c5b;
+  color: var(--darkblue);
 }
 
-@media(max-width:768px) {
+@media (max-width: 768px) {
   .logo {
     h1 {
       font-size: 26px;
@@ -20,7 +20,7 @@
   }
 }
 
-@media(max-width:550x) {
+@media (max-width: 550x) {
   .logo {
     h1 {
       font-size: 24px;

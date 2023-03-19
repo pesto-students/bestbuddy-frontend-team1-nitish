@@ -16,34 +16,34 @@
   font-size: 1em;
 }
 .location-text {
-  color: #152c5b;
+  color: var(--darkblue);
 }
 .property-details-owner-name {
-  color: #152c5b;
+  color: var(--darkblue);
   font-weight: 700;
   font-size: 3em;
 }
 .property-owner-details {
-  color: #152c5b;
+  color: var(--darkblue);
   font-size: 2em;
   font-weight: 500;
 }
 .owner-details-location {
-  color: #152c5b;
+  color: var(--darkblue);
   font-size: 1em;
 }
 .owner-details-text-row {
   width: 92%;
   margin: auto;
-  color: #152c5b;
+  color: var(--darkblue);
 }
 .owner-details-text {
-  color: #152c5b;
+  color: var(--darkblue);
   font-weight: 500;
   font-size: 1.1em;
 }
 .owner-details-contact-col {
-  background-color: #3252df;
+  background-color: var(--lightblue);
   padding: 1em 0 1em 2em;
   color: white;
   cursor: pointer;
@@ -58,7 +58,7 @@
   background: white;
   min-width: 9em;
   max-width: 9em;
-  color: #ff498b;
+  color: var(--pink);
   padding: 0.75em 0.5em;
   border-radius: 0.5em;
 }
@@ -74,7 +74,7 @@
   padding: 1em 1.5em;
 }
 .property-more-details-header {
-  color: #152c5b;
+  color: var(--darkblue);
   font-weight: 500;
 }
 .property-more-details-para {

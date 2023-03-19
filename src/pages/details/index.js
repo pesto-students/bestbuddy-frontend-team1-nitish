@@ -52,7 +52,9 @@ const PropertyDetails = () => {
                 Home / {propertyDetails?.category} / Details
               </Col>
               <Col>
-                <h1 style={{ color: "#152C5B" }}>{propertyDetails?.name}</h1>
+                <h1 style={{ color: "var(--darkblue)" }}>
+                  {propertyDetails?.name}
+                </h1>
                 <p className="property-location-details ml-3 mt-3">
                   <Image
                     src={locationIcon}

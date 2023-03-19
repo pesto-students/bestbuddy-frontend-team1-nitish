@@ -6,13 +6,13 @@
   height: 100vh;
 
   .form-title {
-    color: #152c5b;
+    color: var(--darkblue);
     margin-bottom: 2rem;
   }
 
   label {
     display: block;
-    color: #152c5b;
+    color: var(--darkblue);
     font-weight: 400;
     font-size: 1.1rem;
   }
@@ -84,7 +84,7 @@
   width: 320px;
   height: 40px;
   border: none;
-  background: #3252df;
+  background: var(--lightblue);
   color: white;
   border-radius: 4px;
   cursor: pointer;

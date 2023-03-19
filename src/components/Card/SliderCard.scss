@@ -10,22 +10,22 @@
   border-radius: 1rem;
 }
 
-.card2-heading h5{
+.card2-heading h5 {
   width: 100%;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
-  color: #152C5B;
+  color: var(--darkblue);
   text-align: left;
   margin-top: 1rem;
 }
 .card2-heading h6 {
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 23px;
-    text-align: left;
-    color: #B0B0B0;
-    margin-left: 0;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 23px;
+  text-align: left;
+  color: var(--lightgray);
+  margin-left: 0;
 }
 
 .card2 .badge {
@@ -36,7 +36,7 @@
   font-size: 16px;
   font-weight: 300;
   color: #fff;
-  background-color: #ff498b;
+  background-color: var(--pink);
   text-align: center;
   border-radius: 0 0.6rem 0 0.6rem;
 }

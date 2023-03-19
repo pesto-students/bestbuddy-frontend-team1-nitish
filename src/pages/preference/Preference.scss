@@ -1,21 +1,20 @@
-.preferences-container{
-display: flex;
-flex-direction: column;
-align-items: center;
+.preferences-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .preferences-heading {
   text-align: center;
 }
 
-
 .submitbutton {
-  background: #152c5b;
+  background: var(--darkblue);
   color: #fff;
   width: 25vw;
   height: 3rem;
 }
 
 .submitbutton:hover {
-  background: #3252df;
+  background: var(--lightblue);
 }
