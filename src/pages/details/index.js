@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from "react-redux";
 import OwnerDetails from "./OwnerDetails";
 import PropertyImages from "./PropertyImages";
 import locationIcon from "../../assets/images/location_icon.svg";
-import AmentiesDetails from "./AmentiesDetails";
 import "./index.scss";
 import MoreDetails from "./MoreDetails";
 import Footer from "../../components/Footer/Footer";
@@ -22,6 +21,7 @@ import {
   deleteProperty,
   fetchPropertyById,
 } from "../../store/slice/property/propertySlice";
+import Amenties from "../../components/Amenties/Amenties";
 
 // To be removed after API Integration
 const moreDetailsPara = `
@@ -91,7 +91,8 @@ const PropertyDetails = () => {
           />
 
           {/* Amenties */}
-          <AmentiesDetails />
+          <h1>Amenties</h1>
+          <Amenties />
 
           {/* Details Para */}
           <MoreDetails data={moreDetailsPara} />
