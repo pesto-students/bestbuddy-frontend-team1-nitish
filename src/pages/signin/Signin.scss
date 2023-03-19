@@ -18,23 +18,13 @@
     }
   }
 
-  .topcircles {
+  .header-container,
+  .footer-container {
     display: none;
   }
 
   .form-container {
     height: 100vh;
-  }
-
-  .mobile-banner-container,
-  .footer-container {
-    display: none;
-  }
-
-  .best-buddylogo {
-    display: none;
-    text-align: center;
-    margin-top: 25px;
   }
 }
 
@@ -45,42 +35,43 @@
     display: grid;
     grid-template-columns: auto;
 
-    .topcircles {
+    .banner-container {
+      display: none;
+    }
+    .header-container {
       display: block;
+
+      .logomobile {
+        position: absolute;
+        top: 2rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        font-weight: 500;
+        color: var(--lightblue);
+
+        span {
+          color: var(--darkblue);
+        }
+      }
+
+      .mobile-banner-container {
+        margin-top: 25px;
+        text-align: center;
+      }
     }
 
     .form-container {
       height: auto;
     }
 
-    .banner-container {
-      display: none;
-    }
-
-    .mobile-banner-container {
-      margin-top: 25px;
-      text-align: center;
-      display: block;
-    }
-
     .footer-container {
       display: block;
-      position: relative;
+      position: absolute;
+      bottom: -5rem;
 
-      .footer-primary,
-      .footer-secondary {
-        width: 100%;
+      .bottommountains {
+        width: 100vw;
       }
-
-      .footer-primary {
-        position: absolute;
-        bottom: 0;
-      }
-    }
-
-    .best-buddylogo {
-      display: block;
-      text-align: center;
     }
   }
 }
