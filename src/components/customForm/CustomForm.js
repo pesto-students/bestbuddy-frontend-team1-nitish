@@ -64,7 +64,7 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
               type={item.type}
               placeholder={item.placeholder}
               name={item.name}
-              defaultValue={item?.defaultValue || ''}
+              defaultValue={item?.defaultValue || ""}
               {...register(item.name, {
                 required: item.errorMessage,
                 pattern: {
@@ -92,21 +92,23 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
       </section>
       {title === "Sign In" && (
         <section>
-          <button className="btn-form-submit">Login with Google</button>
+          <button className="btn-form-submit">
+            <span className="gicon">G</span>Login with Google
+          </button>
         </section>
       )}
       {title === "Sign In" ? (
         <p>
           Don't have account?{" "}
           <Link to="/signup">
-            <span>Sign Up</span>
+            <span className="spanlink">Sign Up</span>
           </Link>
         </p>
       ) : (
         <p>
           Already have an account ?{" "}
           <Link to="/signin">
-            <span>Sign In</span>
+            <span className="spanlink">Sign In</span>
           </Link>
         </p>
       )}

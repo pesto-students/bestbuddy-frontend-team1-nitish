@@ -3,11 +3,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
 
   .form-title {
     color: var(--darkblue);
-    margin-bottom: 2rem;
+    margin: 2rem 0;
+    font-weight: 600;
+    font-size: 3rem;
+  }
+
+  .spanlink {
+    color: var(--pink);
+    font-weight: 500;
+  }
+
+  .gicon {
+    color: var(--pink);
+    font-weight: 600;
+    font-size: 2rem;
+    position: absolute;
+    top: -0.2rem;
+    left: 2rem;
   }
 
   label {
