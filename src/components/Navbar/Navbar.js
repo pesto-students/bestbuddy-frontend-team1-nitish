@@ -21,11 +21,14 @@ const NavBar = () => {
 
   return (
     <Navbar key="lg" bg="white" expand="lg" className="mb-3 navbar">
-      <Container>
+      <Container className="container">
         <Navbar.Brand>
           <Logo />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="offcanvasNavbarDropdown-expand-lg" />
+        <Navbar.Toggle
+          aria-controls="offcanvasNavbarDropdown-expand-lg"
+          className="burger"
+        />
         <Navbar.Offcanvas
           id="offcanvasNavbarDropdown-expand-lg"
           aria-labelledby="offcanvasNavbarDropdown-expand-lg"

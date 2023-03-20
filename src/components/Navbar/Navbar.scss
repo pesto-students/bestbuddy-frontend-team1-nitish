@@ -1,6 +1,5 @@
 .navbar {
-  border-bottom: 2px solid #e1e6ed;
-
+  border-bottom: 1px solid var(--lightgray);
   a {
     color: var(--darkblue) !important;
     font-weight: 500;
@@ -11,6 +10,10 @@
     color: var(--lightblue) !important;
   }
 
+  .container {
+    display: flex;
+  }
+
   .profile-name {
     color: var(--lightblue);
     padding: 10px 15px 0 10px;
@@ -19,7 +22,7 @@
 
   .not-loggedIn {
     a:not(:last-child) {
-      border-right: 2px solid #e1e6ed;
+      border-right: 1px solid var(--lightgray);
     }
   }
 }
@@ -29,7 +32,7 @@
     padding: 0;
 
     a {
-      border-bottom: 2px solid var(--darkblue);
+      border-bottom: 1px solid var(--darkblue);
       font-size: 18px;
       color: var(--darkblue) !important;
       font-weight: 500;
@@ -46,6 +49,22 @@
     .dropdown-menu {
       margin: 0;
       padding: 0;
+    }
+  }
+}
+
+// Small devices
+@media (max-width: 576px) {
+  .navbar {
+    border-bottom: none;
+
+    .container {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .burger {
+      margin-left: 1rem;
     }
   }
 }
