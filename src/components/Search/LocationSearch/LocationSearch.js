@@ -1,5 +1,5 @@
 import React from "react";
-import "./Location.css";
+import "./Location.scss";
 import icon from "../../../assets/icon.svg";
 
 const LocationSearch = () => {
