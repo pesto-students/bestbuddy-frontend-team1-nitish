@@ -29,7 +29,9 @@ const NavBar = () => {
         <Navbar.Toggle
           aria-controls="offcanvasNavbarDropdown-expand-lg"
           className="burger"
-        />
+        >
+          <Hamburger />
+        </Navbar.Toggle>
         <Navbar.Offcanvas
           id="offcanvasNavbarDropdown-expand-lg"
           aria-labelledby="offcanvasNavbarDropdown-expand-lg"
@@ -61,10 +63,6 @@ const NavBar = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
                 </NavDropdown>
-
-                {/* Hamburger */}
-                <Hamburger />
-                {/* Hamburger */}
               </Nav>
             </Offcanvas.Body>
           ) : (
