@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Logo from "../shared/logo/Logo";
 import "./Navbar.scss";
+import Hamburger from "./Hamburger";
 import { Link } from "react-router-dom";
 import { signOut } from "../../store/slice/users/userSlice";
 
@@ -60,6 +61,10 @@ const NavBar = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
                 </NavDropdown>
+
+                {/* Hamburger */}
+                <Hamburger />
+                {/* Hamburger */}
               </Nav>
             </Offcanvas.Body>
           ) : (
