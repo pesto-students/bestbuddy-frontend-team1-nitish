@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import "./Signin.scss";
@@ -39,9 +39,11 @@ const formField = [
 
 const Signin = () => {
   const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
 
   const formSubmit = (data) => {
     dispatch(signIn(data));
+    setEmail(data.email);
   };
 
   return (

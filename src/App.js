@@ -7,6 +7,8 @@ import jwt_decode from "jwt-decode";
 import Routers from "./Routers";
 import "./App.scss";
 import { setAuthenticated } from "./store/slice/users/userSlice";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
@@ -33,7 +35,12 @@ function App() {
     checkAuthentication();
   }, [isAuthenticated]);
 
-  return <div className="App">{useRoutes(Routers(isAuthenticated))}</div>;
+  return (
+    <div className="App">
+      {useRoutes(Routers(isAuthenticated))}
+      <ToastContainer />
+    </div>
+  );
 }
 
 export default App;

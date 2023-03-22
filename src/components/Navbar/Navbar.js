@@ -10,15 +10,19 @@ import "./Navbar.scss";
 import Hamburger from "./Hamburger";
 import { Link } from "react-router-dom";
 import { signOut } from "../../store/slice/users/userSlice";
+import { toast } from "react-toastify";
 
 const NavBar = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
+  const username = useSelector((state) => state.user.userInfo.name);
   const dispatch = useDispatch();
   const token = localStorage.getItem("access-token");
 
   const logOut = () => {
     dispatch(signOut({ token }));
+    toast("Logging you out...");
   };
+
 
   return (
     <Navbar key="lg" bg="white" expand="lg" className="mb-3 navbar">
@@ -53,7 +57,7 @@ const NavBar = () => {
                   id="offcanvasNavbarDropdown-expand-lg"
                 >
                   <h5 className="profile-name">
-                    Hi Mohamed! {isAuthenticated}
+                    Hi {username}! {isAuthenticated}
                   </h5>
                   <Link to="/profile">My profile</Link>
                   <NavDropdown.Divider />

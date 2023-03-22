@@ -96,7 +96,7 @@ const userSlice = createSlice({
     },
     [signIn.pending]: () => {},
     [signIn.fulfilled]: (state, { payload }) => {
-      console.log(payload);
+      // console.log(payload);
       localStorage.setItem("access-token", payload.data.token);
       window.location.href = "/";
       return {
