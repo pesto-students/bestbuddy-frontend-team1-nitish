@@ -109,12 +109,12 @@ const propertySlice = createSlice({
       return { ...state, allProperties: payload.data.data };
     },
     [fetchAllProperties.rejected]: (state, { error }) => {
-      // return { ...state,  message: error.message };
+      return { ...state,  message: error.message };
     },
 
     [fetchPropertiesByCategory.pending]: () => {},
     [fetchPropertiesByCategory.fulfilled]: (state, { payload }) => {
-      console.log(payload.data.data);
+      // console.log(payload.data.data);
       return { ...state, propertiesBycategory: payload.data.data };
     },
     [fetchPropertiesByCategory.rejected]: (state, { error }) => {

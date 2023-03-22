@@ -6,6 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import LocationSearch from "./../../components/Search/LocationSearch/LocationSearch";
 import { fetchAllProperties } from "../../store/slice/property/propertySlice";
+import { userInfo } from "../../store/slice/users/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchAllProperties());
+    dispatch(userInfo("demo@gmail.com"));
   }, []);
 
   // useEffect(() => {
@@ -27,7 +29,7 @@ const Home = () => {
     (property) => property.category === "Apartment"
   );
   const toppicks = properties.filter((property) => property.city === "Delhi");
-  console.log(flats, pgs, apartments);
+  // console.log(flats, pgs, apartments);
 
   return (
     <div>
