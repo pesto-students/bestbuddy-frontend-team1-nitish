@@ -49,7 +49,7 @@ const OwnerDetails = ({ preferences = [], ownerData = {} }) => {
         </Row>
         {/* Preferences of owner */}
         <Row className="mt-5 owner-details-text-row owner-habits-row">
-          <h4>Preferences</h4>
+          <h2 className="head">Preferences</h2>
           {preferences?.map((item, index) => (
             <Col className="owner-habits-container" key={`${index}-${item}`}>
               {item}

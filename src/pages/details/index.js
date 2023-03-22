@@ -42,11 +42,10 @@ const PropertyDetails = () => {
 
   return (
     <>
-      {/* Navbar */}
       <NavBar />
       {Object?.keys(propertyDetails)?.length > 0 && (
-        <Container fluid>
-          <Container className="property-details-topbar-container">
+        <div className="detailspage">
+          <div className="property-details-topbar-container">
             <Row>
               <Col className="mt-2 property-details-breadcrumb-item">
                 Home / {propertyDetails?.category} / Details
@@ -63,7 +62,6 @@ const PropertyDetails = () => {
                     height={25}
                   />
                   <span className="ml-3 location-text">
-                    {" "}
                     {propertyDetails?.city}, India
                   </span>
                 </p>
@@ -79,7 +77,7 @@ const PropertyDetails = () => {
                 </InputGroup>
               </Col>
             </Row>
-          </Container>
+          </div>
           {/* Property Images Section */}
           <PropertyImages
             mainImage={propertyDetails?.image[0]}
@@ -93,7 +91,7 @@ const PropertyDetails = () => {
           />
 
           {/* Amenties */}
-          <h1>Amenties</h1>
+          <h1 className="head">Amenties</h1>
           <Amenties />
 
           {/* Details Para */}
@@ -107,11 +105,10 @@ const PropertyDetails = () => {
           >
             Delete Me
           </Button>
-
-          {/* Footer  */}
-          <Footer />
-        </Container>
+        </div>
       )}
+      {/* Footer  */}
+      <Footer />
     </>
   );
 };
