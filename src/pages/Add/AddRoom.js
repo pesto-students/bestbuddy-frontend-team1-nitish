@@ -11,7 +11,10 @@ import { Button } from "react-bootstrap";
 import Camera2 from "../../assets/Camera2.svg";
 import { getFormValues, uploaderTexts } from "../../utils/formFieldHelpers";
 import "./AddRoom.scss";
-import { addProperty, setMessage } from "../../store/slice/property/propertySlice";
+import {
+  addProperty,
+  setMessage,
+} from "../../store/slice/property/propertySlice";
 
 const uploader = Uploader({ apiKey: process.env.REACT_APP_UPLOADER_KEY });
 const uploaderOptions = {
@@ -37,7 +40,9 @@ const AddRoom = () => {
   const [images, setImages] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const addedPropertyStatus = useSelector((state) => state?.property?.addedPropertyStatus);
+  const addedPropertyStatus = useSelector(
+    (state) => state?.property?.addedPropertyStatus
+  );
   const handleSubmit = (e) => {
     e?.preventDefault();
     if (images?.length === 0) {
@@ -58,10 +63,9 @@ const AddRoom = () => {
     };
     dispatch(addProperty(payload));
     setTimeout(() => {
-      alert('Property added successfully!');
+      alert("Property added successfully!");
       navigate(`/`);
     }, 3000);
-
   };
   return (
     <>
@@ -73,7 +77,7 @@ const AddRoom = () => {
 
           <div className="inputs-grpstop">
             <div className="input-grp grp1">
-              <div className="input-location">
+              <div className="input-propertyname">
                 <h5>Property name</h5>
                 <input
                   type="text"
@@ -101,7 +105,7 @@ const AddRoom = () => {
             <div className="input-grp grp2">
               <div className="input-type">
                 <h5>Property type</h5>
-                <select name="property-type" className="select-type">
+                <select name="property-type" className="select">
                   <option value="Flat">Flat</option>
                   <option value="PG">PG</option>
                   <option value="Apartment">Apartment</option>
@@ -120,10 +124,7 @@ const AddRoom = () => {
               </div>
               <div className="input-gender">
                 <h5>Gender of RoomMate</h5>
-                <select
-                  name="gender"
-                  style={{ width: "100%", height: "2.2rem" }}
-                >
+                <select name="gender" className="select">
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
@@ -185,10 +186,7 @@ const AddRoom = () => {
             <div className="input-occupancy">
               <h5>Current Occupancy of Room</h5>
               <div className="buttons">
-                <select
-                  name="occupancy"
-                  style={{ width: "150%", height: "2.2rem" }}
-                >
+                <select name="occupancy" className="select">
                   <option value="single">Single</option>
                   <option value="double">Shared(2)</option>
                   <option value="tripple">Shared(3)</option>
