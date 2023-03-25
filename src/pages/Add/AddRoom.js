@@ -1,38 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Uploader } from "uploader";
-import { UploadButton } from "react-uploader";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Amenties from "./../../components/Amenties/Amenties";
 import PreferenceGrid from "./../../components/PreferenceGrid/PreferenceGrid";
 import { Button } from "react-bootstrap";
-import Camera2 from "../../assets/Camera2.svg";
 import { getFormValues, uploaderTexts } from "../../utils/formFieldHelpers";
 import "./AddRoom.scss";
 import {
   addProperty,
   setMessage,
 } from "../../store/slice/property/propertySlice";
-
-const uploader = Uploader({ apiKey: process.env.REACT_APP_UPLOADER_KEY });
-const uploaderOptions = {
-  multi: true,
-  maxFileCount: 10,
-  mimeTypes: ["image/jpeg"],
-  editor: {
-    images: {
-      crop: false,
-    },
-  },
-  locale: uploaderTexts,
-  styles: {
-    colors: {
-      primary: "#283e69",
-    },
-  },
-};
+import { toast } from "react-toastify";
+import ImageUploader from "../../components/ImageUploader/ImageUploader";
 
 const AddRoom = () => {
   const [amenties, setAmenties] = useState([]);
@@ -67,6 +48,11 @@ const AddRoom = () => {
       navigate(`/`);
     }, 3000);
   };
+
+  useEffect(() => {
+    toast(addedPropertyStatus);
+  }, [addedPropertyStatus]);
+
   return (
     <>
       <NavBar />
@@ -134,40 +120,8 @@ const AddRoom = () => {
 
           <h2 className="addHeading">Select available Amenties</h2>
           <Amenties selectable={true} setAmenties={setAmenties} />
-          <div className="imageupload">
-            {images?.length > 0 ? (
-              <div className="img-container">
-                {images?.map((item, index) => (
-                  <img
-                    key={`${item}--${index}`}
-                    src={item?.fileUrl}
-                    alt="img-uploaded"
-                    width={200}
-                    height={160}
-                    style={{ marginBottom: "0.8rem" }}
-                  />
-                ))}
-              </div>
-            ) : (
-              <>
-                <img className="camera2" src={Camera2} alt="Camera2" />
-                <UploadButton
-                  uploader={uploader}
-                  options={uploaderOptions}
-                  onComplete={setImages}
-                >
-                  {({ onClick }) => (
-                    <Button className="uploadbutton" onClick={onClick}>
-                      Click Here to upload images
-                    </Button>
-                  )}
-                </UploadButton>
-                <p className="uploadp">
-                  Images should be in JPG/JPEG format (Max 10 images allowed)
-                </p>
-              </>
-            )}
-          </div>
+
+          <ImageUploader />
 
           <div className="input-grp grp3">
             <div className="input-availability">
