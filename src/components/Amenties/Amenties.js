@@ -82,7 +82,12 @@ const Amenties = ({ selectable = false, setAmenties = () => {} }) => {
             {/* {selectable && item?.selected && (
               <AiOutlineCheckSquare className="selected-icon" />
             )} */}
-            <img className={selectable && item?.selected && "selected"} src={item.src} alt={item.alt} key={item.src} />
+            <img
+              className={selectable && item?.selected && "selected"}
+              src={item.src}
+              alt={item.alt}
+              key={item.src}
+            />
           </div>
         ))}
       </div>

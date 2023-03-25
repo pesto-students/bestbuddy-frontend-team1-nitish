@@ -32,16 +32,17 @@ const AddRoom = () => {
     if (preferences?.length < 3) {
       return alert(`Please select atleast 3 preferences`);
     }
-    const mappedImages = images?.map((item) => item?.fileUrl);
+
     const formElements = document.querySelector("#property-form");
     const formValues = getFormValues(formElements);
     const payload = {
       ...formValues,
       amenties,
       perfrences: preferences,
-      image: mappedImages,
+      image: images,
       details: "",
     };
+    console.log("payload",payload);
     dispatch(addProperty(payload));
     setTimeout(() => {
       alert("Property added successfully!");
@@ -49,9 +50,9 @@ const AddRoom = () => {
     }, 3000);
   };
 
-  useEffect(() => {
-    toast(addedPropertyStatus);
-  }, [addedPropertyStatus]);
+  console.log("images", images);
+  console.log(addedPropertyStatus);
+  
 
   return (
     <>
@@ -121,7 +122,7 @@ const AddRoom = () => {
           <h2 className="addHeading">Select available Amenties</h2>
           <Amenties selectable={true} setAmenties={setAmenties} />
 
-          <ImageUploader />
+          <ImageUploader setImages={setImages} />
 
           <div className="input-grp grp3">
             <div className="input-availability">

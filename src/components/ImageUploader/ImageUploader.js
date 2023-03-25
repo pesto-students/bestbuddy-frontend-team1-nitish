@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import Camera2 from "../../assets/Camera2.svg";
 import { Button } from "react-bootstrap";
 import "./ImageUploader.scss";
 
-const ImageUploader = () => {
+const ImageUploader = ({ setImages = () => {} }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [uploadedImages, setUploadedImages] = useState([]);
 
@@ -15,7 +15,7 @@ const ImageUploader = () => {
 
   const handleFileUpload = async (e) => {
     e.preventDefault();
-    console.log("Selected Files", selectedFiles);
+    // console.log("Selected Files", selectedFiles);
 
     for (let i = 0; i < selectedFiles.length; i++) {
       const file = selectedFiles[i];
@@ -35,6 +35,11 @@ const ImageUploader = () => {
     }
   };
   console.log("Uploaded files", uploadedImages);
+  useEffect(() => {
+    // console.log("Uploaded files", uploadedImages);
+    setImages(uploadedImages);
+  }, [uploadedImages]);
+
   return (
     <>
       <div className="imageupload">
