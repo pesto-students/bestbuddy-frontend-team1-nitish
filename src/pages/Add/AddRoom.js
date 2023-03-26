@@ -10,7 +10,8 @@ import { getFormValues, uploaderTexts } from "../../utils/formFieldHelpers";
 import "./AddRoom.scss";
 import {
   addProperty,
-  setMessage,
+  setMessageEmpty,
+  setAddedPropertyStatusFalse,
 } from "../../store/slice/property/propertySlice";
 import { toast } from "react-toastify";
 import ImageUploader from "../../components/ImageUploader/ImageUploader";
@@ -21,9 +22,8 @@ const AddRoom = () => {
   const [images, setImages] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const addedPropertyStatus = useSelector(
-    (state) => state?.property?.addedPropertyStatus
-  );
+  const message = useSelector((state) => state?.property?.message);
+
   const handleSubmit = (e) => {
     e?.preventDefault();
     if (images?.length === 0) {
@@ -44,13 +44,10 @@ const AddRoom = () => {
     };
     dispatch(addProperty(payload));
     setTimeout(() => {
-     toast("Property added successfully!");
-      navigate(`/`);
+      toast("property added successfully");
+      navigate(`/addroom`);
     }, 3000);
   };
-
-  // console.log("images", images);
-  // console.log(addedPropertyStatus);
 
   return (
     <>
