@@ -10,7 +10,6 @@ import "./Navbar.scss";
 import Hamburger from "./Hamburger";
 import { Link } from "react-router-dom";
 import { signOut } from "../../store/slice/users/userSlice";
-import { toast } from "react-toastify";
 
 const NavBar = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -20,9 +19,7 @@ const NavBar = () => {
 
   const logOut = () => {
     dispatch(signOut({ token }));
-    toast("Logging you out...");
   };
-
 
   return (
     <Navbar key="lg" bg="white" expand="lg" className="mb-3 navbar">

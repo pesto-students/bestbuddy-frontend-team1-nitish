@@ -15,7 +15,7 @@ const ImageUploader = ({ setImages = () => {} }) => {
 
   const handleFileUpload = async (e) => {
     e.preventDefault();
-   
+
     for (let i = 0; i < selectedFiles.length; i++) {
       const file = selectedFiles[i];
       const publicId = uuidv4();
@@ -32,6 +32,7 @@ const ImageUploader = ({ setImages = () => {} }) => {
       setUploadedImages((prev) => [...prev, url]);
     }
   };
+
   useEffect(() => {
     setImages(uploadedImages);
   }, [uploadedImages]);

@@ -17,19 +17,21 @@ const SlickSlider = ({ properties, title }) => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 991,
+        breakpoint: 992,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 3,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
+          initialSlide: 0,
         },
       },
       {
-        breakpoint: 450,
+        breakpoint: 576,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
     ],

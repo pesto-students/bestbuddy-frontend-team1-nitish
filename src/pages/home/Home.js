@@ -19,17 +19,12 @@ const Home = () => {
     dispatch(userInfo("demo@gmail.com"));
   }, []);
 
-  // useEffect(() => {
-  //   console.log(properties);
-  // }, [properties]);
-
   const flats = properties.filter((property) => property.category === "Flat");
   const pgs = properties.filter((property) => property.category === "PG");
   const apartments = properties.filter(
     (property) => property.category === "Apartment"
   );
   const toppicks = properties.filter((property) => property.city === "Delhi");
-  // console.log(flats, pgs, apartments);
 
   return (
     <div>

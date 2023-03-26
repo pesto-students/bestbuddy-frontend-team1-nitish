@@ -13,6 +13,7 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
     formState: { errors },
   } = useForm();
   const { message, status } = useSelector((state) => state.user);
+  const isLoading = useSelector((state) => state.user.isLoading);
   const dispatch = useDispatch();
 
   const formSubmit = (data) => {
@@ -20,13 +21,6 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
     setTimeout(() => {
       dispatch(setMessage());
     }, 5000);
-  };
-
-  const [isActive, setIsActive] = useState(false);
-
-  const handleClick = (event) => {
-    // 👇️ toggle isActive state on click
-    setIsActive((current) => !current);
   };
 
   return (
@@ -83,9 +77,8 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
         <button
           type="submit"
           className={
-            isActive ? "btn-form-submit activeLoading" : "btn-form-submit"
+            isLoading ? "btn-form-submit activeLoading" : "btn-form-submit"
           }
-          onClick={handleClick}
         >
           {title} <span className="load loading"></span>
         </button>

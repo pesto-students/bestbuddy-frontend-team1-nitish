@@ -104,7 +104,6 @@ const propertySlice = createSlice({
   extraReducers: {
     [fetchAllProperties.pending]: () => {},
     [fetchAllProperties.fulfilled]: (state, { payload }) => {
-      // console.log(payload.data.data);
       return { ...state, allProperties: payload.data.data };
     },
     [fetchAllProperties.rejected]: (state, { error }) => {
@@ -113,7 +112,6 @@ const propertySlice = createSlice({
 
     [fetchPropertiesByCategory.pending]: () => {},
     [fetchPropertiesByCategory.fulfilled]: (state, { payload }) => {
-      // console.log(payload.data.data);
       return { ...state, propertiesBycategory: payload.data.data };
     },
     [fetchPropertiesByCategory.rejected]: (state, { error }) => {
