@@ -15,8 +15,7 @@ const ImageUploader = ({ setImages = () => {} }) => {
 
   const handleFileUpload = async (e) => {
     e.preventDefault();
-    // console.log("Selected Files", selectedFiles);
-
+   
     for (let i = 0; i < selectedFiles.length; i++) {
       const file = selectedFiles[i];
       const publicId = uuidv4();
@@ -30,13 +29,10 @@ const ImageUploader = ({ setImages = () => {} }) => {
         formData
       );
       const url = await response.data.secure_url.toString();
-      // console.log("url", url);
       setUploadedImages((prev) => [...prev, url]);
     }
   };
-  console.log("Uploaded files", uploadedImages);
   useEffect(() => {
-    // console.log("Uploaded files", uploadedImages);
     setImages(uploadedImages);
   }, [uploadedImages]);
 

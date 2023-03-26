@@ -126,7 +126,7 @@ const PreferenceGrid = ({ selectable = false, setPreferences = () => {} }) => {
       <div className="grid">
         {renderData?.map((item) => (
           <div
-            className={selectable && "selectable"}
+            className={selectable ? "selectable" : ""}
             key={item?.id}
             onClick={() => selectable && handleSelectPreferences(item)}
           >
@@ -134,7 +134,7 @@ const PreferenceGrid = ({ selectable = false, setPreferences = () => {} }) => {
               <AiOutlineCheckSquare className="selected-icon" />
             )}
             <img
-              className={selectable && item?.selected && "selected"}
+              className={selectable && item?.selected ? "selected" : ""}
               src={item?.src}
               alt={item?.alt}
             />

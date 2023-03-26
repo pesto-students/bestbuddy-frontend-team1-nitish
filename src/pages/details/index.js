@@ -8,7 +8,7 @@ import {
   Image,
   Button,
 } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import OwnerDetails from "./OwnerDetails";
 import PropertyImages from "./PropertyImages";
@@ -22,6 +22,7 @@ import {
   fetchPropertyById,
 } from "../../store/slice/property/propertySlice";
 import Amenties from "../../components/Amenties/Amenties";
+import { toast } from "react-toastify";
 
 // To be removed after API Integration
 const moreDetailsPara = `
@@ -30,6 +31,7 @@ Design is a plan or specification for the construction of an object or system or
 const PropertyDetails = () => {
   const dispatch = useDispatch();
   const { id = "" } = useParams();
+  const navigate = useNavigate();
   const propertyDetails = useSelector((state) => state?.property?.propertyById);
 
   useEffect(() => {
@@ -100,7 +102,10 @@ const PropertyDetails = () => {
           <Button
             className="deleteButton"
             onClick={() => {
-              dispatch(deleteProperty(id));
+              dispatch(deleteProperty(id)).then((response) => {
+                toast(response.payload.data.message);
+                navigate(`/`);
+              });
             }}
           >
             Delete Me

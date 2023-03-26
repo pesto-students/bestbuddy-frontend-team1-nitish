@@ -70,6 +70,7 @@ const initialState = {
   message: "",
   status: false,
   isAuthenticated: false,
+  isLoading: false,
 };
 
 const userSlice = createSlice({
@@ -87,16 +88,29 @@ const userSlice = createSlice({
     },
   },
   extraReducers: {
-    [signUp.pending]: () => {},
+    [signUp.pending]: (state) => {
+      return { ...state, isLoading: true };
+    },
     [signUp.fulfilled]: (state, { payload }) => {
-      return { ...state, status: true, message: payload.data.message };
+      return {
+        ...state,
+        status: true,
+        isLoading: false,
+        message: payload.data.message,
+      };
     },
     [signUp.rejected]: (state, { error }) => {
-      return { ...state, status: false, message: error.message };
+      return {
+        ...state,
+        isLoading: false,
+        status: false,
+        message: error.message,
+      };
     },
-    [signIn.pending]: () => {},
+    [signIn.pending]: (state) => {
+      return { ...state, isLoading: true };
+    },
     [signIn.fulfilled]: (state, { payload }) => {
-      // console.log(payload);
       localStorage.setItem("access-token", payload.data.token);
       window.location.href = "/";
       return {
@@ -105,25 +119,40 @@ const userSlice = createSlice({
         message: payload.data.message,
         token: payload.data.token,
         isAuthenticated: true,
+        isLoading: false,
       };
     },
     [signIn.rejected]: (state, { error }) => {
-      return { ...state, status: false, message: error.message };
+      return {
+        ...state,
+        status: false,
+        message: error.message,
+        isLoading: false,
+      };
     },
-    [signOut.pending]: () => {},
+    [signOut.pending]: (state) => {
+      return { ...state, isLoading: true };
+    },
     [signOut.fulfilled]: (state, { payload }) => {
       localStorage.removeItem("access-token");
-      return { ...state, token: "", isAuthenticated: false };
+      return { ...state, token: "", isAuthenticated: false, isLoading: false };
     },
-    [signOut.rejected]: ({ error }) => {
-      console.log(error);
+    [signOut.rejected]: (state, { error }) => {
+      return {
+        ...state,
+        status: false,
+        message: error.message,
+        isLoading: false,
+      };
     },
-    [userInfo.pending]: () => {},
+    [userInfo.pending]: (state) => {
+      return { ...state, isLoading: true };
+    },
     [userInfo.fulfilled]: (state, { payload }) => {
-      return { ...state, userInfo: payload.data.data };
+      return { ...state, userInfo: payload.data.data, isLoading: false };
     },
     [userInfo.rejected]: (state, { error }) => {
-      return { ...state, message: error.message };
+      return { ...state, message: error.message, isLoading: false };
     },
   },
 });

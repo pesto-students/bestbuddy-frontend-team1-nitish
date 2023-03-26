@@ -42,17 +42,15 @@ const AddRoom = () => {
       image: images,
       details: "",
     };
-    console.log("payload",payload);
     dispatch(addProperty(payload));
     setTimeout(() => {
-      alert("Property added successfully!");
+     toast("Property added successfully!");
       navigate(`/`);
     }, 3000);
   };
 
-  console.log("images", images);
-  console.log(addedPropertyStatus);
-  
+  // console.log("images", images);
+  // console.log(addedPropertyStatus);
 
   return (
     <>

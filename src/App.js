@@ -9,9 +9,11 @@ import "./App.scss";
 import { setAuthenticated } from "./store/slice/users/userSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+  const isLoading = useSelector((state) => state.user.isLoading);
   const dispatch = useDispatch();
 
   const checkAuthentication = () => {
@@ -39,6 +41,7 @@ function App() {
     <div className="App">
       {useRoutes(Routers(isAuthenticated))}
       <ToastContainer />
+      <Loader isLoading={isLoading} />
     </div>
   );
 }

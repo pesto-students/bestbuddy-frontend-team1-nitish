@@ -31,7 +31,6 @@ export const fetchPropertiesByCategory = createAsyncThunk(
     try {
       const response = await bestBuddyAxios({
         method: "GET",
-        // url: GET_PROPERTYBYCATEGORY,
         url: `${GET_PROPERTYBYCATEGORY}/${category}`,
       });
 
@@ -109,7 +108,7 @@ const propertySlice = createSlice({
       return { ...state, allProperties: payload.data.data };
     },
     [fetchAllProperties.rejected]: (state, { error }) => {
-      return { ...state,  message: error.message };
+      return { ...state, message: error.message };
     },
 
     [fetchPropertiesByCategory.pending]: () => {},
@@ -139,7 +138,11 @@ const propertySlice = createSlice({
 
     [addProperty.pending]: () => {},
     [addProperty.fulfilled]: (state, { payload }) => {
-      return { ...state, addedPropertyStatus: true, message: "Property added Successfully!" };
+      return {
+        ...state,
+        addedPropertyStatus: true,
+        message: "Property added Successfully!",
+      };
     },
     [addProperty.rejected]: (state, { error }) => {
       return { ...state, addedPropertyStatus: false, message: error.message };
