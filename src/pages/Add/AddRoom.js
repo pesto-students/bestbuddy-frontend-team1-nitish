@@ -57,7 +57,7 @@ const AddRoom = () => {
           <h2 className="addHeading">Have a Room</h2>
           <h6 className="addHeading2">Please enter the room details below</h6>
 
-          <div className="inputs-grpstop">
+          <div className="inputs-grps-top">
             <div className="input-grp grp1">
               <div className="input-propertyname">
                 <h5>Property name</h5>

@@ -48,9 +48,7 @@ const ImageUploader = ({ setImages = () => {} }) => {
                 key={`${item}--${index}`}
                 src={item}
                 alt="img-uploaded"
-                width={200}
-                height={160}
-                style={{ marginBottom: "0.8rem" }}
+                className="uploaded-images"
               />
             ))}
           </div>

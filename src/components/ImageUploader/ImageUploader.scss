@@ -22,12 +22,12 @@
   padding: 1rem;
 }
 .uploadp1 {
-    width: 100%;
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
-    color: var(--darkblue);
-  }
+  width: 100%;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--darkblue);
+}
 .uploadp {
   font-size: 16px;
   font-weight: 300;
@@ -38,6 +38,78 @@
   color: var(--darkblue);
 }
 
+.uploaded-images {
+  width: 200px;
+  height: 160px;
+  margin-bottom: 1rem;
+}
+
 .imageupload input[type="file"] {
   display: none;
+}
+
+// Medium devices (tablets)
+@media (max-width: 768px) {
+  .imageupload {
+    width: 80vw;
+    margin: 4rem 0;
+    padding: 2rem;
+    height: fit-content;
+  }
+
+  .camera2 {
+    margin: 1rem;
+    width: 4rem;
+  }
+
+  .uploadbutton {
+    background: var(--darkblue);
+    color: #dee2f2;
+    margin: 0 1rem 1rem 1rem;
+    padding: 1rem;
+  }
+  .uploadp {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    text-align: center;
+    padding: 1rem;
+    margin: 0 1rem;
+    color: var(--darkblue);
+  }
+}
+
+// Small devices
+@media (max-width: 576px) {
+  .imageupload {
+    width: 90vw;
+    margin: 4rem 0;
+    padding: 0.75rem;
+    height: fit-content;
+  }
+
+  .camera2 {
+    margin: 1rem;
+    width: 3.5rem;
+  }
+
+  .uploadbutton {
+    background: var(--darkblue);
+    color: #dee2f2;
+    margin: 0 1rem 1rem 1rem;
+    padding: 1rem;
+  }
+  .uploadp {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 18px;
+    text-align: center;
+    padding: 1rem;
+    margin: 0 1rem;
+    color: var(--darkblue);
+  }
+  .uploadp1 {
+    width: 95%;
+    font-size: 14px;
+  }
 }
