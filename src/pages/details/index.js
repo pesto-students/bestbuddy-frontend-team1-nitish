@@ -74,7 +74,7 @@ const PropertyDetails = () => {
           />
 
           {/* Amenties */}
-          <h1 className="head">Amenties</h1>
+          <h1 className="amentiesh">Amenties</h1>
           <Amenties />
 
           {/* Details Para */}

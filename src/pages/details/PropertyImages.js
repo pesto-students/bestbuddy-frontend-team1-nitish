@@ -5,13 +5,15 @@ import { Carousel } from "react-responsive-carousel";
 
 const PropertyImages = ({ images = [] }) => {
   return (
-    <Carousel>
-      {images.map((item, index) => (
-        <div key={`${index}--item`}>
-          <img src={item} alt={item} />
-        </div>
-      ))}
-    </Carousel>
+    <div className="carousel">
+      <Carousel>
+        {images.map((item, index) => (
+          <div key={`${index}--item`}>
+            <img src={item} alt={item} />
+          </div>
+        ))}
+      </Carousel>
+    </div>
   );
 };
 
