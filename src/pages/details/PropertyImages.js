@@ -1,28 +1,17 @@
-import { Col, Container, Image, Row } from "react-bootstrap";
-// import mainImages from "../../assets/images/property_main_img.svg";
-// import secondaryImage from "../../assets/images/property_secondary_img.svg";
+import React from "react";
+import ReactDOM from "react-dom";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
-const PropertyImages = ({ mainImage = "", secondaryImages = [] }) => {
+const PropertyImages = ({ images = [] }) => {
   return (
-    <>
-      <Container className="mt-5 property-details-container" fluid>
-        <Row className="property-images-container">
-          <Col className="propert-main-img-container">
-            <Image src={mainImage} alt={"main-img"} className="property-images"/>
-          </Col>
-          <Col>
-            {secondaryImages?.map((item, index) => (
-              <Image
-                key={`${index}--img`}
-                className={index === 1 ? "mt-3 property-images" : "property-images"}
-                src={item}
-                alt={"secondary-img"}
-              />
-            ))}
-          </Col>
-        </Row>
-      </Container>
-    </>
+    <Carousel>
+      {images.map((item, index) => (
+        <div key={`${index}--item`}>
+          <img src={item} alt={item} />
+        </div>
+      ))}
+    </Carousel>
   );
 };
 

@@ -134,7 +134,7 @@ const PreferenceGrid = ({ selectable = false, setPreferences = () => {} }) => {
               <AiOutlineCheckSquare className="selected-icon" />
             )}
             <img
-              className={selectable && item?.selected ? "selected" : ""}
+              className={selectable && item?.selected ? "select" : ""}
               src={item?.src}
               alt={item?.alt}
             />

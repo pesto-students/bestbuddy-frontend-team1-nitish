@@ -1,8 +1,12 @@
 .detailspage {
   margin: 2rem 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .property-details-topbar-container {
-  margin: auto;
+  // margin: auto;
 }
 .property-details-container {
   margin: auto;

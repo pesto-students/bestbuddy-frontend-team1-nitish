@@ -40,8 +40,6 @@ const PropertyDetails = () => {
     }
   }, [id]);
 
-  // console.log(propertyDetails);
-
   return (
     <>
       <NavBar />
@@ -81,10 +79,7 @@ const PropertyDetails = () => {
             </Row>
           </div>
           {/* Property Images Section */}
-          <PropertyImages
-            mainImage={propertyDetails?.image[0]}
-            secondaryImages={propertyDetails?.image}
-          />
+          <PropertyImages images={propertyDetails?.image} />
 
           {/* Property Owner Details */}
           <OwnerDetails
