@@ -1,13 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  Col,
-  Container,
-  Form,
-  InputGroup,
-  Row,
-  Image,
-  Button,
-} from "react-bootstrap";
+import { Col, Form, InputGroup, Row, Image, Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import OwnerDetails from "./OwnerDetails";
@@ -46,38 +38,32 @@ const PropertyDetails = () => {
       {Object?.keys(propertyDetails)?.length > 0 && (
         <div className="detailspage">
           <div className="property-details-topbar-container">
-            <Row>
-              <Col className="mt-2 property-details-breadcrumb-item">
-                Home / {propertyDetails?.category} / Details
-              </Col>
-              <Col>
-                <h1 style={{ color: "var(--darkblue)" }}>
-                  {propertyDetails?.name}
-                </h1>
-                <p className="property-location-details ml-3 mt-3">
-                  <Image
-                    src={locationIcon}
-                    alt={"location"}
-                    width={23}
-                    height={25}
-                  />
-                  <span className="ml-3 location-text">
-                    {propertyDetails?.city}, India
-                  </span>
-                </p>
-              </Col>
-              <Col xs={2} className="property-details-search-input">
-                <InputGroup size="sm" className="mt-3">
-                  <Form.Control
-                    className="input"
-                    placeholder="Search Rooms......"
-                    aria-label="Small"
-                    aria-describedby="inputGroup-sizing-sm"
-                  />
-                </InputGroup>
-              </Col>
-            </Row>
+            <div className="breadcrumb">
+              Home / {propertyDetails?.category} / Details
+            </div>
+            <div className="property-location">
+              <h1>{propertyDetails?.name}</h1>
+              <p className="location-p">
+                <img
+                  src={locationIcon}
+                  alt={"location"}
+                  width={23}
+                  height={25}
+                />
+                <span className="location-text">
+                  {propertyDetails?.city}, India
+                </span>
+              </p>
+            </div>
+            <div className="property-details-search-input">
+              <input
+                className="search-input"
+                type="text"
+                placeholder="Search Rooms......"
+              />
+            </div>
           </div>
+
           {/* Property Images Section */}
           <PropertyImages images={propertyDetails?.image} />
 
