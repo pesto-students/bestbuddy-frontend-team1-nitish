@@ -49,7 +49,11 @@ const data = [
   { id: 10, title: "WiFi", src: Wifi, alt: "Wifi", selected: false },
 ];
 
-const Amenties = ({ selectable = false, setAmenties = () => {} }) => {
+const Amenties = ({
+  selectable = false,
+  setAmenties = () => {},
+  dataAmenties = [],
+}) => {
   const [renderData, setRenderData] = useState([...data]);
 
   useEffect(() => {
@@ -82,12 +86,28 @@ const Amenties = ({ selectable = false, setAmenties = () => {} }) => {
             {/* {selectable && item?.selected && (
               <AiOutlineCheckSquare className="selected-icon" />
             )} */}
-            <img
-              className={selectable && item?.selected ? "selectss" : ""}
-              src={item.src}
-              alt={item.alt}
-              key={item.src}
-            />
+
+            {dataAmenties.length > 0 ? (
+              dataAmenties.map((amenity) =>
+                amenity === item.title ? (
+                  <img
+                    className="selectss"
+                    src={item.src}
+                    alt={item.alt}
+                    key={item.src}
+                  />
+                ) : (
+                  ""
+                )
+              )
+            ) : (
+              <img
+                className={selectable && item?.selected ? "selectss" : ""}
+                src={item.src}
+                alt={item.alt}
+                key={item.src}
+              />
+            )}
           </div>
         ))}
       </div>

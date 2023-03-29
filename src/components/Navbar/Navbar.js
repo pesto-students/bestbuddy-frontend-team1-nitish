@@ -52,15 +52,22 @@ const NavBar = () => {
                 <NavDropdown
                   title="Profile"
                   id="offcanvasNavbarDropdown-expand-lg"
+                  className="navdropdown"
                 >
                   <h5 className="profile-name">
                     Hi {username}! {isAuthenticated}
                   </h5>
-                  <Link to="/profile">My profile</Link>
+                  <NavDropdown.Item>
+                    <Link to="/profile">My profile</Link>
+                  </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <Link to="/preference">My Preference</Link>
+                  <NavDropdown.Item>
+                    <Link to="/preference">My Preferences</Link>
+                  </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <Link to="/setting">Settings</Link>
+                  <NavDropdown.Item>
+                    <Link to="/setting">Settings</Link>
+                  </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
                 </NavDropdown>

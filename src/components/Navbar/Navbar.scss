@@ -1,12 +1,14 @@
 .navbar {
   border-bottom: 1px solid var(--lightgray);
-  a {
+  a{
+    font-family: "Poppins", sans-serif;
     color: var(--darkblue) !important;
-    font-weight: 500;
+    font-weight: 600;
     padding: 0 10px;
   }
 
-  a:hover {
+  a:hover,
+  a:active {
     color: var(--lightblue) !important;
   }
 
@@ -32,13 +34,14 @@
     padding: 0;
 
     a {
+      font-family: "Poppins", sans-serif;
       border-bottom: 1px solid var(--darkblue);
-      font-size: 18px;
+      font-size: 24px;
       color: var(--darkblue) !important;
-      font-weight: 500;
+      font-weight: 600;
       background-color: #d9d9d9;
       text-align: center;
-      padding: 15px;
+      padding: 1rem;
     }
 
     .profile-name,

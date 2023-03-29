@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Col, Form, InputGroup, Row, Image, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import OwnerDetails from "./OwnerDetails";
@@ -75,7 +75,7 @@ const PropertyDetails = () => {
 
           {/* Amenties */}
           <h1 className="amentiesh">Amenties</h1>
-          <Amenties />
+          <Amenties dataAmenties={propertyDetails?.amenties} />
 
           {/* Details Para */}
           <MoreDetails data={moreDetailsPara} />
