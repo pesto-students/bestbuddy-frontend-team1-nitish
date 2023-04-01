@@ -51,7 +51,7 @@ const data = [
 
 const Amenties = ({
   selectable = false,
-  setAmenties = () => {},
+  setAmenties = () => { },
   dataAmenties = [],
 }) => {
   const [renderData, setRenderData] = useState([...data]);
@@ -79,6 +79,7 @@ const Amenties = ({
       <div className="grid">
         {renderData?.map((item) => (
           <div
+            id="amenties-card"
             className={selectable && "selectable"}
             key={item?.id}
             onClick={() => selectable && handleSelectAmenties(item)}

@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <LocationSearch />
+      {/* <LocationSearch /> */}
       <div className="container">
         <TopPicks properties={toppicks} />
         <Slider title="All Properties" properties={properties} />

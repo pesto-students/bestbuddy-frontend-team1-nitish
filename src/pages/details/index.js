@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Button } from "react-bootstrap";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import OwnerDetails from "./OwnerDetails";
 import PropertyImages from "./PropertyImages";
@@ -9,21 +8,13 @@ import "./index.scss";
 import MoreDetails from "./MoreDetails";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
-import {
-  deleteProperty,
-  fetchPropertyById,
-} from "../../store/slice/property/propertySlice";
+import { fetchPropertyById } from "../../store/slice/property/propertySlice";
 import Amenties from "../../components/Amenties/Amenties";
-import { toast } from "react-toastify";
-
-// To be removed after API Integration
-const moreDetailsPara = `
-Design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic growth and to make lives better. Design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic growth and to make lives better.`;
+import BreadCrumb from '../../components/BreadCrumbs/Breadcrumbs';
 
 const PropertyDetails = () => {
   const dispatch = useDispatch();
-  const { id = "" } = useParams();
-  const navigate = useNavigate();
+  const { id } = useParams();
   const propertyDetails = useSelector((state) => state?.property?.propertyById);
 
   useEffect(() => {
@@ -32,15 +23,14 @@ const PropertyDetails = () => {
     }
   }, [id]);
 
+  const details = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe minima consequatur reprehenderit nesciunt quisquam maiores placeat velit laboriosam? Amet molestiae esse consequatur nobis ipsum pariatur vel earum voluptates alias ipsa.Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe minima consequatur reprehenderit nesciunt quisquam maiores placeat velit laboriosam? Amet molestiae esse consequatur nobis ipsum pariatur vel earum voluptates alias ipsa.Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe minima consequatur reprehenderit nesciunt quisquam maiores placeat velit laboriosam? Amet molestiae esse consequatur nobis ipsum pariatur vel earum voluptates alias ipsa.Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe minima consequatur reprehenderit nesciunt quisquam maiores placeat velit laboriosam? Amet molestiae esse consequatur nobis ipsum pariatur vel earum voluptates alias ipsa.'
   return (
     <>
       <NavBar />
+      <BreadCrumb />
       {Object?.keys(propertyDetails)?.length > 0 && (
-        <div className="detailspage">
+        <div className="detailspage container">
           <div className="property-details-topbar-container">
-            <div className="breadcrumb">
-              Home / {propertyDetails?.category} / Details
-            </div>
             <div className="property-location">
               <h1>{propertyDetails?.name}</h1>
               <p className="location-p">
@@ -55,45 +45,18 @@ const PropertyDetails = () => {
                 </span>
               </p>
             </div>
-            <div className="property-details-search-input">
-              <input
-                className="search-input"
-                type="text"
-                placeholder="Search Rooms......"
-              />
-            </div>
           </div>
-
-          {/* Property Images Section */}
           <PropertyImages images={propertyDetails?.image} />
-
-          {/* Property Owner Details */}
           <OwnerDetails
             preferences={propertyDetails?.perfrences}
             ownerData={propertyDetails}
           />
-
-          {/* Amenties */}
-          <h1 className="amentiesh">Amenties</h1>
-          <Amenties dataAmenties={propertyDetails?.amenties} />
-
-          {/* Details Para */}
-          <MoreDetails data={moreDetailsPara} />
-
-          <Button
-            className="deleteButton"
-            onClick={() => {
-              dispatch(deleteProperty(id)).then((response) => {
-                toast(response.payload.data.message);
-                navigate(`/`);
-              });
-            }}
-          >
-            Delete Me
-          </Button>
+          <h1 className="amentiesh text-center">Amenties</h1>
+          <Amenties />
+          <MoreDetails data={details} />
+          <h1 className="amentiesh">Related Suggestion</h1>
         </div>
       )}
-      {/* Footer  */}
       <Footer />
     </>
   );
