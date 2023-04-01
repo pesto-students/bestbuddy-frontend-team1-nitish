@@ -1,6 +1,7 @@
 .navbar {
   border-bottom: 1px solid var(--lightgray);
-  a{
+
+  a {
     font-family: "Poppins", sans-serif;
     color: var(--darkblue) !important;
     font-weight: 600;
@@ -36,7 +37,6 @@
     a {
       font-family: "Poppins", sans-serif;
       border-bottom: 1px solid var(--darkblue);
-      font-size: 24px;
       color: var(--darkblue) !important;
       font-weight: 600;
       background-color: #d9d9d9;
@@ -52,24 +52,6 @@
     .dropdown-menu {
       margin: 0;
       padding: 0;
-    }
-  }
-}
-
-// Small devices
-@media (max-width: 576px) {
-  .navbar {
-    border-bottom: none;
-
-    .container {
-      display: flex;
-      flex-direction: row-reverse;
-    }
-
-    .burger {
-      margin-left: 1rem;
-      border: none;
-      outline: none;
     }
   }
 }

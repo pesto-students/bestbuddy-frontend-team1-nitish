@@ -1,15 +1,15 @@
 .Preferencegrid .grid {
-  margin: 2rem 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-row-gap: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1.5rem;
+  padding: 25px 0;
 }
 
 .Preferencegrid .grid img {
-  width: 12vw;
-  margin: 0 0.75rem;
-  border-radius: 1rem;
+  width: 100%;
+  border-radius: 10px;
 }
+
 //To fix later
 .Preferencegrid .grid img:hover {
   filter: invert(90%);
@@ -39,11 +39,6 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-row-gap: 1rem;
   }
-
-  .Preferencegrid .grid img {
-    width: 18vw;
-    margin: 0 0.75rem;
-  }
 }
 
 // Medium devices (tablets)
@@ -53,11 +48,6 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 1rem;
   }
-
-  .Preferencegrid .grid img {
-    width: 25vw;
-    margin: 0 0.75rem;
-  }
 }
 
 // Small devices
@@ -65,10 +55,6 @@
   .Preferencegrid .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-
-  .Preferencegrid .grid img {
-    width: 40vw;
-    margin: 0 0.75rem;
+    grid-gap: 1rem;
   }
 }

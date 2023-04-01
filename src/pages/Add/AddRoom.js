@@ -52,12 +52,12 @@ const AddRoom = () => {
   return (
     <>
       <NavBar />
-      <form id="property-form" onSubmit={(e) => handleSubmit(e)}>
+      <form className="container" id="property-form" onSubmit={(e) => handleSubmit(e)}>
         <div className="add-room">
           <h2 className="addHeading">Have a Room</h2>
           <h6 className="addHeading2">Please enter the room details below</h6>
 
-          <div className="inputs-grps-top">
+          <section className="inputs-grps-top">
             <div className="input-grp grp1">
               <div className="input-propertyname">
                 <h5>Property name</h5>
@@ -71,7 +71,14 @@ const AddRoom = () => {
               </div>
               <div className="input-location">
                 <h5>Add room location</h5>
-                <input type="text" name="location" id="" />
+                <select name="location" className="select">
+                  <option disabled value="">Select a location</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Hyderabadh">Hyderabadh</option>
+                  <option value="Jaipur">Jaipur</option>
+                </select>
               </div>
               <div className="input-rent">
                 <h5>Rent of Room</h5>
@@ -88,6 +95,7 @@ const AddRoom = () => {
               <div className="input-type">
                 <h5>Property type</h5>
                 <select name="property-type" className="select">
+                  <option disabled value="">Select a category</option>
                   <option value="Flat">Flat</option>
                   <option value="PG">PG</option>
                   <option value="Apartment">Apartment</option>
@@ -107,40 +115,43 @@ const AddRoom = () => {
               <div className="input-gender">
                 <h5>Gender of RoomMate</h5>
                 <select name="gender" className="select">
+                  <option disabled value="">Select a Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
               </div>
             </div>
-          </div>
+          </section>
 
           <h2 className="addHeading">Select available Amenties</h2>
           <Amenties selectable={true} setAmenties={setAmenties} />
 
           <ImageUploader setImages={setImages} />
 
-          <div className="input-grp grp3">
-            <div className="input-availability">
-              <h5>Room is available from</h5>
-              <input
-                type="date"
-                name="date"
-                id=""
-                min={new Date().toISOString().split("T")[0]}
-                placeholder="Please input here"
-              />
+          <div className="inputs-grps-top">
+            <div className="input-grp grp1">
+              <div className="input-availability ">
+                <h5>Room is available from</h5>
+                <input
+                  type="date"
+                  name="date"
+                  id=""
+                  min={new Date().toISOString().split("T")[0]}
+                  placeholder="Please input here"
+                />
+              </div>
             </div>
-
             <span className="divider2"></span>
-
-            <div className="input-occupancy">
-              <h5>Current Occupancy of Room</h5>
-              <div className="buttons">
-                <select name="occupancy" className="select">
-                  <option value="single">Single</option>
-                  <option value="double">Shared(2)</option>
-                  <option value="tripple">Shared(3)</option>
-                </select>
+            <div className="input-grp grp2">
+              <div className="input-occupancy grp2">
+                <h5>Current Occupancy of Room</h5>
+                <div className="buttons">
+                  <select name="occupancy" className="select">
+                    <option value="single">Single</option>
+                    <option value="double">Shared(2)</option>
+                    <option value="tripple">Shared(3)</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
