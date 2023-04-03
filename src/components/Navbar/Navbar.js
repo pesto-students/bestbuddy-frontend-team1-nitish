@@ -58,7 +58,7 @@ const NavBar = () => {
                     Hi {username}! {isAuthenticated}
                   </h5>
                   <NavDropdown.Item>
-                    <Link to="/profile">My profile</Link>
+                    <Link to="/profile/view">My profile</Link>
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item>

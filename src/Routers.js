@@ -39,7 +39,7 @@ const Routers = (isLoggedIn) => [
     element: isLoggedIn ? <AddRoom /> : <Navigate to="/signin" />,
   },
   {
-    path: "/profile",
+    path: "/profile/:mode",
     element: isLoggedIn ? <Profile /> : <Navigate to="/signin" />,
   },
   {
