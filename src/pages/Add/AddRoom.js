@@ -6,7 +6,7 @@ import NavBar from "../../components/Navbar/Navbar";
 import Amenties from "./../../components/Amenties/Amenties";
 import PreferenceGrid from "./../../components/PreferenceGrid/PreferenceGrid";
 import { Button } from "react-bootstrap";
-import { getFormValues, uploaderTexts } from "../../utils/formFieldHelpers";
+import { getFormValues } from "../../utils/formFieldHelpers";
 import "./AddRoom.scss";
 import {
   addProperty,
