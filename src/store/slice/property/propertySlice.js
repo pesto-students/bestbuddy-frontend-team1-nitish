@@ -74,7 +74,7 @@ export const deleteProperty = createAsyncThunk(
 );
 
 export const addProperty = createAsyncThunk(
-  "property/deleteProperty",
+  "property/addProperty",
   async (payload) => {
     try {
       const response = await bestBuddyAxios({
