@@ -1,12 +1,12 @@
-import React from "react";
+import { Row } from "react-bootstrap";
 
 const MoreDetails = ({ data = "" }) => {
   return (
     <>
       {data && (
         <div className="property-details-more-container">
-          <p className="header">Details</p>
-          <p className="para">{data}</p>
+          <Row className="header">Details</Row>
+          <Row className="para">{data}</Row>
         </div>
       )}
     </>
