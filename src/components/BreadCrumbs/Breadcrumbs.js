@@ -3,7 +3,11 @@ import React from "react";
 import "./Breadcrumbs.scss";
 
 const Breadcrumbs = ({ title }) => {
-  return <h4 className="top-bar-h4">Home / {title}</h4>;
+  return <ul className="bread-crumbs container">
+    <li>Home</li>
+    <li>/</li>
+    <li>{title}</li>
+  </ul>;
 };
 
 export default Breadcrumbs;

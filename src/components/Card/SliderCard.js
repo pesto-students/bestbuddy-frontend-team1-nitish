@@ -11,7 +11,6 @@ const SliderCard = ({ property }) => {
         <h5>{property?.name}</h5>
         <h6>{property?.city}</h6>
       </div>
-      {/* <div className="badge">Best Match</div> */}
     </div>
   );
 };
