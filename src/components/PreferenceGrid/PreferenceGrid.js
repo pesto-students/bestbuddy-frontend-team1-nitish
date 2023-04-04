@@ -101,7 +101,7 @@ const data = [
   },
 ];
 
-const PreferenceGrid = ({ selectable = false, setPreferences = () => {} }) => {
+const PreferenceGrid = ({ selectable = false, setPreferences = () => { } }) => {
   const [renderData, setRenderData] = useState([...data]);
 
   useEffect(() => {
@@ -125,7 +125,7 @@ const PreferenceGrid = ({ selectable = false, setPreferences = () => {} }) => {
     <div className="Preferencegrid">
       <div className="grid">
         {renderData?.map((item) => (
-          <div
+          <div id="preference-card"
             className={selectable ? "selectable" : ""}
             key={item?.id}
             onClick={() => selectable && handleSelectPreferences(item)}
