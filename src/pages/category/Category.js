@@ -7,7 +7,6 @@ import Slider from "../../components/shared/Slider/Slider";
 import Breadcrumbs from "../../components/BreadCrumbs/Breadcrumbs";
 import { fetchPropertiesByCategory } from "../../store/slice/property/propertySlice";
 import { useDispatch, useSelector } from "react-redux";
-import SliderCard from "../../components/Card/SliderCard";
 
 const Category = () => {
   const dispatch = useDispatch();
@@ -17,19 +16,31 @@ const Category = () => {
     dispatch(fetchPropertiesByCategory(categoryname));
   }, []);
 
-  const properties = useSelector((state) => state.property.propertiesBycategory);
+  const properties = useSelector(
+    (state) => state.property.propertiesBycategory
+  );
 
   return (
-    <>
+    <div>
       <Navbar />
-      <Breadcrumbs title={categoryname} />
-      <div className="container category-list">
-        {properties.map((item) => (
-          <SliderCard property={item} />
-        ))}
+      <div className="content-container">
+        <div className="top-bar">
+          <Breadcrumbs title={categoryname} />
+          <input
+            className="top-bar-search"
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search Rooms"
+          />
+        </div>
+        <Slider properties={properties} />
+        {/* <Slider title="Two Sharing" />
+        <Slider title="Two Sharing" />
+        <Slider title="Two Sharing" /> */}
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

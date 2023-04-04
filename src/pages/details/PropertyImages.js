@@ -1,18 +1,19 @@
 import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import ReactDOM from "react-dom";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 const PropertyImages = ({ images = [] }) => {
-  console.log(images);
   return (
-    <section className="detail-banner-img">
-      <div className="banner-left">
-        <img src={images[0]} alt="banner-one" />
-      </div>
-      <div className="banner-right">
-        <img src={images[1]} alt="banner-two" />
-        <img src={images[2]} alt="banner-three" />
-      </div>
-    </section>
+    <div className="carousel">
+      <Carousel>
+        {images.map((item, index) => (
+          <div key={`${index}--item`}>
+            <img src={item} alt={item} />
+          </div>
+        ))}
+      </Carousel>
+    </div>
   );
 };
 
