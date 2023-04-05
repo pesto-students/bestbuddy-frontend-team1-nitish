@@ -63,11 +63,15 @@
   margin-bottom: 1rem;
 }
 
-// Small devices
-@media (max-width: 576px) {
-  .footer .section2,
-  .copyright {
-    display: none;
+.bottommountains1 {
+  display: none;
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+  .footer {
+    display: flex;
+    margin: 2rem 10rem;
   }
 }
 
@@ -93,10 +97,15 @@
   }
 }
 
-// XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {
-  .footer {
-    display: flex;
-    margin: 2rem 10rem;
+// Small devices
+@media (max-width: 576px) {
+  .footer .section2,
+  .copyright {
+    display: none;
+  }
+
+  .bottommountains1 {
+    width: 100vw;
+    display: block;
   }
 }

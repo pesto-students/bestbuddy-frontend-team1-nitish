@@ -1,5 +1,5 @@
 import React from "react";
-
+import BottomMountains from "./../../assets/Bottom-Mountains.svg";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -47,6 +47,10 @@ const Footer = () => {
       <div className="copyright">
         Copyright 2023 • All rights reserved • BestBuddy
       </div>
+
+      {/* mobile footer */}
+      <img className="bottommountains1" src={BottomMountains} alt="footer" />
+      {/* mobile footer */}
     </>
   );
 };

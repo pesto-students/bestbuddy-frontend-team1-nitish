@@ -1,15 +1,12 @@
 .navbar {
   border-bottom: 1px solid var(--lightgray);
-
   a {
-    font-family: "Poppins", sans-serif;
     color: var(--darkblue) !important;
-    font-weight: 600;
+    font-weight: 500;
     padding: 0 10px;
   }
 
-  a:hover,
-  a:active {
+  a:hover {
     color: var(--lightblue) !important;
   }
 
@@ -28,6 +25,10 @@
       border-right: 1px solid var(--lightgray);
     }
   }
+
+  .topcircles1 {
+    display: none;
+  }
 }
 
 @media (max-width: 991px) {
@@ -35,13 +36,13 @@
     padding: 0;
 
     a {
-      font-family: "Poppins", sans-serif;
       border-bottom: 1px solid var(--darkblue);
+      font-size: 18px;
       color: var(--darkblue) !important;
-      font-weight: 600;
+      font-weight: 500;
       background-color: #d9d9d9;
       text-align: center;
-      padding: 1rem;
+      padding: 15px;
     }
 
     .profile-name,
@@ -52,6 +53,31 @@
     .dropdown-menu {
       margin: 0;
       padding: 0;
+    }
+  }
+}
+
+// Small devices
+@media (max-width: 576px) {
+  .navbar {
+    border-bottom: none;
+
+    .container {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .burger {
+      margin-left: 2rem;
+      border: none;
+      outline: none;
+    }
+
+    .topcircles1 {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: -2rem;
     }
   }
 }
