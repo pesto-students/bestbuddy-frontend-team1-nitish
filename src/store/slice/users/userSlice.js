@@ -66,10 +66,10 @@ export const userInfo = createAsyncThunk("user/userInfo ", async (email) => {
 
 const initialState = {
   userInfo: [],
-  token: "",
+  token: localStorage.getItem("access-token") || "",
   message: "",
   status: false,
-  isAuthenticated: false,
+  isAuthenticated: localStorage.getItem("access-token") ? true : false,
   isLoading: false,
 };
 
