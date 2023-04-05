@@ -6,6 +6,8 @@
 
 .preferences-heading {
   text-align: center;
+  color: var(--darkblue);
+  font-size: 3rem;
 }
 
 .submitbutton {
@@ -17,4 +19,18 @@
 
 .submitbutton:hover {
   background: var(--lightblue);
+}
+
+// Small devices
+@media (max-width: 576px) {
+  .preferences-heading {
+    font-size: 2rem;
+  }
+
+  .submitbutton {
+    background: var(--darkblue);
+    color: #fff;
+    width: 80vw;
+    height: 4rem;
+  }
 }
