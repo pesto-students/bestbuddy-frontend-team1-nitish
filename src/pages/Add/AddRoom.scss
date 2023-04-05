@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 2rem 6rem;
 
   .addHeading {
     font-size: 36px;
@@ -11,7 +12,6 @@
     text-align: center;
     color: var(--darkblue);
   }
-
   .addHeading2 {
     font-style: normal;
     font-weight: 400;
@@ -28,32 +28,18 @@
     position: relative;
   }
 
-  .grp1 {
-    padding-right: 4rem;
-
-    div {
-      margin-bottom: 25px;
-    }
-  }
-
-  .grp2 {
-    padding-left: 4rem;
-
-    div {
-      margin-bottom: 25px;
-    }
-  }
-
   .input-grp {
-    width: 100%;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-
   .input-grp h5 {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 20px;
     color: var(--darkblue);
   }
-
   .divider1 {
     position: absolute;
     top: 1rem;
@@ -62,13 +48,25 @@
   }
 
   .input-grp input,
-  select {
+  .select {
     background: #f5f6f8;
     border-radius: 4px;
     border: none;
-    width: 100%;
     height: 40px;
-    padding: 0 10px;
+    width: 27vw;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    padding: 0.25rem 1rem;
+  }
+
+  .input-grp .select option {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--darkblue);
+    margin-bottom: 1rem;
+    padding: 0.25rem 1rem;
   }
 
   .grp3 {
@@ -110,10 +108,16 @@
     .addHeading {
       font-size: 28px;
     }
-
     .addHeading2 {
       font-size: 18px;
       line-height: 24px;
+    }
+    .input-grp input {
+      width: 300px;
+    }
+
+    .input-grp .select {
+      width: 300px;
     }
   }
 }
@@ -121,6 +125,14 @@
 // Large devices (desktops)
 @media (max-width: 992px) {
   .add-room {
+    .input-grp input {
+      width: 275px;
+    }
+
+    .input-grp .select {
+      width: 275px;
+    }
+
     .submitbutton {
       background: var(--darkblue);
       color: #fff;
@@ -129,7 +141,6 @@
     }
   }
 }
-
 // Medium devices (tablets)
 @media (max-width: 768px) {
   .add-room {
@@ -137,7 +148,6 @@
       font-size: 24px;
       line-height: 28px;
     }
-
     .addHeading2 {
       font-size: 16px;
       line-height: 20px;
@@ -145,25 +155,42 @@
 
     .inputs-grps-top {
       flex-direction: column;
-      margin-top: 2rem;
+      margin: 2rem 0;
     }
 
     .input-grp {
       padding: 0;
+      text-align: center;
     }
-
     .input-grp h5 {
       font-weight: 500;
       font-size: 18px;
     }
-
     .divider1 {
       display: none;
+    }
+
+    .input-grp input {
+      text-align: center;
+      width: 400px;
+      font-size: 14px;
+    }
+
+    .input-grp .select {
+      text-align: center;
+      width: 400px;
+      font-size: 14px;
+    }
+
+    .input-grp .select option {
+      font-weight: 500;
+      font-size: 14px;
     }
 
     .grp3 {
       position: relative;
       display: flex;
+      margin: 0 0 2rem 0;
     }
 
     .grp3 .input-availability,
@@ -173,22 +200,6 @@
 
     .divider2 {
       display: none;
-    }
-
-    .grp1 {
-      padding-right: 0;
-
-      div {
-        margin-bottom: 15px;
-      }
-    }
-
-    .grp2 {
-      padding-left: 0;
-
-      div {
-        margin-bottom: 15px;
-      }
     }
   }
 }
@@ -200,19 +211,35 @@
       font-size: 18px;
       line-height: 22px;
     }
-
     .addHeading2 {
-      font-size: 14px;
-      line-height: 18px;
+      width: 100vw;
+      font-size: 12px;
+      line-height: 16px;
     }
 
     .input-grp h5 {
       font-weight: 500;
       font-size: 16px;
     }
-
     .divider1 {
       display: none;
+    }
+
+    .input-grp input {
+      text-align: center;
+      width: 80vw;
+      font-size: 12px;
+    }
+
+    .input-grp .select {
+      text-align: center;
+      width: 80vw;
+      font-size: 12px;
+    }
+
+    .input-grp .select option {
+      font-weight: 400;
+      font-size: 12px;
     }
 
     .divider2 {

@@ -1,5 +1,5 @@
 .imageupload {
-  width: 100%;
+  width: 66vw;
   margin: 3rem 1rem;
   background: #dee2f2;
   display: flex;
@@ -8,7 +8,7 @@
   align-items: center;
   padding: 5rem;
   height: fit-content;
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 
 .camera2 {
@@ -22,7 +22,6 @@
   margin: 0 1rem 1rem 1rem;
   padding: 1rem;
 }
-
 .uploadp1 {
   width: 100%;
   font-size: 18px;
@@ -30,7 +29,6 @@
   text-align: center;
   color: var(--darkblue);
 }
-
 .uploadp {
   font-size: 16px;
   font-weight: 300;
@@ -51,10 +49,19 @@
   display: none;
 }
 
+// Large devices (desktops)
+@media (max-width: 992px) {
+  .imageupload {
+    width: 80vw;
+  }
+}
+
 // Medium devices (tablets)
 @media (max-width: 768px) {
   .imageupload {
-    margin: 2rem 0;
+    width: 80vw;
+    margin: 4rem 0;
+    padding: 2rem;
     height: fit-content;
   }
 
@@ -69,7 +76,6 @@
     margin: 0 1rem 1rem 1rem;
     padding: 1rem;
   }
-
   .uploadp {
     font-size: 14px;
     font-weight: 300;
@@ -84,6 +90,8 @@
 // Small devices
 @media (max-width: 576px) {
   .imageupload {
+    width: 80vw;
+    margin: 4rem 0;
     padding: 0.75rem;
     height: fit-content;
   }
@@ -99,7 +107,6 @@
     margin: 0 1rem 1rem 1rem;
     padding: 1rem;
   }
-
   .uploadp {
     font-size: 12px;
     font-weight: 300;
@@ -109,7 +116,6 @@
     margin: 0 1rem;
     color: var(--darkblue);
   }
-
   .uploadp1 {
     width: 95%;
     font-size: 14px;
