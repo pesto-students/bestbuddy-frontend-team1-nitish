@@ -50,12 +50,11 @@ export const signOut = createAsyncThunk("user/signout", async (data) => {
   }
 });
 
-export const userInfo = createAsyncThunk("user/userInfo ", async (email) => {
+export const userInfo = createAsyncThunk("user/userInfo ", async () => {
   try {
     const response = await bestBuddyAxios({
-      method: "POST",
+      method: "GET",
       url: USER_DETAILS,
-      data: { email: email },
     });
 
     return response;

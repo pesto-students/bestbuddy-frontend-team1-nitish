@@ -5,10 +5,6 @@ import "./viewProfile.scss";
 
 export const ViewProfile = ({}) => {
   const userInfo = useSelector((state) => state?.user?.userInfo);
-  console.log(
-    "🚀 ~ file: viewProfile.js:7 ~ ViewProfile ~ userInfo:",
-    userInfo
-  );
 
   return (
     <>

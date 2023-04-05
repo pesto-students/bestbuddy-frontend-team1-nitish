@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchAllProperties());
-    dispatch(userInfo("demo@gmail.com"));
+    dispatch(userInfo());
   }, []);
 
   const flats = properties.filter((property) => property.category === "Flat");
