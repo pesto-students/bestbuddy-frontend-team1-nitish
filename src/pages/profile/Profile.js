@@ -13,7 +13,7 @@ const Profile = () => {
     <div>
       <NavBar />
       <div className="profile">
-        <h2>Profile Details</h2>
+        <h2 className="profileheading">Profile Details</h2>
         <ProfileDetails mode={mode} />
       </div>
       <Footer />

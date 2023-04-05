@@ -5,6 +5,12 @@
   justify-content: center;
   align-items: center;
   color: var(--darkblue);
+
+  .profileheading {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+  }
 }
 
 .profile .inputs-grpstop {
