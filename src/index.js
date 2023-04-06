@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import "./index.scss";
 import App from "./App";
 import { Store } from "./store/Store";
@@ -17,6 +17,7 @@ import { Store } from "./store/Store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <GoogleOAuthProvider clientId="959445522036-4828gri6lfo9d7mavrn16tp695e1vml4.apps.googleusercontent.com">
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={Store}>
@@ -24,4 +25,5 @@ root.render(
       </Provider>
     </BrowserRouter>
   </React.StrictMode>
+  </GoogleOAuthProvider>
 );
