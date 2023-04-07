@@ -43,7 +43,6 @@ const NavBar = () => {
           id="offcanvasNavbarDropdown-expand-lg"
           aria-labelledby="offcanvasNavbarDropdown-expand-lg"
           placement="start"
-          
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id="offcanvasNavbarDropdown-expand-lg">
@@ -51,11 +50,11 @@ const NavBar = () => {
             </Offcanvas.Title>
           </Offcanvas.Header>
           {isAuthenticated ? (
-            <Offcanvas.Body  className="offcanvas-body">
+            <Offcanvas.Body className="offcanvas-body">
               <Nav className="justify-content-end flex-grow-1">
                 <Link to="/">Home</Link>
                 <Link to="/addroom">Upload Room</Link>
-                <Link to="/favorite">Favorite</Link>
+                <Link to="/favorite">My Listings</Link>
                 <NavDropdown
                   title="Profile"
                   id="offcanvasNavbarDropdown-expand-lg"
