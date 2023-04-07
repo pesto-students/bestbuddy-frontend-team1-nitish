@@ -28,7 +28,6 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
   const handleGoogleAuth = () => {
     axios.get('http://localhost:8085/api/googleAuth/auth/google')
     .then(response => {
-      debugger
       // Redirect to the Google authentication URL
       window.location = response.data.url;
     })
