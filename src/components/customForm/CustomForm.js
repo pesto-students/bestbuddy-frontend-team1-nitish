@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import "./CustomForm.scss";
 import { setMessage } from "../../store/slice/users/userSlice";
@@ -17,11 +18,24 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
   const dispatch = useDispatch();
 
   const formSubmit = (data) => {
-    onSubmit(data);
-    setTimeout(() => {
-      dispatch(setMessage());
-    }, 5000);
+    // onSubmit(data);
+    // setTimeout(() => {
+    //   dispatch(setMessage());
+    // }, 5000);
+
   };
+
+  const handleGoogleAuth = () => {
+    axios.get('http://localhost:8085/api/googleAuth/auth/google')
+    .then(response => {
+      debugger
+      // Redirect to the Google authentication URL
+      window.location = response.data.url;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
 
   return (
     <form className="custom-form" onSubmit={handleSubmit(formSubmit)}>
@@ -85,7 +99,7 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
       </section>
       {title === "Sign In" && (
         <section>
-          <button className="btn-form-submit">
+          <button className="btn-form-submit" onClick={handleGoogleAuth}>
             <span className="gicon">G</span>Login with Google
           </button>
         </section>
