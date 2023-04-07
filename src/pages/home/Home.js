@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import { Link } from "react-router-dom";
 import TopPicks from "../../components/Toppicks/TopPicks";
 import Slider from "../../components/shared/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
@@ -8,6 +7,8 @@ import LocationSearch from "./../../components/Search/LocationSearch/LocationSea
 import { fetchAllProperties } from "../../store/slice/property/propertySlice";
 import { userInfo } from "../../store/slice/users/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import ShowMore from "../../components/Show More/ShowMore";
+import "./Home.scss";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -30,12 +31,15 @@ const Home = () => {
     <div>
       <Navbar />
       {/* <LocationSearch /> */}
-      <div className="container">
+      <div className="container homepage">
         <TopPicks properties={toppicks} />
         <Slider title="All Properties" properties={properties} />
         <Slider title="Flat" properties={flats} />
+        <ShowMore title="Flat" />
         <Slider title="PG" properties={pgs} />
+        <ShowMore title="PG" />
         <Slider title="Apartment" properties={apartments} />
+        <ShowMore title="Apartment" />
       </div>
       <Footer />
     </div>

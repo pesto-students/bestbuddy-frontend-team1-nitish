@@ -7,19 +7,10 @@ export const EditProfile = () => {
       <div className="inputs-grpstop">
         <div className="input-grp grp1">
           <div className="input-first">
-            <h5>First Name</h5>
+            <h5>Name</h5>
             <input
               type="text"
               name="location"
-              id=""
-              placeholder="Please input here"
-            />
-          </div>
-          <div className="input-last">
-            <h5>Last Name</h5>
-            <input
-              type="text"
-              name="rent"
               id=""
               placeholder="Please input here"
             />
