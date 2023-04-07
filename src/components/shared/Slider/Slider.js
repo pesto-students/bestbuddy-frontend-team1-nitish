@@ -7,7 +7,7 @@ import SliderCard from "../../Card/SliderCard";
 import "./Slider.scss";
 import { Link } from "react-router-dom";
 
-const SlickSlider = ({ properties, title }) => {
+const SlickSlider = ({ properties, title = "" }) => {
   const settings = {
     dots: false,
     infinite: false,
@@ -53,9 +53,6 @@ const SlickSlider = ({ properties, title }) => {
           </Link>
         ))}
       </Slider>
-      <Link to={`/category/${title}`}>
-        <p className="show-more">show more</p>
-      </Link>
     </section>
   );
 };

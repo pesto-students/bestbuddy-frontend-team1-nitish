@@ -1,6 +1,6 @@
 .slider-container {
   margin: 40px 0;
-  width: 80vw;
+  width: inherit;
 
   .slick-prev:before,
   .slick-next:before {
@@ -14,8 +14,4 @@
     color: var(--darkblue);
   }
 
-  .show-more {
-    cursor: pointer;
-    text-align: end;
-  }
 }
