@@ -10,23 +10,24 @@ import { useDispatch, useSelector } from "react-redux";
 import ShowMore from "../../components/Show More/ShowMore";
 import "./Home.scss";
 import Filter from "../../components/Filter/Filter";
+import { emptyData } from '../../utils/formFieldHelpers'
 
 const Home = () => {
   const dispatch = useDispatch();
 
-  const properties = useSelector((state) => state.property.allProperties);
+  const { allProperties, isLoading } = useSelector((state) => state.property);
 
   useEffect(() => {
     dispatch(fetchAllProperties());
     dispatch(userInfo());
   }, []);
 
-  const category = properties.map((catg) => catg.category);
+  const category = allProperties.map((catg) => catg.category);
   const categoryList = Array.from(new Set(category));
-  const toppicks = properties.filter((property, index) => property.city === "Delhi" && index <= 6);
+  const toppicks = allProperties.filter((property, index) => property.city === "Delhi" && index <= 6);
 
-  const data = categoryList.map((catog) => (
-    properties.filter((property) => (
+  const data = isLoading ? emptyData : categoryList.map((catog) => (
+    allProperties.filter((property) => (
       property.category === catog
     ))
   ))

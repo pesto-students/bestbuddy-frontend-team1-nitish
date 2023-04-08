@@ -39,6 +39,14 @@ export const getFormValues = (formElements) => {
       return { ...agg, [item?.key]: formElements[item?.name]?.value };
     }, {});
     return payload;
-  } 
+  }
 };
+
+export const emptyData = [
+  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0]
+]
+
 
