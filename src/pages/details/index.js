@@ -36,7 +36,7 @@ const PropertyDetails = () => {
     <>
       <NavBar />
       {Object?.keys(propertyDetails)?.length > 0 && (
-        <div className="detailspage">
+        <div className="container detailspage">
           <div className="property-details-topbar-container">
             <div className="breadcrumb">
               Home / {propertyDetails?.category} / Details

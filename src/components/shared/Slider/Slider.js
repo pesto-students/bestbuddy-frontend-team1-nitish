@@ -39,9 +39,8 @@ const SlickSlider = ({ properties, title = "" }) => {
 
   return (
     <section className="slider-container">
-      <Link to="/category">
-        <p className="slider-title">{title}</p>
-      </Link>
+      <p className="slider-title">{title}</p>
+
       <Slider {...settings}>
         {properties?.map((property) => (
           <Link to={`/details/${property?._id}`} key={property?._id}>

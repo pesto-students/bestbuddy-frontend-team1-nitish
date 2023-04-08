@@ -6,7 +6,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/shared/Slider/Slider";
 import { fetchPropertiesByCategory } from "../../store/slice/property/propertySlice";
 import { useDispatch, useSelector } from "react-redux";
-import Breadcrumbs from '../../components/BreadCrumbs/Breadcrumbs';
+import Breadcrumbs from "../../components/BreadCrumbs/Breadcrumbs";
 import SliderCard from "../../components/Card/SliderCard";
 
 const Category = () => {
@@ -36,8 +36,8 @@ const Category = () => {
           />
         </div>
         <div className="category-card-container">
-          {properties.map((item) => (
-            <SliderCard property={item} />
+          {properties.map((item, index) => (
+            <SliderCard property={item} key={index} />
           ))}
         </div>
       </div>

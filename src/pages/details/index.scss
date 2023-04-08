@@ -1,5 +1,4 @@
 .detailspage {
-  margin: 2rem 8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,8 +117,6 @@
 // Large devices (desktops)
 @media (max-width: 992px) {
   .detailspage {
-    margin: 2rem 4rem;
-
     .breadcrumb {
       font-size: 1.2rem;
     }
@@ -179,8 +176,6 @@
 // Medium devices (tablets)
 @media (max-width: 768px) {
   .detailspage {
-    margin: 2rem 3rem;
-
     .breadcrumb {
       font-size: 1rem;
     }

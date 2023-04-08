@@ -53,7 +53,7 @@ const AddRoom = () => {
     <>
       <NavBar />
       <form id="property-form" onSubmit={(e) => handleSubmit(e)}>
-        <div className="add-room">
+        <div className="container add-room">
           <h2 className="addHeading">Have a Room</h2>
           <h6 className="addHeading2">Please enter the room details below</h6>
 
