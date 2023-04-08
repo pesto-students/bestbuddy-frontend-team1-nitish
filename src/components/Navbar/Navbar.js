@@ -11,7 +11,6 @@ import Hamburger from "./Hamburger";
 import { Link } from "react-router-dom";
 import { signOut } from "../../store/slice/users/userSlice";
 import TopCircles from "./../../assets/Top-Circles.svg";
-import BottomMountains from "./../../assets/Bottom-Mountains.svg";
 
 const NavBar = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -54,7 +53,7 @@ const NavBar = () => {
               <Nav className="justify-content-end flex-grow-1">
                 <Link to="/">Home</Link>
                 <Link to="/addroom">Upload Room</Link>
-                <Link to="/favorite">My Listings</Link>
+                <Link to="/mylistings">My Listings</Link>
                 <NavDropdown
                   title="Profile"
                   id="offcanvasNavbarDropdown-expand-lg"
