@@ -3,12 +3,13 @@ import TopPicks from "../../components/Toppicks/TopPicks";
 import Slider from "../../components/shared/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
-import LocationSearch from "./../../components/Search/LocationSearch/LocationSearch";
+
 import { fetchAllProperties } from "../../store/slice/property/propertySlice";
 import { userInfo } from "../../store/slice/users/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import ShowMore from "../../components/Show More/ShowMore";
 import "./Home.scss";
+import Filter from "../../components/Filter/Filter";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      {/* <LocationSearch /> */}
+      <Filter />
       <div className="container homepage">
         <TopPicks properties={toppicks} />
         <Slider title="All Properties" properties={properties} />
