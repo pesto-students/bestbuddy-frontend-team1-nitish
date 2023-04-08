@@ -26,7 +26,8 @@ const Category = () => {
       <Navbar />
       <div className="container categorypage">
         <div className="top-bar">
-          <Breadcrumbs title={categoryname} />
+          <h4 className="top-bar-h4">Home / {categoryname}</h4>
+
           <input
             className="top-bar-search"
             type="search"
