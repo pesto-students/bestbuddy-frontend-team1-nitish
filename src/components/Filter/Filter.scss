@@ -1,7 +1,10 @@
 .filter-container {
-    background-color: #DEE2F2;
     color: #152C5B;
     border-radius: 4px;
+
+    .row {
+        margin: 0;
+    }
 
     p {
         cursor: pointer;
@@ -13,6 +16,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color: #DEE2F2;
     }
 
     .arrow {
@@ -44,6 +48,7 @@
     }
 
     .filter-section {
+        background-color: #DEE2F2;
         height: 0;
         overflow: hidden;
         transition: all 0.15s ease-out;
