@@ -1,13 +1,13 @@
 .card2 {
   position: relative;
-  /* width: 263px; */
-  height: 180px;
+  width: 300px;
   margin: 10px;
 }
 
 .card2 .card-image img {
   width: 100%;
   border-radius: 1rem;
+  height: 200px;
 }
 
 .card2-heading h5 {
@@ -19,6 +19,7 @@
   text-align: left;
   margin-top: 1rem;
 }
+
 .card2-heading h6 {
   font-size: 15px;
   font-weight: 300;
@@ -39,4 +40,10 @@
   background-color: var(--pink);
   text-align: center;
   border-radius: 0 0.6rem 0 0.6rem;
+}
+
+@media(max-width:340px) {
+  .card2 {
+    width: 280px;
+  }
 }
