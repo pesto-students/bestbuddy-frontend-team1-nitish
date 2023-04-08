@@ -8,7 +8,7 @@ const Card = ({ property }) => {
     <div className="card">
       <Link to={`/details/${property?._id}`} key={property?._id}>
         <div className="card-image">
-          <img src={property.image[0]} alt="cardimage" />
+          <img loading="lazy" src={property.image[0]} alt="cardimage" />
         </div>
         <div className="heading">
           <h5>{property.name}</h5>

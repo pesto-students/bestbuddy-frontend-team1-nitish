@@ -21,12 +21,15 @@ const Home = () => {
     dispatch(userInfo());
   }, []);
 
-  const flats = properties.filter((property) => property.category === "Flat");
-  const pgs = properties.filter((property) => property.category === "PG");
-  const apartments = properties.filter(
-    (property) => property.category === "Apartment"
-  );
-  const toppicks = properties.filter((property) => property.city === "Delhi");
+  const category = properties.map((catg) => catg.category);
+  const categoryList = Array.from(new Set(category));
+  const toppicks = properties.filter((property, index) => property.city === "Delhi" && index <= 6);
+
+  const data = categoryList.map((catog) => (
+    properties.filter((property) => (
+      property.category === catog
+    ))
+  ))
 
   return (
     <div>
@@ -34,13 +37,12 @@ const Home = () => {
       <Filter />
       <div className="container homepage">
         <TopPicks properties={toppicks} />
-        <Slider title="All Properties" properties={properties} />
-        <Slider title="Flat" properties={flats} />
-        <ShowMore title="Flat" />
-        <Slider title="PG" properties={pgs} />
-        <ShowMore title="PG" />
-        <Slider title="Apartment" properties={apartments} />
-        <ShowMore title="Apartment" />
+        {data.map((item) => (
+          <>
+            <Slider title={item[0].category} properties={item} />
+            <ShowMore title={item[0].category} />
+          </>
+        ))}
       </div>
       <Footer />
     </div>
