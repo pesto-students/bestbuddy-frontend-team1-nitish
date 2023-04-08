@@ -1,31 +1,24 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import "./editProfile.scss";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import SlickSlider from "../../../components/shared/Slider/Slider";
-import { getFormValues } from "../../../utils/formFieldHelpers";
 import { editUserDetails } from "../../../store/slice/users/userSlice";
 import { toast } from "react-toastify";
 
 export const EditProfile = () => {
-  const [data, setData] = useState({
-    userName: "",
-    number: "",
-    email: "",
-    gender: "",
-  });
   const userInfo = useSelector((state) => state?.user?.userInfo);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [data, setData] = useState({});
   const id = userInfo?.id;
 
   const handleSubmit = (e) => {
     e?.preventDefault();
-
     const payload = { data, id };
     dispatch(editUserDetails(payload));
-    setTimeout(() => {
-      toast("Updating User Details");
-    }, 3000);
+    toast("User Details Updated");
+    navigate(`/`);
   };
 
   return (
@@ -85,7 +78,6 @@ export const EditProfile = () => {
           Save Changes
         </Button>
       </form>
-      <SlickSlider properties={userInfo?.property} title="User Properties" />
     </div>
   );
 };

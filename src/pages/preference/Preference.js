@@ -10,7 +10,7 @@ const Preference = () => {
   return (
     <div>
       <Navbar />
-      <div className="content-container preferences-container">
+      <div className="container preferences-container">
         <h3 className="preferences-heading">Preferences</h3>
         <PreferenceGrid />
         <Button className="submitbutton">Continue</Button>
