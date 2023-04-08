@@ -6,6 +6,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/shared/Slider/Slider";
 import { fetchPropertiesByCategory } from "../../store/slice/property/propertySlice";
 import { useDispatch, useSelector } from "react-redux";
+import Breadcrumbs from '../../components/BreadCrumbs/Breadcrumbs';
+import SliderCard from "../../components/Card/SliderCard";
 
 const Category = () => {
   const dispatch = useDispatch();
@@ -22,10 +24,9 @@ const Category = () => {
   return (
     <div>
       <Navbar />
-      <div className="categorypage">
+      <div className="container categorypage">
         <div className="top-bar">
-          <h4 className="top-bar-h4">Home / {categoryname}</h4>
-
+          <Breadcrumbs title={categoryname} />
           <input
             className="top-bar-search"
             type="search"
@@ -34,7 +35,11 @@ const Category = () => {
             placeholder="Search Rooms"
           />
         </div>
-        <Slider properties={properties} />
+        <div className="category-card-container">
+          {properties.map((item) => (
+            <SliderCard property={item} />
+          ))}
+        </div>
       </div>
       <Footer />
     </div>
