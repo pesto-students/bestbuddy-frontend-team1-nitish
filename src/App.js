@@ -10,6 +10,7 @@ import { setAuthenticated } from "./store/slice/users/userSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "./components/Loader/Loader";
+import Loader1 from "./components/Loader/Loader1";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);

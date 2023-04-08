@@ -49,6 +49,7 @@ export const fetchPropertyById = createAsyncThunk(
         method: "GET",
         url: `${GET_PROPERTYBYID}/${id}`,
       });
+        console.log("🚀 ~ file: propertySlice.js:53 ~ url:", `${GET_PROPERTYBYID}/${id}`)
 
       return response;
     } catch (err) {

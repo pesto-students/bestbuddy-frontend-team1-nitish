@@ -39,6 +39,6 @@ export const getFormValues = (formElements) => {
       return { ...agg, [item?.key]: formElements[item?.name]?.value };
     }, {});
     return payload;
-  }
+  } 
 };
 

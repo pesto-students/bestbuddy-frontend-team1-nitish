@@ -5,6 +5,7 @@ import {
   USER_SIGNOUT,
   USER_SIGNUP,
   USER_DETAILS,
+  EDIT_USER_DETAILS,
 } from "./service";
 import bestBuddyAxios from "./../../../bestbuddyaxios/bestBuddyAxios";
 
@@ -62,6 +63,24 @@ export const userInfo = createAsyncThunk("user/userInfo ", async () => {
     throw err.response.data;
   }
 });
+
+export const editUserDetails = createAsyncThunk(
+  "user/editUserDetails",
+  async (data) => {
+    console.log("🚀 ~ file: userSlice.js:70 ~ data:", data,data.id)
+    try {
+      const response = await bestBuddyAxios({
+        method: "PATCH",
+        url: `${EDIT_USER_DETAILS}/${data.id}`,
+        data: data.data,
+      });
+
+      return response;
+    } catch (err) {
+      throw err.response.data;
+    }
+  }
+);
 
 const initialState = {
   userInfo: [],
@@ -151,6 +170,16 @@ const userSlice = createSlice({
       return { ...state, userInfo: payload.data.data, isLoading: false };
     },
     [userInfo.rejected]: (state, { error }) => {
+      return { ...state, message: error.message, isLoading: false };
+    },
+
+    [editUserDetails.pending]: (state) => {
+      return { ...state, isLoading: true };
+    },
+    [editUserDetails.fulfilled]: (state, { payload }) => {
+      return { ...state, message: "User info Updated", isLoading: false };
+    },
+    [editUserDetails.rejected]: (state, { error }) => {
       return { ...state, message: error.message, isLoading: false };
     },
   },
