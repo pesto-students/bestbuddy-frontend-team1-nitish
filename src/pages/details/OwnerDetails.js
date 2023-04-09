@@ -12,24 +12,22 @@ const OwnerDetails = ({ preferences = [], ownerData = {} }) => {
           <Col xs={3}>
             <Image className="avatar" src={avtar} alt="profile-pic" />
           </Col>
-          <Col className="ml-5">
-            <p className="property-details-owner-name">
-              {ownerData?.user_name}
-            </p>
-            <p className="property-owner-details">
-              34 / {ownerData?.gender}
-            </p>
-            <p className="property-owner-details">
-              <Image src={locationIcon} alt={"location"} />
-              <span className="property-owner-location ">
-                {ownerData?.city}, India
-              </span>
+          <Col className="ml-5 col2">
+            <p className="owner-name">{ownerData?.user_name}</p>
+            <p className="owner-details">34 / {ownerData?.gender}</p>
+            <p className="owner-details">
+              <img
+                className="owner-location-icon"
+                src={locationIcon}
+                alt="location"
+              />
+              <span>{ownerData?.city}, India</span>
             </p>
           </Col>
         </Row>
         {/* Owner Personal Views*/}
-        <Row className="mt-5 owner-details-text-row">
-          <p className="owner-details-text">
+        <Row className="owner-details-text-row">
+          <p>
             Emmelie is a traditional book-worm and has always been from a young
             age. She is a housekeeper mom with two kids and she has a lot of
             time to read and relax. Emmelie tends to casually browse books in a
@@ -38,8 +36,8 @@ const OwnerDetails = ({ preferences = [], ownerData = {} }) => {
           </p>
         </Row>
         {/* Owner conatct options */}
-        <Row className="mt-5 owner-details-text-row">
-          <div className="owner-details-contact-col mr-5">
+        <Row className="owner-details-text-row">
+          <div className="owner-details-contact-col">
             <IoChatboxSharp style={{ color: "white" }} size={22} />
             <span className="ml-3">Chat</span>
           </div>

@@ -25,6 +25,7 @@ const PropertyDetails = () => {
   const { id = "" } = useParams();
   const navigate = useNavigate();
   const propertyDetails = useSelector((state) => state?.property?.propertyById);
+  console.log("🚀 ~ file: index.js:28 ~ PropertyDetails ~ propertyDetails:", propertyDetails)
 
   useEffect(() => {
     if (id) {
@@ -75,7 +76,7 @@ const PropertyDetails = () => {
 
           {/* Amenties */}
           <h1 className="amentiesh">Amenties</h1>
-          <Amenties />
+          <Amenties receivedAmenties={propertyDetails?.amenties}/>
 
           {/* Details Para */}
           <MoreDetails data={moreDetailsPara} />

@@ -28,75 +28,73 @@
   }
 }
 .owner-details-container {
-  background: #d9d9d9;
-  border-radius: 2rem;
+  background: var(--lightergray);
+  color: var(--darkblue);
+  border-radius: 1.5rem;
   padding: 3rem;
-}
-.property-location-details {
-  font-size: 1em;
-}
-.location-text {
-  color: var(--darkblue);
-}
-.property-details-owner-name {
-  color: var(--darkblue);
-  font-weight: 700;
-  font-size: 3em;
-}
-.property-owner-details {
-  color: var(--darkblue);
-  font-size: 2em;
-  font-weight: 500;
-}
-.owner-details-location {
-  color: var(--darkblue);
-  font-size: 1em;
-}
-.owner-details-text-row {
-  width: 92%;
-  margin: auto;
-  color: var(--darkblue);
-}
-.owner-details-text {
-  color: var(--darkblue);
-  font-weight: 500;
-  font-size: 1.1em;
-}
-.owner-details-contact-col {
-  background-color: var(--lightblue);
-  padding: 1em 0 1em 2em;
-  color: white;
-  cursor: pointer;
-  width: 10em;
-  border-radius: 0.5em;
-}
 
-.owner-habits-row {
-  gap: 2rem;
-  text-align: center;
-  margin: 2rem;
-
-  .head {
+  .avatar {
+    margin-left: 2rem;
+  }
+  .owner-name {
+    font-weight: 700;
+    font-size: 2.5em;
+  }
+  .owner-details {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  .owner-location-icon {
+    margin-right: 1rem;
+  }
+  .owner-details-text-row {
+    margin: 2rem;
     color: var(--darkblue);
-    font-size: 2.5rem;
   }
-  .owner-habits-container {
-    background: white;
-    color: var(--pink);
-    font-size: 1.25rem;
-    padding: 1em;
-    border-radius: 0.6rem;
-    max-width: 12rem;
-    min-width: 10rem;
+
+  .owner-details-text {
+    color: var(--darkblue);
+    font-weight: 500;
+    font-size: 1.1em;
+  }
+  .owner-details-contact-col {
+    background-color: var(--lightblue);
+    padding: 1em 0 1em 2em;
+    color: white;
+    cursor: pointer;
+    width: 10em;
+    border-radius: 0.5em;
+    margin: 0 1rem;
+  }
+
+  .owner-habits-row {
+    gap: 2rem;
+    text-align: center;
+    margin: 2rem;
+
+    .head {
+      color: var(--darkblue);
+      font-size: 2.25rem;
+    }
+    .owner-habits-container {
+      background: white;
+      color: var(--pink);
+      font-size: 1.25rem;
+      padding: 1em;
+      border-radius: 0.6rem;
+      max-width: 12rem;
+      min-width: 10rem;
+    }
   }
 }
+
 .detailspage .amentiesh {
   color: var(--darkblue);
-  margin: 2rem;
+  margin: 2rem 0;
 }
 .property-details-more-container {
-  margin: 3em;
-  padding: 1em 1.5em;
+  margin: 5rem 0;
 
   .header {
     color: var(--darkblue);
@@ -105,7 +103,7 @@
   }
   .para {
     margin-top: 0.5em;
-    color: #706d6d;
+    color: var(--darkgray);
     font-size: 1em;
   }
 }
@@ -127,49 +125,46 @@
     }
   }
   .owner-details-container {
-    background: #d9d9d9;
-    border-radius: 2rem;
-    padding: 2rem;
+    padding: 1.5rem;
 
     .avatar {
-      width: 180px;
+      width: 170px;
       margin-left: 2rem;
     }
-  }
 
-  .property-details-owner-name {
-    font-weight: 600;
-    font-size: 2.5em;
-  }
-  .property-owner-details {
-    font-size: 1.6em;
-    font-weight: 500;
-  }
-  .property-owner-location {
-    margin-left: 1rem;
-  }
-
-  .owner-details-text-row {
-    width: 90%;
-  }
-  .owner-details-text {
-    font-weight: 400;
-    font-size: 1em;
-  }
-  .owner-habits-row {
-    gap: 2rem;
-    text-align: center;
-    margin: 2rem;
-
-    .head {
-      color: var(--darkblue);
-      font-size: 2.2rem;
+    .owner-name {
+      font-weight: 600;
+      font-size: 2em;
     }
-    .owner-habits-container {
-      font-size: 1rem;
-      font-weight: 500;
-      max-width: 10rem;
-      min-width: 8rem;
+    .owner-details {
+      font-size: 1.4em;
+    }
+    .owner-details-text {
+      font-weight: 400;
+      font-size: 1em;
+    }
+    .owner-habits-row {
+      gap: 2rem;
+      text-align: center;
+      margin: 2rem;
+
+      .head {
+        color: var(--darkblue);
+        font-size: 2.2rem;
+      }
+      .owner-habits-container {
+        font-size: 1rem;
+        font-weight: 500;
+        max-width: 10rem;
+        min-width: 8rem;
+      }
+    }
+  }
+  .property-details-more-container {
+    margin: 1rem 0 2rem 1rem;
+    .para {
+      color: var(--darkgray);
+      font-size: 1em;
     }
   }
 }
@@ -184,48 +179,47 @@
         font-size: 1.6rem;
       }
     }
+    .property-details-search-input {
+      display: none;
+    }
   }
 
   .owner-details-container {
-    background: #d9d9d9;
-    border-radius: 1.5rem;
-    padding: 1.5rem;
-
+    padding: 1rem;
     .avatar {
-      width: 160px;
+      width: 150px;
       margin-left: 2rem;
     }
-  }
-
-  .property-details-owner-name {
-    font-weight: 500;
-    font-size: 2em;
-  }
-  .property-owner-details {
-    font-size: 1.4em;
-    font-weight: 400;
-  }
-  .property-owner-location {
-    margin-left: 1rem;
-  }
-
-  .owner-details-text-row {
-    width: 95%;
-  }
-
-  .owner-habits-row {
-    gap: 1rem;
-    text-align: center;
-    margin: 1rem;
-
-    .head {
-      font-size: 2rem;
+    .owner-name {
+      font-weight: 600;
+      font-size: 1.5em;
+      margin-left: 1.5rem;
     }
-    .owner-habits-container {
-      font-size: 1rem;
+    .owner-details {
+      font-size: 1.25em;
       font-weight: 500;
-      max-width: 9rem;
-      min-width: 8rem;
+      margin-left: 1.5rem;
+    }
+    .owner-location {
+      margin-left: 1rem;
+    }
+    .owner-details-text-row {
+      width: 95%;
+    }
+    .owner-habits-row {
+      gap: 1rem;
+      text-align: center;
+      margin: 1rem;
+
+      .head {
+        font-size: 2rem;
+      }
+      .owner-habits-container {
+        font-size: 1rem;
+        font-weight: 500;
+        max-width: 9rem;
+        min-width: 8rem;
+      }
     }
   }
 }
@@ -233,8 +227,6 @@
 // Small devices
 @media (max-width: 576px) {
   .detailspage {
-    margin: 1rem;
-
     .property-details-topbar-container {
       width: 100%;
       padding: 0;
@@ -252,79 +244,87 @@
   }
 
   .owner-details-container {
-    background: #d9d9d9;
-    border-radius: 1rem;
+    border-radius: 0.25rem;
     padding: 0.5rem;
 
     .avatar {
       width: 100px;
       margin: 1rem;
     }
-  }
-
-  .property-details-owner-name {
-    font-weight: 500;
-    font-size: 1.6em;
-    margin: 1rem 0 0 0;
-  }
-  .property-owner-details {
-    font-size: 1em;
-    font-weight: 400;
-    margin: 0;
-  }
-
-  .owner-details-text-row {
-    width: 95%;
-  }
-  .owner-details-text {
-    font-weight: 400;
-    font-size: 1em;
-  }
-  .owner-details-contact-col {
-    margin: 0;
-    padding: 1em 1em 1em 2em;
-    color: white;
-    cursor: pointer;
-    width: 8em;
-    border-radius: 0.5em;
-  }
-
-  .owner-habits-row {
-    gap: 0.5rem;
-    text-align: center;
-    margin: 1rem;
-
-    .head {
-      color: var(--darkblue);
-      font-size: 1.5rem;
+    .owner-name {
+      font-weight: 500;
+      font-size: 1.25em;
+      margin: 1rem 0 0 0;
     }
-    .owner-habits-container {
-      font-size: 0.75rem;
-      padding: 0.5em;
-      border-radius: 0.4rem;
-      max-width: 7rem;
-      min-width: 5rem;
+    .owner-details {
+      font-size: 0.9em;
+      font-weight: 400;
+      margin: 0;
+    }
+    .owner-location-icon {
+      width: 0.8rem;
+      margin-right: 0.5rem;
+    }
+    .owner-details-text-row {
+      width: 100%;
+      font-weight: 500;
+      font-size: 0.8em;
+      margin: 0 0.5rem 0 0.5rem;
+    }
+    .owner-details-contact-col {
+      margin: 0.5rem 0;
+      padding: 1em 1em 1em 2em;
+      color: white;
+      cursor: pointer;
+      width: 95%;
+      border-radius: 0.5em;
+      display: flex;
+      align-items: center;
+    }
+
+    .owner-details-contact-col {
+      display: flex;
+      justify-content: center;
+    }
+
+    .owner-habits-row {
+      gap: 0.5rem;
+      text-align: center;
+      margin: 1rem;
+
+      .head {
+        color: var(--darkblue);
+        font-size: 1.5rem;
+      }
+      .owner-habits-container {
+        font-size: 0.75rem;
+        padding: 0.5em;
+        border-radius: 0.4rem;
+        max-width: 7rem;
+        min-width: 5rem;
+      }
     }
   }
-  .detailspage .amentiesh {
-    margin: 1.5rem;
-  }
+
   .property-details-more-container {
     margin: 1em;
 
     .header {
-      color: var(--darkblue);
-      font-weight: 400;
       font-size: 1em;
+      margin: 0 0.25em;
     }
     .para {
-      margin-top: 0.25em;
-      color: #706d6d;
+      margin: 0 0.25em;
       font-size: 0.6em;
     }
   }
 
-  .detailspage .deleteButton {
+  .detailspage .amentiesh {
+    margin: 1rem 0 0 0;
+    font-size: 1.25rem;
+  }
+
+  .deleteButton {
     width: 80vw;
   }
 }
