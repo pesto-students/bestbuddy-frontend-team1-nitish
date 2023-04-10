@@ -46,5 +46,74 @@
       font-size: 20px;
       padding: 0.5rem 3rem;
     }
+
+    // Large devices (desktops)
+    @media (max-width: 992px) {
+      .input-grp {
+        padding: 2rem 2rem;
+      }
+      .input-grp input,
+      .input-grp select {
+        width: 32vw;
+      }
+      .editbutton {
+        padding: 0.75rem 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .input-grp {
+        padding: 2rem 2rem;
+      }
+      .input-grp input,
+      .input-grp select {
+        width: 36vw;
+      }
+      .editbutton {
+        padding: 0.75rem 3rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .inputs-grps {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        margin: 2rem 0;
+      }
+
+      .input-grp {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .input-grp h5 {
+        font-size: 18px;
+      }
+      .divider1 {
+        display: none;
+      }
+
+      .input-grp input,
+      .input-grp select {
+        width: 80vw;
+        text-align: center;
+        font-weight: 500;
+        font-size: 14px;
+        margin-bottom: 1rem;
+        padding: 0.25rem 1rem;
+      }
+
+      .editbutton {
+        width: 80vw;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 0.5rem 3rem;
+      }
+    }
   }
 }
