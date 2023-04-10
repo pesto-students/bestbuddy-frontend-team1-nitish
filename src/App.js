@@ -7,7 +7,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 import Routers from "./Routers";
 import "./App.scss";
-import { setAuthenticated } from "./store/slice/users/userSlice";
+import { setAuthenticated, userInfo } from "./store/slice/users/userSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -36,6 +36,9 @@ function App() {
 
   useEffect(() => {
     checkAuthentication();
+    if(isAuthenticated) {
+      dispatch(userInfo());
+    }
   }, [isAuthenticated]);
 
   return (

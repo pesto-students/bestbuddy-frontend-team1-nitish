@@ -19,7 +19,6 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchAllProperties());
-    dispatch(userInfo());
   }, []);
 
   const category = allProperties.map((catg) => catg.category);
