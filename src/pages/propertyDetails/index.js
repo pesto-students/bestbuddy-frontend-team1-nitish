@@ -74,12 +74,16 @@ const PropertyDetails = () => {
           />
 
           {/* Amenties */}
+          {propertyDetails?.amenties?.length > 0 &&
+          <>
           <h1 className="amentiesh">Amenties</h1>
           <Amenties
             receivedAmenties={propertyDetails?.amenties}
             selectable={true}
             disableSelect={true}
           />
+          </>
+          }
 
           {/* Details Para */}
           <MoreDetails data={moreDetailsPara} />

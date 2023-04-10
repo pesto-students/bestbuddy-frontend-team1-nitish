@@ -6,8 +6,8 @@ import "./Profile.scss";
 import ProfileDetails from "../profile/mode";
 
 const Profile = () => {
-  const params = useParams();
-  const { mode = "view" } = params;
+  const { mode = "view" } = useParams();
+
   return (
     <div>
       <NavBar />

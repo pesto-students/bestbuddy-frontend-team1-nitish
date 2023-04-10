@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Card = ({ property }) => {
   return (
     <div className="card">
-      <Link to={`/details/${property?._id}`} key={property?._id}>
+      <Link to={`/property-details/view/${property?._id}`} key={property?._id}>
         <div className="card-image">
           <img loading="lazy" src={property.image[0]} alt="cardimage" />
         </div>

@@ -9,7 +9,7 @@ const SliderCard = ({ property }) => {
 
   return (
     <>
-      {isLoading ? <SliderCardSkeleton /> : <Link to={`/details/${property?._id}`} key={property?._id}>
+      {isLoading ? <SliderCardSkeleton /> : <Link to={`/property-details/view/${property?._id}`} key={property?._id}>
         <div className="card2">
           <div className="card-image">
             <img loading="lazy" src={property?.image[0]} alt="cardimage" />

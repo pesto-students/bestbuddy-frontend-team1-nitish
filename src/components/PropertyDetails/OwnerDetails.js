@@ -51,14 +51,16 @@ const OwnerDetails = ({ preferences = [], ownerData = {} }) => {
           </div>
         </Row>
         {/* Preferences of owner */}
-        <Row className="owner-habits-row">
-          <h2 className="head">Preferences</h2>
-          {preferences?.map((item, index) => (
-            <Col className="owner-habits-container" key={`${index}-${item}`}>
-              {item}
-            </Col>
-          ))}
-        </Row>
+        {preferences?.length > 0 && (
+          <Row className="owner-habits-row">
+            <h2 className="head">Preferences</h2>
+            {preferences?.map((item, index) => (
+              <Col className="owner-habits-container" key={`${index}-${item}`}>
+                {item}
+              </Col>
+            ))}
+          </Row>
+        )}
       </div>
     </>
   );
