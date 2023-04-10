@@ -1,66 +1,75 @@
 .filter-container {
-    color: #152C5B;
-    border-radius: 4px;
+  color: var(--darkblue);
+  border-radius: 1rem;
 
-    .row {
-        margin: 0;
+  .row {
+    margin: 0;
+  }
+
+  p {
+    cursor: pointer;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dee2f2;
+  }
+
+  .filtericon {
+    margin-left: 0.5rem;
+    height: 20px;
+    position: relative;
+    top: -2px;
+  }
+
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transition: all 0.15s ease-out;
+  }
+
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transition: all 0.15s ease-out;
+  }
+
+  .show {
+    padding: 25px 25px 25px 25px !important;
+    height: auto !important;
+    transition: all 0.15s ease-out;
+    border-top: 1px solid #152c5b;
+  }
+
+  .filter-section {
+    background-color: #dee2f2;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.15s ease-out;
+    padding: 0 25px;
+
+    section select {
+      background-color: #dee2f2;
+      width: 100%;
+      height: 32px;
+      font-weight: 500;
+      color: #152c5b;
+      border: 1px solid #152c5b;
+      border-radius: 4px;
+      margin-bottom: 15px;
     }
-
-    p {
-        cursor: pointer;
-        margin: 0;
-        font-size: 17px;
-        font-weight: 500;
-        text-align: center;
-        padding: 10px 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #DEE2F2;
-    }
-
-    .arrow {
-        border: solid black;
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        padding: 3px;
-        width: 10px;
-        height: 10px;
-    }
-
-    .down {
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        transition: all 0.15s ease-out;
-    }
-
-    .up {
-        transform: rotate(-135deg);
-        -webkit-transform: rotate(-135deg);
-        transition: all 0.15s ease-out;
-    }
-
-    .show {
-        padding: 25px 25px 25px 25px !important;
-        height: auto !important;
-        transition: all 0.15s ease-out;
-        border-top: 1px solid #152C5B;
-    }
-
-    .filter-section {
-        background-color: #DEE2F2;
-        height: 0;
-        overflow: hidden;
-        transition: all 0.15s ease-out;
-        padding: 0 25px;
-
-        section select {
-            width: 100%;
-            height: 32px;
-            color: #152C5B;
-            border: 1px solid #152C5B;
-            border-radius: 4px;
-            margin-bottom: 15px;
-        }
-    }
+  }
 }

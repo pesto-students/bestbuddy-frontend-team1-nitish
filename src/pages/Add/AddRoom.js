@@ -38,7 +38,7 @@ const AddRoom = () => {
     const payload = {
       ...formValues,
       amenties,
-      perfrences: preferences,
+      preferences: preferences,
       image: images,
       details: "",
     };
