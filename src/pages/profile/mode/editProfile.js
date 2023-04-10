@@ -23,9 +23,13 @@ export const EditProfile = () => {
 
   return (
     <div className="editProfile">
-      <h5>Please edit the Profile details below</h5>
-      <form id="user-edit-form" onSubmit={(e) => handleSubmit(e)}>
-        <div className="inputs-grpstop">
+      <form
+        id="user-edit-form"
+        className="form"
+        onSubmit={(e) => handleSubmit(e)}
+      >
+        <h5>Please edit the Profile details below</h5>
+        <div className="inputs-grps">
           <div className="input-grp grp1">
             <div className="input-name">
               <h5>Name</h5>
@@ -74,7 +78,7 @@ export const EditProfile = () => {
             </div>
           </div>
         </div>
-        <Button className="submitbutton" type="submit">
+        <Button className="editbutton" type="submit">
           Save Changes
         </Button>
       </form>
