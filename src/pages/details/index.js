@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Col, Form, InputGroup, Row, Image, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import OwnerDetails from "./OwnerDetails";
@@ -13,7 +13,7 @@ import {
   deleteProperty,
   fetchPropertyById,
 } from "../../store/slice/property/propertySlice";
-import Amenties from "../../components/Amenties/Amenties";
+import Amenties from "../../components/Amenties/Amenties1";
 import { toast } from "react-toastify";
 
 // To be removed after API Integration
@@ -25,7 +25,6 @@ const PropertyDetails = () => {
   const { id = "" } = useParams();
   const navigate = useNavigate();
   const propertyDetails = useSelector((state) => state?.property?.propertyById);
-  console.log("🚀 ~ file: index.js:28 ~ PropertyDetails ~ propertyDetails:", propertyDetails)
 
   useEffect(() => {
     if (id) {
@@ -76,7 +75,11 @@ const PropertyDetails = () => {
 
           {/* Amenties */}
           <h1 className="amentiesh">Amenties</h1>
-          <Amenties receivedAmenties={propertyDetails?.amenties}/>
+          <Amenties
+            receivedAmenties={propertyDetails?.amenties}
+            selectable={true}
+            disableSelect={true}
+          />
 
           {/* Details Para */}
           <MoreDetails data={moreDetailsPara} />

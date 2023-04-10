@@ -49,7 +49,6 @@ export const fetchPropertyById = createAsyncThunk(
         method: "GET",
         url: `${GET_PROPERTYBYID}/${id}`,
       });
-      console.log("🚀 ~ file: propertySlice.js:53 ~ url:", `${GET_PROPERTYBYID}/${id}`)
 
       return response;
     } catch (err) {
@@ -96,7 +95,7 @@ const initialState = {
   propertiesBycategory: [],
   propertyById: {},
   addedPropertyStatus: false,
-  isLoading: false
+  isLoading: false,
 };
 
 const propertySlice = createSlice({
@@ -105,7 +104,7 @@ const propertySlice = createSlice({
   reducers: {},
   extraReducers: {
     [fetchAllProperties.pending]: (state) => {
-      return { ...state, isLoading: true }
+      return { ...state, isLoading: true };
     },
     [fetchAllProperties.fulfilled]: (state, { payload }) => {
       return { ...state, allProperties: payload.data.data, isLoading: false };
@@ -115,17 +114,21 @@ const propertySlice = createSlice({
     },
 
     [fetchPropertiesByCategory.pending]: (state) => {
-      return { ...state, isLoading: true }
+      return { ...state, isLoading: true };
     },
     [fetchPropertiesByCategory.fulfilled]: (state, { payload }) => {
-      return { ...state, propertiesBycategory: payload.data.data, isLoading: false };
+      return {
+        ...state,
+        propertiesBycategory: payload.data.data,
+        isLoading: false,
+      };
     },
     [fetchPropertiesByCategory.rejected]: (state, { error }) => {
       return { ...state, message: error.message };
     },
 
     [fetchPropertyById.pending]: (state) => {
-      return { ...state, isLoading: true }
+      return { ...state, isLoading: true };
     },
     [fetchPropertyById.fulfilled]: (state, { payload }) => {
       return { ...state, propertyById: payload.data.data, isLoading: false };
@@ -135,7 +138,7 @@ const propertySlice = createSlice({
     },
 
     [deleteProperty.pending]: (state) => {
-      return { ...state, isLoading: true }
+      return { ...state, isLoading: true };
     },
     [deleteProperty.fulfilled]: (state, { payload }) => {
       return { ...state, message: "Deleted Successfully", isLoading: false };
@@ -145,14 +148,14 @@ const propertySlice = createSlice({
     },
 
     [addProperty.pending]: (state) => {
-      return { ...state, isLoading: true }
+      return { ...state, isLoading: true };
     },
     [addProperty.fulfilled]: (state, { payload }) => {
       return {
         ...state,
         addedPropertyStatus: true,
         message: "Property added Successfully!",
-        isLoading: false
+        isLoading: false,
       };
     },
     [addProperty.rejected]: (state, { error }) => {
@@ -162,4 +165,4 @@ const propertySlice = createSlice({
 });
 
 export default propertySlice.reducer;
-export const { } = propertySlice.actions;
+export const {} = propertySlice.actions;
