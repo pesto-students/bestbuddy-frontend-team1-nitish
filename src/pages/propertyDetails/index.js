@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import OwnerDetails from "./OwnerDetails";
-import PropertyImages from "./PropertyImages";
+import OwnerDetails from "../../components/PropertyDetails/OwnerDetails";
+import PropertyImages from "../../components/PropertyDetails/PropertyImages";
 import locationIcon from "../../assets/images/location_icon.svg";
 import "./index.scss";
-import MoreDetails from "./MoreDetails";
+import MoreDetails from "../../components/PropertyDetails/MoreDetails";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import {
