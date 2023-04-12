@@ -13,6 +13,7 @@ const Preference = () => {
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state?.user?.userInfo);
   const id = userInfo?.id;
+  const receivedPreferences = userInfo?.preferences;
 
   const handleSubmit = (e) => {
     e?.preventDefault();
@@ -33,7 +34,11 @@ const Preference = () => {
       <Navbar />
       <div className="container preferences-container">
         <h3 className="preferences-heading">Preferences</h3>
-        <PreferenceGrid selectable={true} setPreferences={setPreferences} />
+        <PreferenceGrid
+          selectable={true}
+          setPreferences={setPreferences}
+          receivedPreferences={receivedPreferences}
+        />
         <Button className="submitbutton" onClick={() => handleSubmit()}>
           Continue
         </Button>

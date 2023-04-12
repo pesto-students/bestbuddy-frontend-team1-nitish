@@ -101,9 +101,17 @@ const data = [
   },
 ];
 
-const PreferenceGrid = ({ selectable = false, setPreferences = () => {} }) => {
-  const [renderData, setRenderData] = useState([...data]);
-
+const PreferenceGrid = ({
+  selectable = false,
+  setPreferences = () => {},
+  receivedPreferences,
+}) => {
+  const [renderData, setRenderData] = useState(() =>
+    data.map((item) => ({
+      ...item,
+      selected: receivedPreferences?.includes(item.title),
+    }))
+  );
   useEffect(() => {
     if (selectable && renderData) {
       const selectedPreferences = renderData?.filter((item) => item?.selected);
