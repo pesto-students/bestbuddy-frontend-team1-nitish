@@ -242,7 +242,7 @@
       display: none;
     }
   }
-
+  
   .owner-details-container {
     border-radius: 0.25rem;
     padding: 0.5rem;
@@ -327,4 +327,9 @@
   .deleteButton {
     width: 80vw;
   }
+}
+
+.skeleton-container-property{
+  width: 90%;
+  margin: auto;
 }

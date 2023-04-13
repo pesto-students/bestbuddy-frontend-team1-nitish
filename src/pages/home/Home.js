@@ -5,7 +5,6 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 
 import { fetchAllProperties } from "../../store/slice/property/propertySlice";
-import { userInfo } from "../../store/slice/users/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import ShowMore from "../../components/Show More/ShowMore";
 import "./Home.scss";
