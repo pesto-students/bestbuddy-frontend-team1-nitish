@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import OwnerDetails from "./OwnerDetails";
 import PropertyImages from "./PropertyImages";
@@ -15,22 +15,47 @@ import {
 } from "../../store/slice/property/propertySlice";
 import Amenties from "../../components/Amenties/Amenties1";
 import { toast } from "react-toastify";
+import Breadcrumbs from "../../components/BreadCrumbs/Breadcrumbs";
 
 // To be removed after API Integration
 const moreDetailsPara = `
 Design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic growth and to make lives better. Design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic growth and to make lives better.`;
 
 const PropertyDetails = () => {
+  const [isUserProperty, setIsUserProperty] = useState(false);
   const dispatch = useDispatch();
   const { id = "" } = useParams();
   const navigate = useNavigate();
   const propertyDetails = useSelector((state) => state?.property?.propertyById);
+  const userInfo = useSelector((state) => state?.user?.userInfo);
 
   useEffect(() => {
     if (id) {
       dispatch(fetchPropertyById(id));
+      const userProperties = userInfo?.property;
+      const isCurrUserProperty =
+        userProperties?.find((item) => item?._id === id) || {};
+      setIsUserProperty(Object.keys(isCurrUserProperty)?.length > 0);
     }
   }, [id]);
+
+  const breadcrumbData = [
+    {
+      id: 1,
+      name: "Home",
+      url: "/",
+    },
+    {
+      id: 2,
+      name: propertyDetails?.category,
+      url: `/category/${propertyDetails?.category}`,
+    },
+    {
+      id: 3,
+      name: "Details",
+      url: ``,
+    },
+  ];
 
   return (
     <>
@@ -39,7 +64,7 @@ const PropertyDetails = () => {
         <div className="container detailspage">
           <div className="property-details-topbar-container">
             <div className="breadcrumb">
-              Home / {propertyDetails?.category} / Details
+              <Breadcrumbs data={breadcrumbData} />
             </div>
             <div className="property-location">
               <h1>{propertyDetails?.name}</h1>
@@ -83,18 +108,19 @@ const PropertyDetails = () => {
 
           {/* Details Para */}
           <MoreDetails data={moreDetailsPara} />
-
-          <Button
-            className="deleteButton"
-            onClick={() => {
-              dispatch(deleteProperty(id)).then((response) => {
-                toast(response.payload.data.message);
-                navigate(`/`);
-              });
-            }}
-          >
-            Delete Me
-          </Button>
+          {isUserProperty && (
+            <Button
+              className="deleteButton"
+              onClick={() => {
+                dispatch(deleteProperty(id)).then((response) => {
+                  toast(response.payload.data.message);
+                  navigate(`/`);
+                });
+              }}
+            >
+              Delete property
+            </Button>
+          )}
         </div>
       )}
       {/* Footer  */}
