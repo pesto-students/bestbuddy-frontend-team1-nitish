@@ -83,13 +83,13 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
           {title} <span className="load loading"></span>
         </button>
       </section>
-      {title === "Sign In" && (
+      {/* {title === "Sign In" && (
         <section>
           <button className="btn-form-submit">
             <span className="gicon">G</span>Login with Google
           </button>
         </section>
-      )}
+      )} */}
       {title === "Sign In" ? (
         <p>
           Don't have account?{" "}
