@@ -37,10 +37,10 @@ const Home = () => {
       <Filter />
       <div className="container homepage">
         <TopPicks properties={toppicks} />
-        {data.map((item) => (
+        {data?.map((item) => (
           <>
-            <Slider title={item[0].category} properties={item} />
-            <ShowMore title={item[0].category} />
+            <Slider title={item?.[0].category} properties={item} />
+            <ShowMore title={item?.[0].category} />
           </>
         ))}
       </div>
