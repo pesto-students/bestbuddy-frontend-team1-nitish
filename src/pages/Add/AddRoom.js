@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Amenties from "./../../components/Amenties/Amenties";
 import PreferenceGrid from "./../../components/PreferenceGrid/PreferenceGrid";
 import { Button } from "react-bootstrap";
-import { getFormValues, uploaderTexts } from "../../utils/formFieldHelpers";
-import "./AddRoom.scss";
-import {
-  addProperty,
-  setMessageEmpty,
-  setAddedPropertyStatusFalse,
-} from "../../store/slice/property/propertySlice";
+import { getFormValues } from "../../utils/formFieldHelpers";
+import { addProperty } from "../../store/slice/property/propertySlice";
 import { toast } from "react-toastify";
 import ImageUploader from "../../components/ImageUploader/ImageUploader";
+import { filterOptions } from "../../constants/options";
+import "./AddRoom.scss";
 
 const AddRoom = () => {
   const [amenties, setAmenties] = useState([]);
@@ -22,7 +19,6 @@ const AddRoom = () => {
   const [images, setImages] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const message = useSelector((state) => state?.property?.message);
 
   const handleSubmit = (e) => {
     e?.preventDefault();
@@ -71,17 +67,15 @@ const AddRoom = () => {
               </div>
               <div className="input-location">
                 <h5>Add room location</h5>
-                <select name="location" className="select">
+                <select name="location" className="select" defaultValue={""}>
                   <option disabled value="">
                     Select a location
                   </option>
-                  <option value="Delhi">Delhi</option>
-                  <option value="Delhi">Chandigarh</option>
-                  <option value="Delhi">Bangalore</option>
-                  <option value="Chennai">Chennai</option>
-                  <option value="Mumbai">Mumbai</option>
-                  <option value="Hyderabadh">Hyderabadh</option>
-                  <option value="Jaipur">Jaipur</option>
+                  {filterOptions?.[0]?.value?.map((item, index) => (
+                    <option value={item} key={`${item}-${index}`}>
+                      {item}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="input-rent">
@@ -118,8 +112,8 @@ const AddRoom = () => {
               <div className="input-gender">
                 <h5>Gender of RoomMate</h5>
                 <select name="gender" className="select">
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
                 </select>
               </div>
             </div>

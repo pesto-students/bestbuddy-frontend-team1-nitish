@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import TopPicks from "../../components/Toppicks/TopPicks";
 import Slider from "../../components/shared/Slider/Slider";
 import Footer from "../../components/Footer/Footer";
@@ -12,13 +12,19 @@ import Filter from "../../components/Filter/Filter";
 import { emptyData } from "../../utils/formFieldHelpers";
 
 const Home = () => {
+  const [selectedFilters, setSelectedFilters] = useState({});
   const dispatch = useDispatch();
-
   const { allProperties, isLoading } = useSelector((state) => state.property);
 
+  const getAllProperties = useCallback(() => {
+    dispatch(fetchAllProperties(selectedFilters));
+    // eslint-disable-next-line
+  }, [selectedFilters]);
+
   useEffect(() => {
-    dispatch(fetchAllProperties());
-  }, []);
+    getAllProperties();
+    // eslint-disable-next-line
+  }, [getAllProperties]);
 
   const category = allProperties.map((catg) => catg.category);
   const categoryList = Array.from(new Set(category));
@@ -35,15 +41,15 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <Filter />
+      <Filter {...{ setSelectedFilters, selectedFilters }} />
       <div className="container homepage">
         <TopPicks properties={toppicks} />
         {!isLoading &&
-          data?.map((item) => (
-            <>
+          data?.map((item, index) => (
+            <React.Fragment key={`${item?.[0].category}--${index}`}>
               <Slider title={item?.[0].category} properties={item} />
               <ShowMore title={item?.[0].category} />
-            </>
+            </React.Fragment>
           ))}
       </div>
       <Footer />

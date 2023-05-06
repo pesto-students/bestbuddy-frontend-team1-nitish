@@ -67,7 +67,6 @@ export const userInfo = createAsyncThunk("user/userInfo ", async () => {
 export const editUserDetails = createAsyncThunk(
   "user/editUserDetails",
   async (data) => {
-    console.log("🚀 ~ file: userSlice.js:70 ~ data:", data,data.id)
     try {
       const response = await bestBuddyAxios({
         method: "PATCH",
