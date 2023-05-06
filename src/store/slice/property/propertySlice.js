@@ -165,4 +165,5 @@ const propertySlice = createSlice({
 });
 
 export default propertySlice.reducer;
+// eslint-disable-next-line
 export const {} = propertySlice.actions;
