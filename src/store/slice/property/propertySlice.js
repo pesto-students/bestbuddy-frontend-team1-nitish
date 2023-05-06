@@ -11,13 +11,13 @@ import bestBuddyAxios from "./../../../bestbuddyaxios/bestBuddyAxios";
 
 export const fetchAllProperties = createAsyncThunk(
   "property/fetchAllProperties",
-  async () => {
+  async (selectedFilters) => {
     try {
       const response = await bestBuddyAxios({
         method: "GET",
         url: GET_ALLPROPERTIES,
+        params: selectedFilters || {},
       });
-
       return response;
     } catch (err) {
       throw err.response.data;

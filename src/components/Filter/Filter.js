@@ -5,36 +5,17 @@ import "./Filter.scss";
 import { useSelector } from "react-redux";
 import FilterSkeleton from "../Skeleton/FilterSkeleton";
 import FilterIcon from "../../assets/Filter-Icon.svg";
+import { filterOptions } from "../../constants/options";
 
-const filterData = [
-  {
-    name: "Location",
-    value: ["delhi", "chennai", "mumbai", "jaipur", "chandigarh"],
-  },
-  {
-    name: "Price",
-    value: ["5000", "7500", "10000"],
-  },
-  {
-    name: "Category",
-    value: ["Flat", "PG", "Appartment", "Hotels"],
-  },
-  {
-    name: "Gender",
-    value: ["Male", "Female"],
-  },
-];
-
-const Filter = () => {
+const Filter = ({ setSelectedFilters, selectedFilters }) => {
   const isLoading = useSelector((state) => state.property.isLoading);
   const [toggle, setToggle] = useState(false);
-  const [filterValue, setfilterValue] = useState({});
 
   const handleFilter = (e) => {
-    setfilterValue((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    console.log(filterValue);
-
-    //need to write logic and state update here..
+    setSelectedFilters((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
@@ -51,11 +32,15 @@ const Filter = () => {
             <span className={`arrow ${toggle ? "up" : "down"}`}></span>
           </p>
           <div className={`row filter-section ${toggle ? "show" : ""}`}>
-            {filterData.map((item) => (
+            {filterOptions.map((item) => (
               <section className="col-sm-12 col-md-6 col-lg-3" key={item.name}>
-                <select name={item.name} onChange={(e) => handleFilter(e)}>
-                  <option value="none" selected disabled hidden>
-                    Select a {item.name}
+                <select
+                  name={item.name}
+                  onChange={(e) => handleFilter(e)}
+                  value={selectedFilters?.[item?.name] || "none"}
+                >
+                  <option value="none" disabled hidden>
+                    Select a {item.label}
                   </option>
                   {item.value.map((val) => (
                     <option key={val} value={val}>
