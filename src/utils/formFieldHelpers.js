@@ -46,7 +46,15 @@ export const emptyData = [
   [0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0]
-]
+  [0, 0, 0, 0, 0, 0],
+];
 
-
+export const matchCalculator = (userPrefs, propertyPrefs) => {
+  if (userPrefs && propertyPrefs) {
+    const matchNum = userPrefs?.filter((item) =>
+      propertyPrefs?.includes(item)
+    )?.length;
+    const percent = ((matchNum * 100) / userPrefs?.length)?.toFixed();
+    return percent;
+  }
+};
