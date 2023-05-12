@@ -5,14 +5,20 @@ export const filterOptions = [
     value: ["Delhi", "Chennai", "Mumbai", "Jaipur", "Chandigarh"],
   },
   {
-    label: "Price",
+    label: "Price Range",
     name: "price",
-    value: ["5000", "7500", "10000"],
+    value: [
+      "less than 5000",
+      "5001-7500",
+      "7501-10000",
+      "10001-15000",
+      "greater then 15000",
+    ],
   },
   {
     label: "Category",
     name: "category",
-    value: ["Flat", "PG", "Apartment", "Hotels"],
+    value: ["Flat", "PG", "Apartment"],
   },
   {
     label: "Gender",
