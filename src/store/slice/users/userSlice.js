@@ -152,6 +152,7 @@ const userSlice = createSlice({
     },
     [signOut.fulfilled]: (state, { payload }) => {
       localStorage.removeItem("access-token");
+      window.location.href = "/signin";
       return { ...state, token: "", isAuthenticated: false, isLoading: false };
     },
     [signOut.rejected]: (state, { error }) => {
