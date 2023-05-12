@@ -60,6 +60,18 @@ const formFeild = [
   },
   {
     id: 5,
+    label: "City",
+    name: "city",
+    type: "text",
+    placeholder: "Enter your city",
+    errorMessage: "City Name is required.",
+    validation: {
+      pattern: "",
+      errMess: "",
+    },
+  },
+  {
+    id: 6,
     label: "Password",
     name: "password",
     type: "password",
@@ -71,7 +83,7 @@ const formFeild = [
     },
   },
   {
-    id: 6,
+    id: 7,
     label: "Confirm Password",
     name: "confirmPassword",
     type: "password",
