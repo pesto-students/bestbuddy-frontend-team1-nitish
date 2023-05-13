@@ -62,16 +62,17 @@ const NavBar = () => {
                   <h5 className="profile-name">
                     Hi {username}! {isAuthenticated}
                   </h5>
-                  <NavDropdown.Item>
-                    <Link to="/profile/view">My profile</Link>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item as={Link} to="/profile/view">
+                    My profile
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item>
-                    <Link to="/preference">My Preferences</Link>
+                  <NavDropdown.Item as={Link} to="/preference">
+                    My Preferences
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item>
-                    <Link to="/setting">Settings</Link>
+                  <NavDropdown.Item as={Link} to="/setting">
+                    Settings
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
