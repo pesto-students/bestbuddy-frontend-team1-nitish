@@ -41,7 +41,7 @@ export const EditProfile = () => {
                 onChange={(e) => setData({ ...data, userName: e.target.value })}
               />
             </div>
-            <div className="input-email">
+            {/* <div className="input-email">
               <h5>Email</h5>
               <input
                 type="text"
@@ -49,6 +49,16 @@ export const EditProfile = () => {
                 id=""
                 defaultValue={userInfo.email}
                 onChange={(e) => setData({ ...data, email: e.target.value })}
+              />
+            </div> */}
+            <div className="input-city">
+              <h5>City</h5>
+              <input
+                type="text"
+                name="city"
+                id=""
+                defaultValue={userInfo.city}
+                onChange={(e) => setData({ ...data, city: e.target.value })}
               />
             </div>
           </div>

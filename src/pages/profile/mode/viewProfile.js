@@ -17,6 +17,10 @@ export const ViewProfile = ({}) => {
           <h5>Email Address</h5>
           <p>{userInfo?.email}</p>
         </div>
+        <div className="field city">
+          <h5>City</h5>
+          <p>{userInfo?.city}</p>
+        </div>
         <div className="field number">
           <h5>Phone Number</h5>
           <p>{userInfo?.number}</p>
