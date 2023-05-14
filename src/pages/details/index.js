@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import OwnerDetails from "./OwnerDetails";
-import PropertyImages from "./PropertyImages";
+import { Button } from "react-bootstrap";
+import { toast } from "react-toastify";
+import OwnerDetails from "../../components/PropertyDetails/OwnerDetails";
+import PropertyImages from "../../components/PropertyDetails/PropertyImages";
 import locationIcon from "../../assets/images/location_icon.svg";
-import "./index.scss";
-import MoreDetails from "./MoreDetails";
+import MoreDetails from "../../components/PropertyDetails/MoreDetails";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import {
@@ -14,10 +14,9 @@ import {
   fetchPropertyById,
 } from "../../store/slice/property/propertySlice";
 import Amenties from "../../components/Amenties/Amenties1";
-import { toast } from "react-toastify";
 import Breadcrumbs from "../../components/BreadCrumbs/Breadcrumbs";
-import Skeleton from "react-loading-skeleton";
 import PropertyDetailsSkeleton from "../../components/Skeleton/PropertyDetailsSkeleton";
+import "./index.scss";
 
 // To be removed after API Integration
 const moreDetailsPara = `
@@ -41,6 +40,7 @@ const PropertyDetails = () => {
         userProperties?.find((item) => item?._id === id) || {};
       setIsUserProperty(Object.keys(isCurrUserProperty)?.length > 0);
     }
+    // eslint-disable-next-line
   }, [id]);
 
   const breadcrumbData = [
@@ -64,7 +64,8 @@ const PropertyDetails = () => {
   return (
     <>
       <NavBar />
-      {isLoading ? (<PropertyDetailsSkeleton/>
+      {isLoading ? (
+        <PropertyDetailsSkeleton />
       ) : (
         Object?.keys(propertyDetails)?.length > 0 && (
           <div className="container detailspage">
