@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./viewProfile.scss";
 
-export const ViewProfile = ({}) => {
+export const ViewProfile = () => {
   const userInfo = useSelector((state) => state?.user?.userInfo);
 
   return (
