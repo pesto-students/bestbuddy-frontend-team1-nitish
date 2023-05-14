@@ -242,7 +242,7 @@
       display: none;
     }
   }
-  
+
   .owner-details-container {
     border-radius: 0.25rem;
     padding: 0.5rem;
@@ -329,7 +329,10 @@
   }
 }
 
-.skeleton-container-property{
+.skeleton-container-property {
   width: 90%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
