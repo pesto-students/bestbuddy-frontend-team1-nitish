@@ -5,17 +5,29 @@ import "./Filter.scss";
 import { useSelector } from "react-redux";
 import FilterSkeleton from "../Skeleton/FilterSkeleton";
 import FilterIcon from "../../assets/Filter-Icon.svg";
-import { filterOptions } from "../../constants/options";
+import { filterOptions, rangeFilterOptions } from "../../constants/options";
 
-const Filter = ({ setSelectedFilters, selectedFilters }) => {
+const Filter = ({
+  setSelectedFilters,
+  selectedFilters,
+  rangeFilters,
+  setRangeFilters,
+}) => {
   const isLoading = useSelector((state) => state.property.isLoading);
   const [toggle, setToggle] = useState(false);
 
   const handleFilter = (e) => {
+    const filterName = e.target.name;
     setSelectedFilters((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [filterName]: e.target.value,
     }));
+  };
+
+  const handleRangeFilter = (e) => {
+    const filterName = e.target.name;
+    const value = JSON.parse(e.target.value);
+    setRangeFilters((prev) => ({ ...prev, [filterName]: value }));
   };
 
   return (
@@ -45,6 +57,27 @@ const Filter = ({ setSelectedFilters, selectedFilters }) => {
                   {item.value.map((val) => (
                     <option key={val} value={val}>
                       {val}
+                    </option>
+                  ))}
+                </select>
+              </section>
+            ))}
+            {rangeFilterOptions.map((item) => (
+              <section className="col-sm-12 col-md-6 col-lg-3" key={item.name}>
+                <select
+                  name={item?.name}
+                  onChange={(e) => handleRangeFilter(e)}
+                  value={rangeFilters?.[item?.name] || "none"}
+                >
+                  <option value="none" disabled hidden>
+                    Select a {item.label}
+                  </option>
+                  {item.value.map((val, index) => (
+                    <option
+                      key={`${val?.rangeLabel}--${index}`}
+                      value={JSON.stringify({ min: val?.min, max: val?.max })}
+                    >
+                      {val?.rangeLabel}
                     </option>
                   ))}
                 </select>
