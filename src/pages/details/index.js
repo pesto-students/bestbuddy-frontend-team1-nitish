@@ -113,6 +113,10 @@ const PropertyDetails = () => {
               disableSelect={true}
             />
 
+            <h3 className="amentiesh">
+              Rent of Room - {propertyDetails?.rent} Rs
+            </h3>
+
             {/* Details Para */}
             <MoreDetails data={moreDetailsPara} />
             {isUserProperty && (
