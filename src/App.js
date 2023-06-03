@@ -10,6 +10,9 @@ import "./App.scss";
 import { setAuthenticated, userInfo } from "./store/slice/users/userSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:5000'); // Replace with your server URL
 
 
 function App() {
