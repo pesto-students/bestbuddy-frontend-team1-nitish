@@ -43,7 +43,7 @@ const SlickSlider = ({ properties, title = "" }) => {
       <p className="slider-title">{title}</p>
       <Slider {...settings}>
         {properties?.map((property) => (
-          <div>
+          <div key={property?._id}>
             <h3>
               <SliderCard property={property} />
             </h3>
