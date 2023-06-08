@@ -1,12 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-
-import "./Signup.scss";
 import Logo from "./../../assets/Logo.svg";
 import TopCircles from "./../../assets/Top-Circles.svg";
 import BottomMountains from "./../../assets/Bottom-Mountains.svg";
 import CustomForm from "../../components/customForm/CustomForm";
 import { signUp } from "../../store/slice/users/userSlice";
+import "./Signup.scss";
 
 const formField = [
   {
@@ -90,6 +89,18 @@ const formField = [
     type: "password",
     placeholder: "Confirm a password",
     errorMessage: "Confirm your password.",
+    validation: {
+      pattern: "",
+      errMess: "",
+    },
+  },
+  {
+    id: 8,
+    label: "Profie Picture",
+    name: "profile_pic",
+    type: "file",
+    placeholder: "Choose profile picture",
+    errorMessage: "Profile picture is required.",
     validation: {
       pattern: "",
       errMess: "",

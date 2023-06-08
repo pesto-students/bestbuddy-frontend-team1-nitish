@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setMessage } from "../../store/slice/users/userSlice";
+import uploadImgs from "../../bestbuddyaxios/imgUploadHandler";
 import "./CustomForm.scss";
 
 const CustomForm = ({ title, Inputs, onSubmit }) => {
@@ -11,15 +12,30 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [profileImg, setProfileImg] = useState("");
   const { message, status } = useSelector((state) => state.user);
   const isLoading = useSelector((state) => state.user.isLoading);
   const dispatch = useDispatch();
 
   const formSubmit = (data) => {
+    if(profileImg) data.profileImg = profileImg;
     onSubmit(data);
     setTimeout(() => {
       dispatch(setMessage());
     }, 5000);
+  };
+
+  const hanldeInputFileChange = async (event, type) => {
+    if (type === "file") {
+      const file = event.target.files[0];
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "bestbuddy");
+      const response = await uploadImgs(formData);
+      const url = await response.data.secure_url.toString();
+      setProfileImg(url);
+    }
+    return;
   };
 
   return (
@@ -58,6 +74,7 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
               placeholder={item.placeholder}
               name={item.name}
               defaultValue={item?.defaultValue || ""}
+              accept={item?.type === "file" ? ".jpeg, .jpg" : "*"}
               {...register(item.name, {
                 required: item.errorMessage,
                 pattern: {
@@ -65,6 +82,7 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
                   message: item.validation.errMess,
                 },
               })}
+              onChange={(event) => hanldeInputFileChange(event, item.type)}
             />
           )}
           {errors[item.name] && (
@@ -82,13 +100,6 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
           {title} <span className="load loading"></span>
         </button>
       </section>
-      {/* {title === "Sign In" && (
-        <section>
-          <button className="btn-form-submit">
-            <span className="gicon">G</span>Login with Google
-          </button>
-        </section>
-      )} */}
       {title === "Sign In" ? (
         <p>
           Don't have account?{" "}
