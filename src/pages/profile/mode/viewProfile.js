@@ -1,6 +1,7 @@
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { capitalizeFirstLetter } from "../../../utils/formFieldHelpers";
 import "./viewProfile.scss";
 
 export const ViewProfile = () => {
@@ -27,7 +28,7 @@ export const ViewProfile = () => {
         </div>
         <div className="field gender">
           <h5>Gender</h5>
-          <p>{userInfo?.gender}</p>
+          <p>{capitalizeFirstLetter(userInfo?.gender) || userInfo?.gender}</p>
         </div>
         <Link to={"/profile/edit"}>
           <Button className="editbutton">Edit details</Button>
