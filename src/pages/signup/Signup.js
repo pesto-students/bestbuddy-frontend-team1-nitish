@@ -151,7 +151,12 @@ const Signup = () => {
       {/* mobile headers */}
 
       <div className="form-container">
-        <CustomForm title="Sign Up" Inputs={formField} onSubmit={formSubmit} />
+        <CustomForm
+          title="Sign Up"
+          Inputs={formField}
+          onSubmit={formSubmit}
+          forSignUp={true}
+        />
       </div>
 
       {/* mobile footer */}

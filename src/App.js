@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import jwt_decode from "jwt-decode";
 import 'react-loading-skeleton/dist/skeleton.css'
-
 import Routers from "./Routers";
-import "./App.scss";
 import { setAuthenticated, userInfo } from "./store/slice/users/userSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./App.scss";
 
 
 function App() {

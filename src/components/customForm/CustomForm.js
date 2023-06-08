@@ -7,7 +7,7 @@ import uploadImgs from "../../bestbuddyaxios/imgUploadHandler";
 import "./CustomForm.scss";
 import { toast } from "react-toastify";
 
-const CustomForm = ({ title, Inputs, onSubmit }) => {
+const CustomForm = ({ title, Inputs, onSubmit, forSignUp = false }) => {
   const {
     register,
     handleSubmit,
@@ -19,8 +19,9 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
   const dispatch = useDispatch();
 
   const formSubmit = (data) => {
-    if(!profileImg) return toast.warning("Image upload is in progress, please wait...");
-    data.profile_pic = profileImg;
+    if (forSignUp && !profileImg)
+      return toast.warning("Image upload is in progress, please wait...");
+    if (forSignUp) data.profile_pic = profileImg;
     onSubmit(data);
     setTimeout(() => {
       dispatch(setMessage());
