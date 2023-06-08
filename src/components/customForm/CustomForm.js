@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { setMessage } from "../../store/slice/users/userSlice";
 import uploadImgs from "../../bestbuddyaxios/imgUploadHandler";
 import "./CustomForm.scss";
+import { toast } from "react-toastify";
 
 const CustomForm = ({ title, Inputs, onSubmit }) => {
   const {
@@ -18,7 +19,8 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
   const dispatch = useDispatch();
 
   const formSubmit = (data) => {
-    if(profileImg) data.profile_pic = profileImg;
+    if(!profileImg) return toast.warning("Image upload is in progress, please wait...");
+    data.profile_pic = profileImg;
     onSubmit(data);
     setTimeout(() => {
       dispatch(setMessage());

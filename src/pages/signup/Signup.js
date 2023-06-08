@@ -1,10 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Logo from "./../../assets/Logo.svg";
 import TopCircles from "./../../assets/Top-Circles.svg";
 import BottomMountains from "./../../assets/Bottom-Mountains.svg";
 import CustomForm from "../../components/customForm/CustomForm";
 import { signUp } from "../../store/slice/users/userSlice";
+import { toast } from "react-toastify";
 import "./Signup.scss";
 
 const formField = [
@@ -110,9 +112,17 @@ const formField = [
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const formSubmit = (data) => {
-    dispatch(signUp(data));
+    dispatch(signUp(data)).then((res) => {
+      if (res?.payload?.status === 201) {
+        toast.success(
+          `Account successfully created! Please login to continue.`
+        );
+        navigate("/signin");
+      }
+    });
   };
 
   return (
