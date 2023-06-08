@@ -4,6 +4,7 @@ import axios from "axios";
 import Camera2 from "../../assets/Camera2.svg";
 import { Button } from "react-bootstrap";
 import "./ImageUploader.scss";
+import uploadImgs from "../../bestbuddyaxios/imgUploadHandler";
 
 const ImageUploader = ({ setImages = () => {} }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -24,10 +25,7 @@ const ImageUploader = ({ setImages = () => {} }) => {
       formData.append("upload_preset", "bestbuddy");
       formData.append("public_id", publicId);
 
-      const response = await axios.post(
-        `https://api.cloudinary.com/v1_1/dfshf22du/image/upload`,
-        formData
-      );
+      const response = await uploadImgs(formData);
       const url = await response.data.secure_url.toString();
       setUploadedImages((prev) => [...prev, url]);
     }
@@ -59,6 +57,7 @@ const ImageUploader = ({ setImages = () => {} }) => {
               <input
                 className="custom-input"
                 type="file"
+                accept=".jpeg, .jpg"
                 multiple
                 onChange={handleFileInput}
               />
