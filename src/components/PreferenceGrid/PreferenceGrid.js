@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineCheckSquare } from "react-icons/ai";
 import BookWorm from "../../assets/preferences/Book-worm.svg";
 import Fashionable from "../../assets/preferences/Fashionable.svg";
 import FitnessFreak from "../../assets/preferences/Fitness-Freak.svg";
@@ -118,6 +117,7 @@ const PreferenceGrid = ({
       const mappedData = selectedPreferences?.map((item) => item?.title);
       setPreferences(mappedData);
     }
+    // eslint-disable-next-line
   }, [renderData]);
 
   const handleSelectPreferences = (selected) => {

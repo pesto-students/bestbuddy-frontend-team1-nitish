@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineCheckSquare } from "react-icons/ai";
 import AirConditioner from "../../assets/amenties/AirConditioner.svg";
 import Bath from "../../assets/amenties/Bath.svg";
 import Bed from "../../assets/amenties/Bed.svg";
@@ -60,6 +59,7 @@ const Amenties = ({ selectable = false, setAmenties = () => {} }) => {
       const mappedData = selectedAmenties?.map((item) => item?.title);
       setAmenties(mappedData);
     }
+    // eslint-disable-next-line
   }, [renderData]);
 
   const handleSelectAmenties = (selected) => {
@@ -69,6 +69,7 @@ const Amenties = ({ selectable = false, setAmenties = () => {} }) => {
       }
       return item;
     });
+    // eslint-disable-next-line
     setRenderData(mappedData);
   };
 

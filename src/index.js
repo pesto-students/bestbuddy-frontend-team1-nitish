@@ -4,10 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import * as Sentry from "@sentry/react";
 import { Integrations } from "@sentry/tracing";
-
-import "./index.scss";
 import App from "./App";
 import { Store } from "./store/Store";
+import "./index.scss";
 
 // Sentry.init({
 //   dsn: "https://8a876e70e31c4d4f81b67f30c3d86105@o4504844072714240.ingest.sentry.io/4504844114198528",

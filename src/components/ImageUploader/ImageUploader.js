@@ -35,6 +35,7 @@ const ImageUploader = ({ setImages = () => {} }) => {
 
   useEffect(() => {
     setImages(uploadedImages);
+    // eslint-disable-next-line
   }, [uploadedImages]);
 
   return (

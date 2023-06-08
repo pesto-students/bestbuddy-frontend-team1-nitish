@@ -19,7 +19,7 @@ const ImageWrapper = ({ imgSrc = "", style = {} }) => {
   }, [checkImgLoader]);
 
   return isImgLoaded ? (
-    <img src={imgSrc} alt="image" />
+    <img src={imgSrc} alt="img" />
   ) : (
     <Shimmer style={{ ...style }} />
   );

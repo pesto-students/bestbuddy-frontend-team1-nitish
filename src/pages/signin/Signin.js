@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
-
-import "./Signin.scss";
 import CustomForm from "../../components/customForm/CustomForm";
 import { signIn } from "../../store/slice/users/userSlice";
 import Logo from "./../../assets/Logo.svg";
 import TopCircles from "./../../assets/Top-Circles.svg";
 import BottomMountains from "./../../assets/Bottom-Mountains.svg";
+import "./Signin.scss";
 
 const formField = [
   {
@@ -18,6 +17,7 @@ const formField = [
     placeholder: "Enter your registered email",
     errorMessage: "Email is required.",
     validation: {
+      // eslint-disable-next-line
       pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
       errMess: "Email is invalid.",
     },
@@ -39,11 +39,9 @@ const formField = [
 
 const Signin = () => {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
 
   const formSubmit = (data) => {
     dispatch(signIn(data));
-    setEmail(data.email);
   };
 
   return (

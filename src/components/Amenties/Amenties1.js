@@ -69,6 +69,7 @@ const Amenties = ({
       const mappedData = selectedAmenties?.map((item) => item?.title);
       setAmenties(mappedData);
     }
+    // eslint-disable-next-line
   }, [renderData]);
 
   const handleSelectAmenties = (selected) => {

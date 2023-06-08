@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import "./Category.scss";
+import { useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import { fetchPropertiesByCategory } from "../../store/slice/property/propertySlice";
 import { useDispatch, useSelector } from "react-redux";
 import SliderCard from "../../components/Card/SliderCard";
 import Breadcrumbs from "../../components/BreadCrumbs/Breadcrumbs";
+import "./Category.scss";
 
 const Category = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const Category = () => {
 
   useEffect(() => {
     dispatch(fetchPropertiesByCategory(categoryname));
+    // eslint-disable-next-line
   }, []);
 
   const breadcrumbData = [

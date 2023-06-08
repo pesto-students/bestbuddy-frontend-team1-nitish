@@ -14,7 +14,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
-  const isLoading = useSelector((state) => state.user.isLoading);
   const dispatch = useDispatch();
 
   const checkAuthentication = () => {
@@ -39,6 +38,7 @@ function App() {
     if(isAuthenticated) {
       dispatch(userInfo());
     }
+    // eslint-disable-next-line
   }, [isAuthenticated]);
 
   return (

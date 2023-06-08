@@ -8,7 +8,7 @@ import BottomMountains from "./../../assets/Bottom-Mountains.svg";
 import CustomForm from "../../components/customForm/CustomForm";
 import { signUp } from "../../store/slice/users/userSlice";
 
-const formFeild = [
+const formField = [
   {
     id: 1,
     label: "User Name",
@@ -29,6 +29,7 @@ const formFeild = [
     placeholder: "Enter your email adderess",
     errorMessage: "Email is required.",
     validation: {
+      // eslint-disable-next-line
       pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
       errMess: "Email is invalid.",
     },
@@ -129,7 +130,7 @@ const Signup = () => {
       {/* mobile headers */}
 
       <div className="form-container">
-        <CustomForm title="Sign Up" Inputs={formFeild} onSubmit={formSubmit} />
+        <CustomForm title="Sign Up" Inputs={formField} onSubmit={formSubmit} />
       </div>
 
       {/* mobile footer */}
