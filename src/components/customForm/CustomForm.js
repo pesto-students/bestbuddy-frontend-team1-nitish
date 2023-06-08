@@ -18,7 +18,7 @@ const CustomForm = ({ title, Inputs, onSubmit }) => {
   const dispatch = useDispatch();
 
   const formSubmit = (data) => {
-    if(profileImg) data.profileImg = profileImg;
+    if(profileImg) data.profile_pic = profileImg;
     onSubmit(data);
     setTimeout(() => {
       dispatch(setMessage());
