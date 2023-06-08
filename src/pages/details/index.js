@@ -18,10 +18,6 @@ import Breadcrumbs from "../../components/BreadCrumbs/Breadcrumbs";
 import PropertyDetailsSkeleton from "../../components/Skeleton/PropertyDetailsSkeleton";
 import "./index.scss";
 
-// To be removed after API Integration
-const moreDetailsPara = `
-Design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic growth and to make lives better. Design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic growth and to make lives better.`;
-
 const PropertyDetails = () => {
   const [isUserProperty, setIsUserProperty] = useState(false);
   const dispatch = useDispatch();
@@ -118,7 +114,7 @@ const PropertyDetails = () => {
             </h3>
 
             {/* Details Para */}
-            <MoreDetails data={moreDetailsPara} />
+            <MoreDetails data={propertyDetails?.details} />
             {isUserProperty && (
               <Button
                 className="deleteButton"

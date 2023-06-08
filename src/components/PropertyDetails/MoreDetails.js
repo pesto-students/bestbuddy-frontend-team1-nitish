@@ -1,6 +1,7 @@
 import { Row } from "react-bootstrap";
+import { moreDetailsPara } from "../../constants/propertyDetails";
 
-const MoreDetails = ({ data = "" }) => {
+const MoreDetails = ({ data = moreDetailsPara }) => {
   return (
     <>
       {data && (
