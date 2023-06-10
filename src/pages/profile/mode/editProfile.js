@@ -12,6 +12,7 @@ import "./editProfile.scss";
 
 export const EditProfile = () => {
   const [loading, setLoading] = useState(false);
+  const [isFileChanged, setIsFileChanged] = useState(false);
   const userData = useSelector((state) => state?.user?.userInfo);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,8 +21,10 @@ export const EditProfile = () => {
 
   const handleSubmit = (e) => {
     e?.preventDefault();
-    setLoading(true);
+    if (isFileChanged && !data?.profile_pic)
+      return toast.warning("Image upload is in progress, please wait...");
     const payload = { data, id };
+    setLoading(true);
     dispatch(editUserDetails(payload)).then((res) => {
       if (res?.payload?.status === 200) {
         setLoading(false);
@@ -33,6 +36,7 @@ export const EditProfile = () => {
   };
 
   const handleFileChange = async (event) => {
+    setIsFileChanged(true);
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append("file", file);
