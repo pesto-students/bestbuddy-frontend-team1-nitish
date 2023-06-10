@@ -87,6 +87,7 @@ export const EditProfile = () => {
               <input
                 type="file"
                 name="profile_pic"
+                accept=".jpeg, .jpg"
                 onChange={handleFileChange}
               />
             </div>
