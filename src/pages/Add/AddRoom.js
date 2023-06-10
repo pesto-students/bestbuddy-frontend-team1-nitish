@@ -12,11 +12,13 @@ import { toast } from "react-toastify";
 import ImageUploader from "../../components/ImageUploader/ImageUploader";
 import { filterOptions } from "../../constants/options";
 import "./AddRoom.scss";
+import { CustomButton } from "../../components/CustomComponents";
 
 const AddRoom = () => {
   const [amenties, setAmenties] = useState([]);
   const [preferences, setPreferences] = useState([]);
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,7 +30,7 @@ const AddRoom = () => {
     if (preferences?.length < 3) {
       return alert(`Please select atleast 3 preferences`);
     }
-
+    setLoading(true);
     const formElements = document.querySelector("#property-form");
     const formValues = getFormValues(formElements);
     const payload = {
@@ -38,11 +40,13 @@ const AddRoom = () => {
       image: images,
       details: "",
     };
-    dispatch(addProperty(payload));
-    setTimeout(() => {
-      toast("property added successfully");
-      navigate(`/addroom`);
-    }, 3000);
+    dispatch(addProperty(payload)).then((res) => {
+      if (res?.payload?.status === 201) {
+        setLoading(false);
+        toast("Property added successfully");
+        navigate(`/`);
+      }
+    });
   };
 
   return (
@@ -154,9 +158,7 @@ const AddRoom = () => {
             Preferences for Room Partner(select 3 atleast)
           </h2>
           <PreferenceGrid selectable={true} setPreferences={setPreferences} />
-          <Button className="submitbutton" type="submit">
-            Submit
-          </Button>
+          <CustomButton title="Submit" loading={loading} />
         </div>
       </form>
       <Footer />
