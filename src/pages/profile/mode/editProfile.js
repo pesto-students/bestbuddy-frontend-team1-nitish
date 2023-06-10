@@ -29,7 +29,6 @@ export const EditProfile = () => {
       if (res?.payload?.status === 200) {
         setLoading(false);
         toast("User Details Updated");
-        dispatch(userInfo());
         navigate(`/profile/view`);
       }
     });

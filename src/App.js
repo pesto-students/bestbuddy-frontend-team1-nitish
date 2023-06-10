@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import { useRoutes } from "react-router-dom";
+import React, { useCallback, useEffect } from "react";
+import { useLocation, useRoutes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import jwt_decode from "jwt-decode";
-import 'react-loading-skeleton/dist/skeleton.css'
+import "react-loading-skeleton/dist/skeleton.css";
 import Routers from "./Routers";
 import { setAuthenticated, userInfo } from "./store/slice/users/userSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
 
-
 function App() {
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const checkAuthentication = () => {
     let accessToken = localStorage.getItem("access-token");
@@ -32,13 +32,21 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    checkAuthentication();
-    if(isAuthenticated) {
+  // Fetch user info on every page refresh
+  const fetchUserInfo = useCallback(() => {
+    if (isAuthenticated) {
       dispatch(userInfo());
     }
+  }, [isAuthenticated, location?.pathname]);
+
+  useEffect(() => {
+    fetchUserInfo();
+  }, [fetchUserInfo]);
+
+  useEffect(() => {
+    checkAuthentication();
     // eslint-disable-next-line
-  }, [isAuthenticated]);
+  }, []);
 
   return (
     <div className="App">
