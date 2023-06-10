@@ -37,6 +37,7 @@ function App() {
     if (isAuthenticated) {
       dispatch(userInfo());
     }
+    // eslint-disable-next-line
   }, [isAuthenticated, location?.pathname]);
 
   useEffect(() => {

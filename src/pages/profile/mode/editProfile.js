@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  editUserDetails,
-  userInfo,
-} from "../../../store/slice/users/userSlice";
+import { editUserDetails } from "../../../store/slice/users/userSlice";
 import { toast } from "react-toastify";
 import uploadImgs from "../../../bestbuddyaxios/imgUploadHandler";
 import { CustomButton } from "../../../components/CustomComponents";
