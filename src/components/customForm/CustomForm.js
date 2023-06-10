@@ -6,6 +6,7 @@ import { setMessage } from "../../store/slice/users/userSlice";
 import uploadImgs from "../../bestbuddyaxios/imgUploadHandler";
 import "./CustomForm.scss";
 import { toast } from "react-toastify";
+import { CustomButton } from "../CustomComponents";
 
 const CustomForm = ({ title, Inputs, onSubmit, forSignUp = false }) => {
   const {
@@ -94,14 +95,7 @@ const CustomForm = ({ title, Inputs, onSubmit, forSignUp = false }) => {
         </section>
       ))}
       <section>
-        <button
-          type="submit"
-          className={
-            isLoading ? "btn-form-submit activeLoading" : "btn-form-submit"
-          }
-        >
-          {title} <span className="load loading"></span>
-        </button>
+        <CustomButton type="submit" loading={isLoading} title={title} />
       </section>
       {title === "Sign In" ? (
         <p>

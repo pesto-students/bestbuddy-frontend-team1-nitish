@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Button } from "react-bootstrap";
-import "./editProfile.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,8 +7,11 @@ import {
 } from "../../../store/slice/users/userSlice";
 import { toast } from "react-toastify";
 import uploadImgs from "../../../bestbuddyaxios/imgUploadHandler";
+import { CustomButton } from "../../../components/CustomComponents";
+import "./editProfile.scss";
 
 export const EditProfile = () => {
+  const [loading, setLoading] = useState(false);
   const userData = useSelector((state) => state?.user?.userInfo);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,9 +20,11 @@ export const EditProfile = () => {
 
   const handleSubmit = (e) => {
     e?.preventDefault();
+    setLoading(true);
     const payload = { data, id };
     dispatch(editUserDetails(payload)).then((res) => {
       if (res?.payload?.status === 200) {
+        setLoading(false);
         toast("User Details Updated");
         dispatch(userInfo());
         navigate(`/profile/view`);
@@ -114,9 +117,7 @@ export const EditProfile = () => {
             </div>
           </div>
         </div>
-        <Button className="editbutton" type="submit">
-          Save Changes
-        </Button>
+        <CustomButton title="Save Changes" type="submit" loading={loading} />
       </form>
     </div>
   );

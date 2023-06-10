@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { toast } from "react-toastify";
 import OwnerDetails from "../../components/PropertyDetails/OwnerDetails";
 import PropertyImages from "../../components/PropertyDetails/PropertyImages";
@@ -16,10 +16,12 @@ import {
 import Amenties from "../../components/Amenties/Amenties1";
 import Breadcrumbs from "../../components/BreadCrumbs/Breadcrumbs";
 import PropertyDetailsSkeleton from "../../components/Skeleton/PropertyDetailsSkeleton";
+import { CustomButton } from "../../components/CustomComponents";
 import "./index.scss";
 
 const PropertyDetails = () => {
   const [isUserProperty, setIsUserProperty] = useState(false);
+  const [isBtnLoading, setIsBtnLoading] = useState(false);
   const dispatch = useDispatch();
   const { id = "" } = useParams();
   const navigate = useNavigate();
@@ -56,6 +58,18 @@ const PropertyDetails = () => {
       url: ``,
     },
   ];
+
+  const handleDeleteProperty = () => {
+    setIsBtnLoading(true);
+    dispatch(deleteProperty(id)).then((response) => {
+      if (response?.payload?.status === 200) {
+        const msg = response?.payload?.data?.message;
+        setIsBtnLoading(false);
+        toast(msg);
+        navigate(`/`);
+      }
+    });
+  };
 
   return (
     <>
@@ -115,21 +129,18 @@ const PropertyDetails = () => {
 
             {/* Details Para */}
             <MoreDetails data={propertyDetails?.details} />
-            {isUserProperty && (
-              <Button
-                className="deleteButton"
-                onClick={() => {
-                  dispatch(deleteProperty(id)).then((response) => {
-                    toast(response.payload.data.message);
-                    navigate(`/`);
-                  });
-                }}
-              >
-                Delete property
-              </Button>
-            )}
           </div>
         )
+      )}
+      {/* Delete property button */}
+      {Object.keys(propertyDetails)?.length > 0 && isUserProperty && (
+        <Container align="center" className="mt-3">
+          <CustomButton
+            onClick={handleDeleteProperty}
+            title="Delete property"
+            loading={isBtnLoading}
+          />
+        </Container>
       )}
       {/* Footer  */}
       <Footer />
