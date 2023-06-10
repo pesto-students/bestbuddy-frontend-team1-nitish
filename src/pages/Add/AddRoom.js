@@ -5,14 +5,16 @@ import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Amenties from "./../../components/Amenties/Amenties";
 import PreferenceGrid from "./../../components/PreferenceGrid/PreferenceGrid";
-import { Button } from "react-bootstrap";
 import { getFormValues } from "../../utils/formFieldHelpers";
-import { addProperty } from "../../store/slice/property/propertySlice";
+import {
+  addProperty,
+  fetchAllProperties,
+} from "../../store/slice/property/propertySlice";
 import { toast } from "react-toastify";
 import ImageUploader from "../../components/ImageUploader/ImageUploader";
 import { filterOptions } from "../../constants/options";
-import "./AddRoom.scss";
 import { CustomButton } from "../../components/CustomComponents";
+import "./AddRoom.scss";
 
 const AddRoom = () => {
   const [amenties, setAmenties] = useState([]);
@@ -43,6 +45,7 @@ const AddRoom = () => {
     dispatch(addProperty(payload)).then((res) => {
       if (res?.payload?.status === 201) {
         setLoading(false);
+        dispatch(fetchAllProperties());
         toast("Property added successfully");
         navigate(`/`);
       }
