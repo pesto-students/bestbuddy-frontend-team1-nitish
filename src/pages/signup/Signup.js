@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-
-import "./Signup.scss";
+import { useNavigate } from "react-router-dom";
 import Logo from "./../../assets/Logo.svg";
 import TopCircles from "./../../assets/Top-Circles.svg";
 import BottomMountains from "./../../assets/Bottom-Mountains.svg";
 import CustomForm from "../../components/customForm/CustomForm";
 import { signUp } from "../../store/slice/users/userSlice";
+import { toast } from "react-toastify";
+import "./Signup.scss";
 
 const formField = [
   {
@@ -95,13 +96,33 @@ const formField = [
       errMess: "",
     },
   },
+  {
+    id: 8,
+    label: "Profie Picture",
+    name: "profile_pic",
+    type: "file",
+    placeholder: "Choose profile picture",
+    errorMessage: "Profile picture is required.",
+    validation: {
+      pattern: "",
+      errMess: "",
+    },
+  },
 ];
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const formSubmit = (data) => {
-    dispatch(signUp(data));
+    dispatch(signUp(data)).then((res) => {
+      if (res?.payload?.status === 201) {
+        toast.success(
+          `Account successfully created! Please login to continue.`
+        );
+        navigate("/signin");
+      }
+    });
   };
 
   return (
@@ -130,7 +151,12 @@ const Signup = () => {
       {/* mobile headers */}
 
       <div className="form-container">
-        <CustomForm title="Sign Up" Inputs={formField} onSubmit={formSubmit} />
+        <CustomForm
+          title="Sign Up"
+          Inputs={formField}
+          onSubmit={formSubmit}
+          forSignUp={true}
+        />
       </div>
 
       {/* mobile footer */}

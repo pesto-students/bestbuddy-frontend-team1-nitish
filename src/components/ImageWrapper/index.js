@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Shimmer } from "../Shimmer";
 
-const ImageWrapper = ({ imgSrc = "", style = {} }) => {
+const ImageWrapper = ({ imgSrc = "", style = {}, imgStyle = {} }) => {
   const [isImgLoaded, setIsImgLoaded] = useState(false);
 
   const checkImgLoader = useCallback(() => {
@@ -19,7 +19,7 @@ const ImageWrapper = ({ imgSrc = "", style = {} }) => {
   }, [checkImgLoader]);
 
   return isImgLoaded ? (
-    <img src={imgSrc} alt="img" />
+    <img src={imgSrc} alt="img" style={{ ...imgStyle }} />
   ) : (
     <Shimmer style={{ ...style }} />
   );

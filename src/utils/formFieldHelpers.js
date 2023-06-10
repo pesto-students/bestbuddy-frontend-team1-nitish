@@ -1,3 +1,5 @@
+import Skeleton from "react-loading-skeleton";
+
 const formFields = [
   {
     key: "name",
@@ -61,4 +63,17 @@ export const matchCalculator = (userPrefs, propertyPrefs) => {
 
 export const capitalizeFirstLetter = (string = "") => {
   return string?.charAt(0)?.toUpperCase() + string?.slice(1);
+};
+
+export const fieldRenderer = (isLoading, field, fieldObject) => {
+  const genderMappedVal =
+    field === "gender" &&
+    (capitalizeFirstLetter(fieldObject?.[field]) || fieldObject?.[field]);
+  return isLoading ? (
+    <Skeleton />
+  ) : field === "gender" ? (
+    genderMappedVal
+  ) : (
+    fieldObject?.[field]
+  );
 };
