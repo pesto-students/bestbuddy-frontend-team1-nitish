@@ -16,14 +16,15 @@ const OwnerDetails = ({ preferences = [], ownerData = {} }) => {
       <div className="owner-details-container">
         {/* Owner image avtar, name and location*/}
         <Row>
-          <Col xs={2} className="owner-profile-avtar">
+          <Col xs={2} className="ml-5 col3"
+          >
             <ImageWrapper
               imgSrc={ownerData?.profile_pic}
               style={stylesObj}
               imgStyle={stylesObj}
             />
           </Col>
-          <Col className="ml-5 col2">
+          <Col className="ml-5 col3">
             <p className="owner-name">{ownerData?.userName}</p>
             <p className="owner-details">34 / {ownerData?.gender}</p>
             <p className="owner-details">
