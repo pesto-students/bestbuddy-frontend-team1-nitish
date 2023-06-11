@@ -52,7 +52,7 @@ const NavBar = () => {
             <Offcanvas.Body className="offcanvas-body">
               <Nav className="justify-content-end flex-grow-1">
                 <Link to="/">Home</Link>
-                <Link to="/addroom">Upload Room</Link>
+                <Link to="/addroom">Add Property</Link>
                 <Link to="/mylistings">My Listings</Link>
                 <NavDropdown
                   title="Profile"
