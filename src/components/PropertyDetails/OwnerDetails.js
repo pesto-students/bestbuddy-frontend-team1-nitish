@@ -1,5 +1,4 @@
-import { Col, Container, Image, Row } from "react-bootstrap";
-import avtar from "../../assets/images/owner_avtar.svg";
+import { Col, Row } from "react-bootstrap";
 import locationIcon from "../../assets/images/location_icon.svg";
 import { IoChatboxSharp, IoCallSharp } from "react-icons/io5";
 import ImageWrapper from "../ImageWrapper";
