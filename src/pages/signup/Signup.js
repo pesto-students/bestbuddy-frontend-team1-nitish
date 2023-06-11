@@ -49,6 +49,18 @@ const formField = [
   },
   {
     id: 4,
+    label: "Age",
+    name: "age",
+    type: "number",
+    placeholder: "Enter your age",
+    errorMessage: "Age is required.",
+    validation: {
+      pattern: "",
+      errMess: "",
+    },
+  },
+  {
+    id: 5,
     label: "Gender",
     name: "gender",
     type: "dropdown",
@@ -61,7 +73,7 @@ const formField = [
     option: ["Male", "Female"],
   },
   {
-    id: 5,
+    id: 6,
     label: "City",
     name: "city",
     type: "text",
@@ -73,7 +85,7 @@ const formField = [
     },
   },
   {
-    id: 6,
+    id: 7,
     label: "Password",
     name: "password",
     type: "password",
@@ -85,7 +97,7 @@ const formField = [
     },
   },
   {
-    id: 7,
+    id: 8,
     label: "Confirm Password",
     name: "confirmPassword",
     type: "password",
@@ -97,7 +109,7 @@ const formField = [
     },
   },
   {
-    id: 8,
+    id: 9,
     label: "Profie Picture",
     name: "profile_pic",
     type: "file",

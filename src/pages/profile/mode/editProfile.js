@@ -104,6 +104,16 @@ export const EditProfile = () => {
                 onChange={(e) => setData({ ...data, number: e.target.value })}
               />
             </div>
+            <div className="input-number">
+              <h5>Age</h5>
+              <input
+                type="number"
+                name="number"
+                id=""
+                defaultValue={userData.age || ""}
+                onChange={(e) => setData({ ...data, age: e.target.value })}
+              />
+            </div>
             <div className="input-gender">
               <h5>Gender of RoomMate</h5>
               <select

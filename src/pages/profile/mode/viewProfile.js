@@ -45,6 +45,10 @@ export const ViewProfile = () => {
         <h5>Phone Number</h5>
         <p>{fieldRenderer(isLoading, "number", userInfo)}</p>
       </div>
+      <div className="field number">
+        <h5>Age</h5>
+        <p>{fieldRenderer(isLoading, "age", userInfo)}</p>
+      </div>
       <div className="field gender">
         <h5>Gender</h5>
         <p>{fieldRenderer(isLoading, "gender", userInfo)}</p>
