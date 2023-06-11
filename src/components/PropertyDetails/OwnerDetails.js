@@ -1,7 +1,14 @@
-import { Col, Image, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import avtar from "../../assets/images/owner_avtar.svg";
 import locationIcon from "../../assets/images/location_icon.svg";
 import { IoChatboxSharp, IoCallSharp } from "react-icons/io5";
+import ImageWrapper from "../ImageWrapper";
+
+const stylesObj = {
+  width: "155px",
+  height: "150px",
+  borderRadius: "50%",
+};
 
 const OwnerDetails = ({ preferences = [], ownerData = {} }) => {
   return (
@@ -9,11 +16,15 @@ const OwnerDetails = ({ preferences = [], ownerData = {} }) => {
       <div className="owner-details-container">
         {/* Owner image avtar, name and location*/}
         <Row>
-          <Col xs={3}>
-            <Image className="avatar" src={avtar} alt="profile-pic" />
+          <Col xs={2} className="owner-profile-avtar">
+            <ImageWrapper
+              imgSrc={ownerData?.profile_pic}
+              style={stylesObj}
+              imgStyle={stylesObj}
+            />
           </Col>
           <Col className="ml-5 col2">
-            <p className="owner-name">{ownerData?.user_name}</p>
+            <p className="owner-name">{ownerData?.userName}</p>
             <p className="owner-details">34 / {ownerData?.gender}</p>
             <p className="owner-details">
               <img
@@ -42,7 +53,7 @@ const OwnerDetails = ({ preferences = [], ownerData = {} }) => {
             <span className="ml-3">Chat</span>
           </div>
           <div className="owner-details-contact-col">
-            <a href={`tel:${ownerData?.phone}`}>
+            <a href={`tel:${ownerData?.number}`}>
               <IoCallSharp style={{ color: "white" }} size={22} />
               <span className="ml-3" style={{ color: "white" }}>
                 Call

@@ -112,7 +112,7 @@ const PropertyDetails = () => {
             {/* Property Owner Details */}
             <OwnerDetails
               preferences={propertyDetails?.preferences}
-              ownerData={propertyDetails}
+              ownerData={propertyDetails?.user_details}
             />
 
             {/* Amenties */}

@@ -131,7 +131,11 @@ const propertySlice = createSlice({
       return { ...state, isLoading: true };
     },
     [fetchPropertyById.fulfilled]: (state, { payload }) => {
-      return { ...state, propertyById: payload.data.data, isLoading: false };
+      return {
+        ...state,
+        propertyById: payload.data.property_data,
+        isLoading: false,
+      };
     },
     [fetchPropertyById.rejected]: (state, { error }) => {
       return { ...state, message: error.message };
