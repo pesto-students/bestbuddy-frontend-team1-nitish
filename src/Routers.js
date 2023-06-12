@@ -35,7 +35,7 @@ const Routers = (isLoggedIn) => [
     element: isLoggedIn ? <Details /> : <Navigate to="/signin" />,
   },
   {
-    path: "/addroom",
+    path: "/addproperty",
     element: isLoggedIn ? <AddRoom /> : <Navigate to="/signin" />,
   },
   {
