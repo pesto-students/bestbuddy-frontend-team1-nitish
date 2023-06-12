@@ -35,11 +35,12 @@ const AddRoom = () => {
     setLoading(true);
     const formElements = document.querySelector("#property-form");
     const formValues = getFormValues(formElements);
+    const mappedImages = images?.map((item) => item?.url);
     const payload = {
       ...formValues,
       amenties,
       preferences: preferences,
-      image: images,
+      image: mappedImages,
       details: "",
     };
     dispatch(addProperty(payload)).then((res) => {
