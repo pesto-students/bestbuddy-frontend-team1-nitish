@@ -50,11 +50,21 @@ const data = [
   { id: 11, title: "Dryer", src: Dryer, alt: "Dryer", selected: false },
 ];
 
-const Amenties = ({ selectable = false, setAmenties = () => {} }) => {
-  const [renderData, setRenderData] = useState([...data]);
+const Amenties = ({
+  selectable = false,
+  setAmenties = () => {},
+  receivedAmenties = [],
+}) => {
+  const [renderData, setRenderData] = useState(() =>
+    data.map((item) => ({
+      ...item,
+      selected: receivedAmenties?.includes(item?.title),
+    }))
+  );
 
   useEffect(() => {
     if (selectable && renderData) {
+      debugger
       const selectedAmenties = renderData?.filter((item) => item?.selected);
       const mappedData = selectedAmenties?.map((item) => item?.title);
       setAmenties(mappedData);
