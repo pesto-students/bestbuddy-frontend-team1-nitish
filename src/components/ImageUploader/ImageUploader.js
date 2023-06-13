@@ -20,7 +20,7 @@ const ImageUploader = ({ setImages = () => {}, receivedImages = [] }) => {
       setSelectedFiles(receivedImages);
       setUploadedImages(receivedImages);
     }
-  }, [receivedImages]);
+  }, []);
 
   useEffect(() => {
     handleReceivedImages();

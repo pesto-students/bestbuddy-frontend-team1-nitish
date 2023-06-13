@@ -62,8 +62,6 @@ const AddRoom = ({ mode = "add" }) => {
     handlePropertyDetails();
   }, [handlePropertyDetails]);
 
-  console.log("propertyDetails", propertyDetails);
-
   useEffect(() => {
     getPropertyDetails();
   }, [getPropertyDetails]);
