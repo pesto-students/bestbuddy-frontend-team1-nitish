@@ -8,12 +8,23 @@ import { CustomButton } from "../CustomComponents";
 import { AiFillCloseCircle } from "react-icons/ai";
 import "./ImageUploader.scss";
 
-const ImageUploader = ({ setImages = () => {} }) => {
+const ImageUploader = ({ setImages = () => {}, receivedImages = [] }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [uploadedImages, setUploadedImages] = useState([]);
   const [isUploadInProgress, setIsUploadInProgress] = useState(false);
   const [progress, setProgress] = useState(0);
   const inputRef = useRef(null);
+
+  const handleReceivedImages = useCallback(() => {
+    if (receivedImages?.length > 0) {
+      setSelectedFiles(receivedImages);
+      setUploadedImages(receivedImages);
+    }
+  }, []);
+
+  useEffect(() => {
+    handleReceivedImages();
+  }, [handleReceivedImages]);
 
   const handleFileUpload = async (event) => {
     event.preventDefault();

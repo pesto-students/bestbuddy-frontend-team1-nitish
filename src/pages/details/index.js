@@ -136,8 +136,13 @@ const PropertyDetails = () => {
       {Object.keys(propertyDetails)?.length > 0 && isUserProperty && (
         <Container align="center" className="mt-3">
           <CustomButton
+            onClick={() => navigate(`/edit-property/${id}`)}
+            title="Edit"
+            style={{ marginRight: "1rem" }}
+          />
+          <CustomButton
             onClick={handleDeleteProperty}
-            title="Delete property"
+            title="Delete"
             loading={isBtnLoading}
           />
         </Container>

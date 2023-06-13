@@ -103,12 +103,12 @@ const data = [
 const PreferenceGrid = ({
   selectable = false,
   setPreferences = () => {},
-  receivedPreferences,
+  receivedPreferences = [],
 }) => {
   const [renderData, setRenderData] = useState(() =>
     data.map((item) => ({
       ...item,
-      selected: receivedPreferences?.includes(item.title),
+      selected: receivedPreferences?.includes(item?.title),
     }))
   );
   useEffect(() => {

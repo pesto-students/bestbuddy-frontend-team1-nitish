@@ -6,6 +6,7 @@ import {
   GET_PROPERTYBYID,
   DELETE_PROPERTY,
   ADD_PROPERTY,
+  EDIT_PROPERTY,
 } from "./service";
 import bestBuddyAxios from "../../../api/bestBuddyAxios";
 
@@ -90,6 +91,23 @@ export const addProperty = createAsyncThunk(
   }
 );
 
+export const editProperty = createAsyncThunk(
+  "property/edit_property",
+  async ({ payload, id }) => {
+    try {
+      const response = await bestBuddyAxios({
+        method: "PATCH",
+        url: `${EDIT_PROPERTY}/${id}`,
+        data: payload,
+      });
+
+      return response;
+    } catch (err) {
+      throw err.response.data;
+    }
+  }
+);
+
 const initialState = {
   allProperties: [],
   propertiesBycategory: [],
@@ -164,6 +182,21 @@ const propertySlice = createSlice({
     },
     [addProperty.rejected]: (state, { error }) => {
       return { ...state, addedPropertyStatus: false, message: error.message };
+    },
+
+    [editProperty.pending]: (state) => {
+      return { ...state, isLoading: true };
+    },
+    [editProperty.fulfilled]: (state, { payload }) => {
+      return {
+        ...state,
+        editPropertyStatus: true,
+        message: "Property edited Successfully!",
+        isLoading: false,
+      };
+    },
+    [editProperty.rejected]: (state, { error }) => {
+      return { ...state, editPropertyStatus: false, message: error.message };
     },
   },
 });
