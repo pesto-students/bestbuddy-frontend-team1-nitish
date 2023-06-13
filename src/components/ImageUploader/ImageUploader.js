@@ -20,6 +20,7 @@ const ImageUploader = ({ setImages = () => {}, receivedImages = [] }) => {
       setSelectedFiles(receivedImages);
       setUploadedImages(receivedImages);
     }
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
