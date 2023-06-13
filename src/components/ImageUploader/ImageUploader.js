@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Camera2 from "../../assets/Camera2.svg";
 import { Container, ProgressBar } from "react-bootstrap";
-import uploadImgs from "../../bestbuddyaxios/imgUploadHandler";
+import uploadImgs from "../../api/imgUploadHandler";
 import ImageWrapper from "../ImageWrapper";
 import { CustomButton } from "../CustomComponents";
 import { AiFillCloseCircle } from "react-icons/ai";

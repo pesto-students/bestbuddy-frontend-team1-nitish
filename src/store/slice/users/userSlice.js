@@ -7,7 +7,7 @@ import {
   USER_DETAILS,
   EDIT_USER_DETAILS,
 } from "./service";
-import bestBuddyAxios from "./../../../bestbuddyaxios/bestBuddyAxios";
+import bestBuddyAxios from "../../../api/bestBuddyAxios";
 
 export const signUp = createAsyncThunk("user/signup", async (data) => {
   try {
