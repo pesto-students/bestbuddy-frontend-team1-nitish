@@ -77,3 +77,13 @@ export const fieldRenderer = (isLoading, field, fieldObject) => {
     fieldObject?.[field]
   );
 };
+
+export const getMappedImages = (images) => {
+  const mappedImages = images?.map((url) => {
+    const parts = url?.split("/");
+    const idWithExtension = parts[parts.length - 1];
+    const id = idWithExtension.split(".")[0];
+    return { id, url };
+  });
+  return mappedImages;
+};

@@ -64,7 +64,6 @@ const Amenties = ({
 
   useEffect(() => {
     if (selectable && renderData) {
-      debugger
       const selectedAmenties = renderData?.filter((item) => item?.selected);
       const mappedData = selectedAmenties?.map((item) => item?.title);
       setAmenties(mappedData);

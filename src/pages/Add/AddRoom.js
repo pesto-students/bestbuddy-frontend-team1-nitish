@@ -5,9 +5,10 @@ import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/Navbar/Navbar";
 import Amenties from "./../../components/Amenties/Amenties";
 import PreferenceGrid from "./../../components/PreferenceGrid/PreferenceGrid";
-import { getFormValues } from "../../utils/formFieldHelpers";
+import { getFormValues, getMappedImages } from "../../utils/formFieldHelpers";
 import {
   addProperty,
+  editProperty,
   fetchAllProperties,
   fetchPropertyById,
 } from "../../store/slice/property/propertySlice";
@@ -15,17 +16,21 @@ import { toast } from "react-toastify";
 import ImageUploader from "../../components/ImageUploader/ImageUploader";
 import { filterOptions } from "../../constants/options";
 import { CustomButton } from "../../components/CustomComponents";
+import { PropertyHeaders } from "../../constants/propertyDetails";
+import EditPropertySkeleton from "../../components/Skeleton/EditPropertySkeleton";
 import "./AddRoom.scss";
-import Skeleton from "react-loading-skeleton";
 
 const AddRoom = ({ mode = "add" }) => {
   const [amenties, setAmenties] = useState([]);
   const [preferences, setPreferences] = useState([]);
   const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const { propertyById: propertyDetails, isLoading } = useSelector(
-    (state) => state?.property
-  );
+  const [btnLoading, setBtnLoading] = useState(false);
+  const [formData, setFormData] = useState({});
+  const {
+    propertyById: propertyDetails,
+    isLoading,
+    message = "",
+  } = useSelector((state) => state?.property);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id = "" } = useParams();
@@ -34,14 +39,22 @@ const AddRoom = ({ mode = "add" }) => {
     if (id && mode === "edit") {
       dispatch(fetchPropertyById(id));
     }
+    // eslint-disable-next-line
   }, [id, mode]);
 
   const handlePropertyDetails = useCallback(() => {
     if (mode === "edit" && Object.keys(propertyDetails).length > 0) {
-      const { amenties = [], preferences = [], image = [] } = propertyDetails;
+      const {
+        amenties = [],
+        preferences = [],
+        image = [],
+        ...restPropertyDetails
+      } = propertyDetails;
+      const mappedImages = getMappedImages(image);
+      setFormData(restPropertyDetails);
+      setImages(mappedImages);
       setAmenties(amenties);
       setPreferences(preferences);
-      setImages(image?.map((item) => ({ url: item })));
     }
   }, [propertyDetails, mode]);
 
@@ -63,7 +76,7 @@ const AddRoom = ({ mode = "add" }) => {
     if (preferences?.length < 3) {
       return alert(`Please select atleast 3 preferences`);
     }
-    setLoading(true);
+    setBtnLoading(true);
     const formElements = document.querySelector("#property-form");
     const formValues = getFormValues(formElements);
     const mappedImages = images?.map((item) => item?.url);
@@ -74,27 +87,39 @@ const AddRoom = ({ mode = "add" }) => {
       image: mappedImages,
       details: "",
     };
-    dispatch(addProperty(payload)).then((res) => {
-      if (res?.payload?.status === 201) {
-        setLoading(false);
-        dispatch(fetchAllProperties());
-        toast("Property added successfully");
-        navigate(`/`);
-      }
-    });
+    if (mode === "edit") {
+      dispatch(editProperty({ payload, id })).then((res) => {
+        if (res?.payload?.status === 200) {
+          setBtnLoading(false);
+          dispatch(fetchAllProperties());
+          toast(message || "Property updated successfully");
+          navigate(`/`);
+        }
+      });
+    } else {
+      dispatch(addProperty(payload)).then((res) => {
+        if (res?.payload?.status === 200) {
+          setBtnLoading(false);
+          dispatch(fetchAllProperties());
+          toast(message || "Property added successfully");
+          navigate(`/`);
+        }
+      });
+    }
   };
 
   return (
     <>
       <NavBar />
-      {isLoading ? (
-        <Skeleton />
+      <div className="container add-room">
+        <h2 className="addHeading">{PropertyHeaders[mode].title}</h2>
+        <h6 className="addHeading2">{PropertyHeaders[mode].subtitle}</h6>
+      </div>
+      {!btnLoading && isLoading ? (
+        <EditPropertySkeleton />
       ) : (
         <form id="property-form" onSubmit={(e) => handleSubmit(e)}>
           <div className="container add-room">
-            <h2 className="addHeading">Have a Room</h2>
-            <h6 className="addHeading2">Please enter the room details below</h6>
-
             <div className="inputs-grps-top">
               <div className="input-grp grp1">
                 <div className="input-propertyname">
@@ -103,13 +128,18 @@ const AddRoom = ({ mode = "add" }) => {
                     type="text"
                     placeholder="Add property name"
                     name="property-name"
+                    defaultValue={formData?.name}
                     id=""
                     required
                   />
                 </div>
                 <div className="input-location">
                   <h5>Add room location</h5>
-                  <select name="location" className="select" defaultValue={""}>
+                  <select
+                    name="location"
+                    className="select"
+                    defaultValue={formData?.city}
+                  >
                     <option disabled value="">
                       Select a location
                     </option>
@@ -126,6 +156,7 @@ const AddRoom = ({ mode = "add" }) => {
                     type="text"
                     name="rent"
                     id=""
+                    defaultValue={formData?.rent}
                     placeholder="Please input here"
                   />
                 </div>
@@ -134,7 +165,11 @@ const AddRoom = ({ mode = "add" }) => {
               <div className="input-grp grp2">
                 <div className="input-type">
                   <h5>Property type</h5>
-                  <select name="property-type" className="select">
+                  <select
+                    name="property-type"
+                    className="select"
+                    defaultValue={formData?.category}
+                  >
                     <option value="Flat">Flat</option>
                     <option value="PG">PG</option>
                     <option value="Apartment">Apartment</option>
@@ -147,13 +182,18 @@ const AddRoom = ({ mode = "add" }) => {
                     name="phone"
                     minLength={10}
                     maxLength={10}
+                    defaultValue={formData?.phone}
                     id=""
                     placeholder="Please input here"
                   />
                 </div>
                 <div className="input-gender">
                   <h5>Gender of RoomMate</h5>
-                  <select name="gender" className="select">
+                  <select
+                    name="gender"
+                    className="select"
+                    defaultValue={formData?.gender}
+                  >
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select>
@@ -168,15 +208,16 @@ const AddRoom = ({ mode = "add" }) => {
               receivedAmenties={amenties}
             />
 
-            <ImageUploader setImages={setImages} />
+            <ImageUploader setImages={setImages} receivedImages={images} />
 
             <div className="input-grp grp3">
               <div className="input-availability">
-                <h5>Room is available from</h5>
+                <h5>Earliest availability date</h5>
                 <input
                   type="date"
                   name="date"
                   id=""
+                  defaultValue={formData?.availableDate}
                   min={new Date().toISOString().split("T")[0]}
                   placeholder="Please input here"
                 />
@@ -187,7 +228,11 @@ const AddRoom = ({ mode = "add" }) => {
               <div className="input-occupancy">
                 <h5>Current Occupancy of Room</h5>
                 <div className="buttons">
-                  <select name="occupancy" className="select">
+                  <select
+                    name="occupancy"
+                    className="select"
+                    defaultValue={formData?.typeOfShare}
+                  >
                     <option value="single">Single</option>
                     <option value="double">Shared(2)</option>
                     <option value="tripple">Shared(3)</option>
@@ -206,7 +251,7 @@ const AddRoom = ({ mode = "add" }) => {
             />
             <CustomButton
               title={mode === "edit" ? "Save Changes" : "Add Property"}
-              loading={loading}
+              btnLoading={btnLoading}
             />
           </div>
         </form>
