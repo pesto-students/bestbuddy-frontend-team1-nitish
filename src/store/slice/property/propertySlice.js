@@ -7,7 +7,7 @@ import {
   DELETE_PROPERTY,
   ADD_PROPERTY,
 } from "./service";
-import bestBuddyAxios from "./../../../bestbuddyaxios/bestBuddyAxios";
+import bestBuddyAxios from "../../../api/bestBuddyAxios";
 
 export const fetchAllProperties = createAsyncThunk(
   "property/fetchAllProperties",

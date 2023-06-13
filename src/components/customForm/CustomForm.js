@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setMessage } from "../../store/slice/users/userSlice";
-import uploadImgs from "../../bestbuddyaxios/imgUploadHandler";
+import uploadImgs from "../../api/imgUploadHandler";
 import "./CustomForm.scss";
 import { toast } from "react-toastify";
 import { CustomButton } from "../CustomComponents";

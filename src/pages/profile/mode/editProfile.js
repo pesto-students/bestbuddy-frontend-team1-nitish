@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { editUserDetails } from "../../../store/slice/users/userSlice";
 import { toast } from "react-toastify";
-import uploadImgs from "../../../bestbuddyaxios/imgUploadHandler";
+import uploadImgs from "../../../api/imgUploadHandler";
 import { CustomButton } from "../../../components/CustomComponents";
 import "./editProfile.scss";
 
