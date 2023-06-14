@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "react-bootstrap";
@@ -30,16 +30,19 @@ const PropertyDetails = () => {
   );
   const userInfo = useSelector((state) => state?.user?.userInfo);
 
-  useEffect(() => {
-    if (id) {
+  const fetchPropertyDetails = useCallback(() => {
+    if (id && Object.keys(userInfo)?.length > 0) {
       dispatch(fetchPropertyById(id));
       const userProperties = userInfo?.property;
       const isCurrUserProperty =
         userProperties?.find((item) => item?._id === id) || {};
       setIsUserProperty(Object.keys(isCurrUserProperty)?.length > 0);
     }
-    // eslint-disable-next-line
-  }, [id]);
+  }, [id, userInfo]);
+
+  useEffect(() => {
+    fetchPropertyDetails();
+  }, [fetchPropertyDetails]);
 
   const breadcrumbData = [
     {
@@ -74,7 +77,7 @@ const PropertyDetails = () => {
   return (
     <>
       <NavBar />
-      {isLoading ? (
+      {isLoading || Object.keys(userInfo)?.length === 0 ? (
         <PropertyDetailsSkeleton />
       ) : (
         Object?.keys(propertyDetails)?.length > 0 && (

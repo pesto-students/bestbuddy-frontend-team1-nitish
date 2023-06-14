@@ -82,7 +82,7 @@ export const editUserDetails = createAsyncThunk(
 );
 
 const initialState = {
-  userInfo: [],
+  userInfo: {},
   token: localStorage.getItem("access-token") || "",
   message: "",
   status: false,
