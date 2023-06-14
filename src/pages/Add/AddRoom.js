@@ -83,7 +83,6 @@ const AddRoom = ({ mode = "add" }) => {
       amenties,
       preferences: preferences,
       image: mappedImages,
-      details: "",
     };
     if (mode === "edit") {
       dispatch(editProperty({ payload, id })).then((res) => {
@@ -96,7 +95,7 @@ const AddRoom = ({ mode = "add" }) => {
       });
     } else {
       dispatch(addProperty(payload)).then((res) => {
-        if (res?.payload?.status === 200) {
+        if (res?.payload?.status === 201) {
           setBtnLoading(false);
           dispatch(fetchAllProperties());
           toast(message || "Property added successfully");
@@ -149,7 +148,7 @@ const AddRoom = ({ mode = "add" }) => {
                   </select>
                 </div>
                 <div className="input-rent">
-                  <h5>Rent of Room</h5>
+                  <h5>Rent of Room (in ₹)</h5>
                   <input
                     type="text"
                     name="rent"
@@ -247,9 +246,21 @@ const AddRoom = ({ mode = "add" }) => {
               setPreferences={setPreferences}
               receivedPreferences={preferences}
             />
+            <div className="input-occupancy input-grp">
+              <h5>Additional Information</h5>
+              <textarea
+                rows={5}
+                cols={80}
+                name="additional-details"
+                minLength={10}
+                required
+                defaultValue={formData?.details || ""}
+                placeholder="Please include any additional information about the property"
+              ></textarea>
+            </div>
             <CustomButton
               title={mode === "edit" ? "Save Changes" : "Add Property"}
-              btnLoading={btnLoading}
+              loading={btnLoading}
             />
           </div>
         </form>

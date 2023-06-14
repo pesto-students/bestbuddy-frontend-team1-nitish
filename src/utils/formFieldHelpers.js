@@ -33,6 +33,10 @@ const formFields = [
     key: "typeOfShare",
     name: "occupancy",
   },
+  {
+    key: "details",
+    name: "additional-details",
+  },
 ];
 
 export const getFormValues = (formElements) => {
