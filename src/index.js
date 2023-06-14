@@ -8,6 +8,10 @@ import App from "./App";
 import { Store } from "./store/Store";
 import "./index.scss";
 
+// if ("scrollRestoration" in window.history) {
+//   window.history.scrollRestoration = "manual";
+// }
+
 // Sentry.init({
 //   dsn: "https://8a876e70e31c4d4f81b67f30c3d86105@o4504844072714240.ingest.sentry.io/4504844114198528",
 //   integrations: [new Integrations.BrowserTracing()],

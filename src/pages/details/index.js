@@ -38,6 +38,7 @@ const PropertyDetails = () => {
         userProperties?.find((item) => item?._id === id) || {};
       setIsUserProperty(Object.keys(isCurrUserProperty)?.length > 0);
     }
+    // eslint-disable-next-line
   }, [id, userInfo]);
 
   useEffect(() => {
